@@ -26,11 +26,34 @@ namespace OrganizationAthleticsCompetitions
         public MainWindow()
         {
             InitializeComponent();
+
+            Manager.MainFrame = mainFrame;
+
+            Manager.SportsmansTrainer = sportsmanTrainer;
+            Manager.Sportsmans = sportsman;
+
+            Manager.CommandsTrainer = commandTrainer;
+            Manager.Commands = command;
+
+            Manager.CompetitionsAdmin = competitionAdmin;
+            Manager.Competitions = competition;
+
+            Manager.ResultCompetitionsAdmin = resultCompetitionAdmin;
+            Manager.ResultCompetitions = resultCompetition;
+
+            Manager.Authorization = login;
+            Manager.Exit = exit;
+
+            Manager.RoleNameLabel = lbRoleName;
+            Manager.EditProfile = editProfile;
+
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(1);
             timer.Tick += Timer_Tick;
 
             panelWidth = sidePanel.Width;
+
+            mainFrame.Navigate(new AuthorizationPage());
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -44,7 +67,6 @@ namespace OrganizationAthleticsCompetitions
                     timer.Stop();
                     hidden = false;
                     lbRoleName.Visibility = Visibility.Visible;
-                    lbWelcome.Visibility = Visibility.Visible;
                     mainFrame.Margin = new Thickness(210, 50, 0, 0);
                     panelHeader.Margin = new Thickness(210, 0, 0, 0);
                 }
@@ -58,7 +80,6 @@ namespace OrganizationAthleticsCompetitions
                     timer.Stop();
                     hidden = true;
                     lbRoleName.Visibility = Visibility.Collapsed;
-                    lbWelcome.Visibility = Visibility.Collapsed;
                     mainFrame.Margin = new Thickness(40, 50, 0, 0);
                     panelHeader.Margin = new Thickness(40, 0, 0, 0);
                 }
@@ -77,12 +98,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void sportsmanAdmin_Click(object sender, RoutedEventArgs e)
-        {
-
+            mainFrame.Navigate(new AuthorizationPage());
         }
 
         private void sportsman_Click(object sender, RoutedEventArgs e)
@@ -110,11 +126,6 @@ namespace OrganizationAthleticsCompetitions
 
         }
 
-        private void commandAdmin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void resultCompetition_Click(object sender, RoutedEventArgs e)
         {
 
@@ -131,6 +142,16 @@ namespace OrganizationAthleticsCompetitions
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void sportsmanTrainer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void commandTrainer_Click(object sender, RoutedEventArgs e)
         {
 
         }

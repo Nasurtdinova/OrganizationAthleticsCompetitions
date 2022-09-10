@@ -36,14 +36,14 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\sportsmans.png" Height="20" VerticalAlignment="Center"/>
                             <Button Margin="15 0 0 0" Content="Спортсмены" Click="sportsman_Click" Name="sportsman"/>
-                            <Button Margin="15 0 0 0" Content="Спортсмены" Click="sportsmanAdmin_Click" Name="sportsmanAdmin" Visibility="Collapsed"/>
+                            <Button Margin="15 0 0 0" Content="Спортсмены" Click="sportsmanTrainer_Click" Name="sportsmanTrainer" Visibility="Collapsed"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\team.png" Height="20"/>
                             <Button Margin="15 0 0 0" Content="Команды" Name="command" Click="command_Click"/>
-                            <Button Margin="15 0 0 0" Content="Команды" Name="commandAdmin" Click="commandAdmin_Click" Visibility="Collapsed"/>
+                            <Button Margin="15 0 0 0" Content="Команды" Name="commandTrainer" Click="commandTrainer_Click" Visibility="Collapsed"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">

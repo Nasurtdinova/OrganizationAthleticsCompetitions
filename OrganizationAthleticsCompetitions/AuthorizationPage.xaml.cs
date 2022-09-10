@@ -15,14 +15,34 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthorizationPage.xaml
-    /// </summary>
     public partial class AuthorizationPage : Page
     {
         public AuthorizationPage()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 1)
+            {
+                Manager.DoAdmin();
+                //NavigationService.Navigate(new ViewerMainPage());
+            }
+            else if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 2)
+            {
+                Manager.DoTrainer();
+                //NavigationService.Navigate(new ViewerMainPage());
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login or password");
+            }
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
