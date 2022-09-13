@@ -9,6 +9,30 @@
       Title="MyCommandPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Мои команды"></TextBlock>
+        <ListView x:Name="lvMyCommands" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Image Source="{Binding Image}"></Image>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Очки: "/>
+                            <TextBlock Text="{Binding Score}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="100" Margin="10"></Button>
+                            <Button Content="Удалить" Background="#FF1C82C9" Name="btnRemove" Click="btnRemove_Click" Width="100" Margin="10"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" Grid.Row="2" Width="100"></Button>
     </Grid>
 </Page>

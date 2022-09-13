@@ -16,28 +16,28 @@ using System.Windows.Shapes;
 namespace OrganizationAthleticsCompetitions
 {
     /// <summary>
-    /// Логика взаимодействия для MyCommandPage.xaml
+    /// Логика взаимодействия для AddCommandPage.xaml
     /// </summary>
-    public partial class MyCommandPage : Page
+    public partial class AddCommandPage : Page
     {
-        public MyCommandPage()
+        public AddCommandPage()
         {
             InitializeComponent();
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        private void btnLoadImage_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage());
+
         }
     }
 }

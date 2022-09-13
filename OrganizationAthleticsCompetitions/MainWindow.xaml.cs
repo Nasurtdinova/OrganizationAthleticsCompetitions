@@ -153,7 +153,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void commandTrainer_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.NavigationService.Navigate(new MyCommandPage());
         }
     }
 }

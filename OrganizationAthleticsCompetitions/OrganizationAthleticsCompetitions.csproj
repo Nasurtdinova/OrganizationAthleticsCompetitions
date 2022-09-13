@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCommandPage.xaml.cs">
+      <DependentUpon>AddCommandPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CategoryCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -93,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCommandPage.xaml.cs">
+      <DependentUpon>MyCommandPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Request.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -143,7 +149,15 @@
     <Compile Include="Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Page Include="AddCommandPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
