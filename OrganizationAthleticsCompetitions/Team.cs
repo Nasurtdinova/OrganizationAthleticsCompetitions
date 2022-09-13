@@ -18,7 +18,7 @@ namespace OrganizationAthleticsCompetitions
         public Team()
         {
             this.Sportsman = new HashSet<Sportsman>();
-            this.Trainer = new HashSet<Trainer>();
+            this.Trainer_Team = new HashSet<Trainer_Team>();
         }
     
         public int Id { get; set; }
@@ -31,6 +31,6 @@ namespace OrganizationAthleticsCompetitions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sportsman> Sportsman { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer> Trainer { get; set; }
+        public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
     }
 }

@@ -23,3 +23,7 @@ C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthlet
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\OrganizationAthleticsCompetitions_Content.g.cs
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\OrganizationAthleticsCompetitions.csproj.CopyComplete
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\TeamsPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\SportsmansInCommandPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\TeamsPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\SportsmansInCommandPage.baml

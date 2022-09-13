@@ -8,6 +8,6 @@ namespace OrganizationAthleticsCompetitions
 {
     public static class Connection
     {
-        public static OrganizationAthleticsCompetitionsEntities connection = new OrganizationAthleticsCompetitionsEntities();
+        public static OrganizationAthleticsCompetitionsEntities1 connection = new OrganizationAthleticsCompetitionsEntities1();
     }
 }

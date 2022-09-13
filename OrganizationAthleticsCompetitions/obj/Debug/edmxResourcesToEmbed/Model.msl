@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище OrganizationAthleticsCompetitionsModelContainer" CdmEntityContainer="OrganizationAthleticsCompetitionsEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище OrganizationAthleticsCompetitionsModelContainer" CdmEntityContainer="OrganizationAthleticsCompetitionsEntities1">
     <EntitySetMapping Name="CategoryCompetition">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.CategoryCompetition">
         <MappingFragment StoreEntitySet="CategoryCompetition">
@@ -103,17 +103,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Team">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
-        <MappingFragment StoreEntitySet="Team">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TypeCompetition">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.TypeCompetition">
         <MappingFragment StoreEntitySet="TypeCompetition">
@@ -170,6 +159,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Trainer">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer">
         <MappingFragment StoreEntitySet="Trainer">
@@ -178,13 +178,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="TrainerTeam" TypeName="OrganizationAthleticsCompetitionsModel.TrainerTeam" StoreEntitySet="TrainerTeam">
-      <EndProperty Name="Trainer">
-        <ScalarProperty Name="Id" ColumnName="IdTrainer" />
-      </EndProperty>
-      <EndProperty Name="Team">
-        <ScalarProperty Name="Id" ColumnName="IdTeam" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="Trainer_Team">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer_Team">
+        <MappingFragment StoreEntitySet="Trainer_Team">
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
+          <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

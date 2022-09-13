@@ -123,7 +123,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void command_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new TeamsPage());
         }
 
         private void resultCompetition_Click(object sender, RoutedEventArgs e)

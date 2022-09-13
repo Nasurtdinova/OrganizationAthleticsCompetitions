@@ -13,10 +13,10 @@ namespace OrganizationAthleticsCompetitions
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OrganizationAthleticsCompetitionsEntities : DbContext
+    public partial class OrganizationAthleticsCompetitionsEntities1 : DbContext
     {
-        public OrganizationAthleticsCompetitionsEntities()
-            : base("name=OrganizationAthleticsCompetitionsEntities")
+        public OrganizationAthleticsCompetitionsEntities1()
+            : base("name=OrganizationAthleticsCompetitionsEntities1")
         {
         }
     
@@ -35,12 +35,13 @@ namespace OrganizationAthleticsCompetitions
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Sportsman> Sportsman { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<TypeCompetition> TypeCompetition { get; set; }
         public virtual DbSet<TypeProgram> TypeProgram { get; set; }
         public virtual DbSet<TypesProgram> TypesProgram { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Venue> Venue { get; set; }
+        public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Trainer> Trainer { get; set; }
+        public virtual DbSet<Trainer_Team> Trainer_Team { get; set; }
     }
 }
