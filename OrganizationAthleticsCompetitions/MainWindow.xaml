@@ -43,7 +43,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\team.png" Height="20"/>
                             <Button Margin="15 0 0 0" Content="Команды" Name="command" Click="command_Click"/>
-                            <Button Margin="15 0 0 0" Content="Команды" Name="commandTrainer" Click="commandTrainer_Click" Visibility="Collapsed"/>
+                            <Button Margin="15 0 0 0" Content="Мои команды" Name="commandTrainer" Click="commandTrainer_Click" Visibility="Collapsed"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">

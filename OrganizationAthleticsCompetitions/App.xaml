@@ -33,7 +33,7 @@
             <Setter Property="Background" Value="#FF6273AA"></Setter>
             <Setter Property="BorderBrush" Value="#FF6273AA"></Setter>
         </Style>
-        <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Height" Value="35" />
             <Setter Property="Background" Value="#FF0F4E7A"></Setter>

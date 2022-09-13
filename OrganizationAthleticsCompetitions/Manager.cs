@@ -43,8 +43,8 @@ namespace OrganizationAthleticsCompetitions
 
             EditProfile.Visibility = System.Windows.Visibility.Collapsed;
 
-            SportsmansTrainer.Visibility = System.Windows.Visibility.Visible;
-            CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
+            SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
+            CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
 
             CompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;       
             ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;
@@ -81,8 +81,8 @@ namespace OrganizationAthleticsCompetitions
             ResultCompetitions.Visibility = System.Windows.Visibility.Visible;
             EditProfile.Visibility = System.Windows.Visibility.Visible;
 
-            SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
-            CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
+            SportsmansTrainer.Visibility = System.Windows.Visibility.Visible;
+            CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
             CompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
             ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
         }
