@@ -23,6 +23,21 @@ namespace OrganizationAthleticsCompetitions
             return new List<Sportsman>(Connection.connection.Sportsman.ToList());
         }
 
+        public static List<TypesProgram> GetProgramsInCompetition(Competition com)
+        {
+            return new List<TypesProgram>(Connection.connection.TypesProgram.Where(a=>a.IdCompetition == com.Id).ToList());
+        }
+
+        public static List<Competition> GetCompetitions()
+        {
+            return new List<Competition>(Connection.connection.Competition.ToList());
+        }
+
+        public static List<City> GetCities()
+        {
+            return new List<City>(Connection.connection.City.ToList());
+        }
+
         public static List<Sportsman> GetSportsmansInTeam(Team team)
         {
             return new List<Sportsman>(Connection.connection.Sportsman.Where(a => a.IdTeam == team.Id).ToList());

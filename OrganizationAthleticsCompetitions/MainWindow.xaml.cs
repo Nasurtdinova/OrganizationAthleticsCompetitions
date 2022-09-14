@@ -113,7 +113,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void competition_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new CompetitionsPage());
         }
 
         private void competitionAdmin_Click(object sender, RoutedEventArgs e)

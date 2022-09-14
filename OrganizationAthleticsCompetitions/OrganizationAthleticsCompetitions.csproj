@@ -79,6 +79,9 @@
     <Compile Include="Competition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompetitionsPage.xaml.cs">
+      <DependentUpon>CompetitionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormatResult.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
     </Compile>
     <Compile Include="MyCommandPage.xaml.cs">
       <DependentUpon>MyCommandPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramCompetitionsPage.xaml.cs">
+      <DependentUpon>ProgramCompetitionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Request.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -157,7 +163,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CompetitionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyCommandPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgramCompetitionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

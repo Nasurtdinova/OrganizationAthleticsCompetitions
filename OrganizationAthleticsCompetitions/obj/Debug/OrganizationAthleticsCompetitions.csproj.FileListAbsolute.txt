@@ -31,3 +31,7 @@ C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthlet
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\MyCommandPage.baml
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\AddCommandPage.g.cs
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\AddCommandPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\CompetitionsPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ProgramCompetitionsPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\CompetitionsPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ProgramCompetitionsPage.baml

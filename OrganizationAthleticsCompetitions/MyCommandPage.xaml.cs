@@ -37,7 +37,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage());
+            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(null));
         }
     }
 }

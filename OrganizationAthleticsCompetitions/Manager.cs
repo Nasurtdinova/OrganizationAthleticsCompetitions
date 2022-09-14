@@ -75,8 +75,8 @@ namespace OrganizationAthleticsCompetitions
             VisibleCollapsedAuthReg();
             RoleNameLabel.Content = "Тренер";
 
-            Sportsmans.Visibility = System.Windows.Visibility.Visible;
-            Commands.Visibility = System.Windows.Visibility.Visible;
+            Sportsmans.Visibility = System.Windows.Visibility.Collapsed;
+            Commands.Visibility = System.Windows.Visibility.Collapsed;
             Competitions.Visibility = System.Windows.Visibility.Visible;
             ResultCompetitions.Visibility = System.Windows.Visibility.Visible;
             EditProfile.Visibility = System.Windows.Visibility.Visible;
