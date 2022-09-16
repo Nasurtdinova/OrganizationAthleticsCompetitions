@@ -23,14 +23,19 @@ namespace OrganizationAthleticsCompetitions
             return new List<Sportsman>(Connection.connection.Sportsman.ToList());
         }
 
-        public static List<TypesProgram> GetProgramsInCompetition(Competition com)
+        public static List<ProgramCompetition> GetProgramsInCompetition(Competition com)
         {
-            return new List<TypesProgram>(Connection.connection.TypesProgram.Where(a=>a.IdCompetition == com.Id).ToList());
+            return new List<ProgramCompetition>(Connection.connection.ProgramCompetition.Where(a=>a.IdCompetition == com.Id).ToList());
         }
 
         public static List<Competition> GetCompetitions()
         {
             return new List<Competition>(Connection.connection.Competition.ToList());
+        }
+
+        public static List<Sportsman> GetSportmansInGenderAndTrainer(string gender)
+        {
+            return new List<Sportsman>(Connection.connection.Sportsman.Where(a=>a.Gender == gender && GetTrainersInTeam(a.Team).Where(b=>b.IdTrainer == CurrentUser.trainer.Id).Count() > 0) );
         }
 
         public static List<City> GetCities()
@@ -42,6 +47,7 @@ namespace OrganizationAthleticsCompetitions
         {
             return new List<Sportsman>(Connection.connection.Sportsman.Where(a => a.IdTeam == team.Id).ToList());
         }
+
 
         public static List<Trainer_Team> GetTrainersInTeam(Team team)
         {

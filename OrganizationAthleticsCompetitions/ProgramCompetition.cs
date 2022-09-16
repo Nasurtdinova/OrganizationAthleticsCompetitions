@@ -12,10 +12,10 @@ namespace OrganizationAthleticsCompetitions
     using System;
     using System.Collections.Generic;
     
-    public partial class TypesProgram
+    public partial class ProgramCompetition
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypesProgram()
+        public ProgramCompetition()
         {
             this.Request = new HashSet<Request>();
         }
@@ -28,11 +28,12 @@ namespace OrganizationAthleticsCompetitions
         public Nullable<System.TimeSpan> TimeStart { get; set; }
         public Nullable<int> MaxCountAttendees { get; set; }
         public Nullable<int> CountAttendees { get; set; }
+        public string Gender { get; set; }
     
         public virtual Competition Competition { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
         public virtual TypeCompetition TypeCompetition { get; set; }
         public virtual TypeProgram TypeProgram { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Request> Request { get; set; }
     }
 }

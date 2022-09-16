@@ -15,18 +15,18 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    public partial class ProgramCompetitionsPage : Page
+
+    public partial class RequestPage : Page
     {
-        public ProgramCompetitionsPage(Competition com)
+        public RequestPage(ProgramCompetition prog)
         {
             InitializeComponent();
-            lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
+            comboSportsman.ItemsSource = DataAccess.GetSportmansInGenderAndTrainer(prog.Gender);
         }
 
-        private void btnRequest_Click(object sender, RoutedEventArgs e)
+        private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            var a = (sender as Button).DataContext as ProgramCompetition;
-            Manager.MainFrame.NavigationService.Navigate(new RequestPage(a));
+
         }
     }
 }

@@ -44,6 +44,20 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="40" />
         </EntityType>
+        <EntityType Name="ProgramCompetition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdCompetition" Type="int" />
+          <Property Name="IdTypeProgram" Type="int" />
+          <Property Name="IdTypeCompetition" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="TimeStart" Type="time" Precision="7" />
+          <Property Name="MaxCountAttendees" Type="int" />
+          <Property Name="CountAttendees" Type="int" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+        </EntityType>
         <EntityType Name="Request">
           <Key>
             <PropertyRef Name="Id" />
@@ -51,7 +65,7 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StartTime" Type="time" Precision="7" />
           <Property Name="IdSportsman" Type="int" />
-          <Property Name="IdTypesProgram" Type="int" />
+          <Property Name="IdProgramCompetition" Type="int" />
         </EntityType>
         <EntityType Name="ResultCompetition">
           <Key>
@@ -140,19 +154,6 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <EntityType Name="TypesProgram">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="IdCompetition" Type="int" />
-          <Property Name="IdTypeProgram" Type="int" />
-          <Property Name="IdTypeCompetition" Type="int" />
-          <Property Name="Date" Type="date" />
-          <Property Name="TimeStart" Type="time" Precision="7" />
-          <Property Name="MaxCountAttendees" Type="int" />
-          <Property Name="CountAttendees" Type="int" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -211,14 +212,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_TypesProgram">
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="0..1" />
+          <End Role="ProgramCompetition" Type="Self.ProgramCompetition" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TypesProgram">
+            <Principal Role="ProgramCompetition">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Request">
-              <PropertyRef Name="IdTypesProgram" />
+              <PropertyRef Name="IdProgramCompetition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,36 +333,36 @@
         </Association>
         <Association Name="FK_TypesProgram_Competition">
           <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
+          <End Role="ProgramCompetition" Type="Self.ProgramCompetition" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Competition">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TypesProgram">
+            <Dependent Role="ProgramCompetition">
               <PropertyRef Name="IdCompetition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TypesProgram_TypeCompetition">
           <End Role="TypeCompetition" Type="Self.TypeCompetition" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
+          <End Role="ProgramCompetition" Type="Self.ProgramCompetition" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeCompetition">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TypesProgram">
+            <Dependent Role="ProgramCompetition">
               <PropertyRef Name="IdTypeCompetition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TypesProgram_TypeProgram">
           <End Role="TypeProgram" Type="Self.TypeProgram" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
+          <End Role="ProgramCompetition" Type="Self.ProgramCompetition" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeProgram">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TypesProgram">
+            <Dependent Role="ProgramCompetition">
               <PropertyRef Name="IdTypeProgram" />
             </Dependent>
           </ReferentialConstraint>
@@ -408,6 +409,7 @@
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormatResult" EntityType="Self.FormatResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramCompetition" EntityType="Self.ProgramCompetition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResultCompetition" EntityType="Self.ResultCompetition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -418,7 +420,6 @@
           <EntitySet Name="Trainer_Team" EntityType="Self.Trainer_Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeCompetition" EntityType="Self.TypeCompetition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeProgram" EntityType="Self.TypeProgram" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypesProgram" EntityType="Self.TypesProgram" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Competition_CategoryCompetition" Association="Self.FK_Competition_CategoryCompetition">
@@ -434,7 +435,7 @@
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_TypesProgram" Association="Self.FK_Request_TypesProgram">
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_ResultCompetition_Request" Association="Self.FK_ResultCompetition_Request">
@@ -475,15 +476,15 @@
           </AssociationSet>
           <AssociationSet Name="FK_TypesProgram_Competition" Association="Self.FK_TypesProgram_Competition">
             <End Role="Competition" EntitySet="Competition" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
           </AssociationSet>
           <AssociationSet Name="FK_TypesProgram_TypeCompetition" Association="Self.FK_TypesProgram_TypeCompetition">
             <End Role="TypeCompetition" EntitySet="TypeCompetition" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
           </AssociationSet>
           <AssociationSet Name="FK_TypesProgram_TypeProgram" Association="Self.FK_TypesProgram_TypeProgram">
             <End Role="TypeProgram" EntitySet="TypeProgram" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
           </AssociationSet>
           <AssociationSet Name="FK_User_City" Association="Self.FK_User_City">
             <End Role="City" EntitySet="City" />
@@ -541,7 +542,7 @@
           <Property Name="IdVenue" Type="Int32" />
           <NavigationProperty Name="CategoryCompetition" Relationship="Self.FK_Competition_CategoryCompetition" FromRole="Competition" ToRole="CategoryCompetition" />
           <NavigationProperty Name="Venue" Relationship="Self.FK_Competition_Venue" FromRole="Competition" ToRole="Venue" />
-          <NavigationProperty Name="TypesProgram" Relationship="Self.FK_TypesProgram_Competition" FromRole="Competition" ToRole="TypesProgram" />
+          <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" FromRole="Competition" ToRole="ProgramCompetition" />
         </EntityType>
         <EntityType Name="FormatResult">
           <Key>
@@ -551,18 +552,6 @@
           <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TypeCompetition" Relationship="Self.FK_TypeCompetition_FormatResult" FromRole="FormatResult" ToRole="TypeCompetition" />
         </EntityType>
-        <EntityType Name="Request">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="StartTime" Type="Time" Precision="7" />
-          <Property Name="IdSportsman" Type="Int32" />
-          <Property Name="IdTypesProgram" Type="Int32" />
-          <NavigationProperty Name="Sportsman" Relationship="Self.FK_Request_Sportsman" FromRole="Request" ToRole="Sportsman" />
-          <NavigationProperty Name="TypesProgram" Relationship="Self.FK_Request_TypesProgram" FromRole="Request" ToRole="TypesProgram" />
-          <NavigationProperty Name="ResultCompetition" Relationship="Self.FK_ResultCompetition_Request" FromRole="Request" ToRole="ResultCompetition" />
-        </EntityType>
         <EntityType Name="ResultCompetition">
           <Key>
             <PropertyRef Name="Id" />
@@ -571,7 +560,7 @@
           <Property Name="IdRequest" Type="Int32" />
           <Property Name="Result" Type="Double" />
           <Property Name="Score" Type="Int32" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_ResultCompetition_Request" FromRole="ResultCompetition" ToRole="Request" />
+          <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" FromRole="ResultCompetition" ToRole="Request" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -600,8 +589,8 @@
           <Property Name="IdTeam" Type="Int32" />
           <NavigationProperty Name="CategorySportsman" Relationship="Self.FK_Sportsman_Category" FromRole="Sportsman" ToRole="CategorySportsman" />
           <NavigationProperty Name="City" Relationship="Self.FK_Sportsman_City" FromRole="Sportsman" ToRole="City" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Sportsman" FromRole="Sportsman" ToRole="Request" />
           <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team" FromRole="Sportsman" ToRole="Team" />
+          <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" FromRole="Sportsman" ToRole="Request" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -623,7 +612,7 @@
           <Property Name="Distance" Type="Double" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FormatResult" Relationship="Self.FK_TypeCompetition_FormatResult" FromRole="TypeCompetition" ToRole="FormatResult" />
-          <NavigationProperty Name="TypesProgram" Relationship="Self.FK_TypesProgram_TypeCompetition" FromRole="TypeCompetition" ToRole="TypesProgram" />
+          <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" FromRole="TypeCompetition" ToRole="ProgramCompetition" />
         </EntityType>
         <EntityType Name="TypeProgram">
           <Key>
@@ -631,24 +620,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TypesProgram" Relationship="Self.FK_TypesProgram_TypeProgram" FromRole="TypeProgram" ToRole="TypesProgram" />
-        </EntityType>
-        <EntityType Name="TypesProgram">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="IdCompetition" Type="Int32" />
-          <Property Name="IdTypeProgram" Type="Int32" />
-          <Property Name="IdTypeCompetition" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="TimeStart" Type="Time" Precision="7" />
-          <Property Name="MaxCountAttendees" Type="Int32" />
-          <Property Name="CountAttendees" Type="Int32" />
-          <NavigationProperty Name="Competition" Relationship="Self.FK_TypesProgram_Competition" FromRole="TypesProgram" ToRole="Competition" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_Request_TypesProgram" FromRole="TypesProgram" ToRole="Request" />
-          <NavigationProperty Name="TypeCompetition" Relationship="Self.FK_TypesProgram_TypeCompetition" FromRole="TypesProgram" ToRole="TypeCompetition" />
-          <NavigationProperty Name="TypeProgram" Relationship="Self.FK_TypesProgram_TypeProgram" FromRole="TypesProgram" ToRole="TypeProgram" />
+          <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" FromRole="TypeProgram" ToRole="ProgramCompetition" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -748,18 +720,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TypesProgram_Competition">
-          <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Competition">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TypesProgram">
-              <PropertyRef Name="IdCompetition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TypeCompetition_FormatResult">
           <End Role="FormatResult" Type="Self.FormatResult" Multiplicity="0..1" />
           <End Role="TypeCompetition" Type="Self.TypeCompetition" Multiplicity="*" />
@@ -769,42 +729,6 @@
             </Principal>
             <Dependent Role="TypeCompetition">
               <PropertyRef Name="IdFormatResult" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Request_Sportsman">
-          <End Role="Sportsman" Type="Self.Sportsman" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sportsman">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Request">
-              <PropertyRef Name="IdSportsman" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Request_TypesProgram">
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="0..1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypesProgram">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Request">
-              <PropertyRef Name="IdTypesProgram" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ResultCompetition_Request">
-          <End Role="Request" Type="Self.Request" Multiplicity="0..1" />
-          <End Role="ResultCompetition" Type="Self.ResultCompetition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Request">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ResultCompetition">
-              <PropertyRef Name="IdRequest" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -820,44 +744,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TypesProgram_TypeCompetition">
-          <End Role="TypeCompetition" Type="Self.TypeCompetition" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeCompetition">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TypesProgram">
-              <PropertyRef Name="IdTypeCompetition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TypesProgram_TypeProgram">
-          <End Role="TypeProgram" Type="Self.TypeProgram" Multiplicity="0..1" />
-          <End Role="TypesProgram" Type="Self.TypesProgram" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeProgram">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TypesProgram">
-              <PropertyRef Name="IdTypeProgram" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="OrganizationAthleticsCompetitionsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CategoryCompetition" EntityType="Self.CategoryCompetition" />
           <EntitySet Name="CategorySportsman" EntityType="Self.CategorySportsman" />
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Competition" EntityType="Self.Competition" />
           <EntitySet Name="FormatResult" EntityType="Self.FormatResult" />
-          <EntitySet Name="Request" EntityType="Self.Request" />
           <EntitySet Name="ResultCompetition" EntityType="Self.ResultCompetition" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Sportsman" EntityType="Self.Sportsman" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TypeCompetition" EntityType="Self.TypeCompetition" />
           <EntitySet Name="TypeProgram" EntityType="Self.TypeProgram" />
-          <EntitySet Name="TypesProgram" EntityType="Self.TypesProgram" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Venue" EntityType="Self.Venue" />
           <AssociationSet Name="FK_Competition_CategoryCompetition" Association="Self.FK_Competition_CategoryCompetition">
@@ -884,37 +782,13 @@
             <End Role="Venue" EntitySet="Venue" />
             <End Role="Competition" EntitySet="Competition" />
           </AssociationSet>
-          <AssociationSet Name="FK_TypesProgram_Competition" Association="Self.FK_TypesProgram_Competition">
-            <End Role="Competition" EntitySet="Competition" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
-          </AssociationSet>
           <AssociationSet Name="FK_TypeCompetition_FormatResult" Association="Self.FK_TypeCompetition_FormatResult">
             <End Role="FormatResult" EntitySet="FormatResult" />
             <End Role="TypeCompetition" EntitySet="TypeCompetition" />
           </AssociationSet>
-          <AssociationSet Name="FK_Request_Sportsman" Association="Self.FK_Request_Sportsman">
-            <End Role="Sportsman" EntitySet="Sportsman" />
-            <End Role="Request" EntitySet="Request" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Request_TypesProgram" Association="Self.FK_Request_TypesProgram">
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
-            <End Role="Request" EntitySet="Request" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ResultCompetition_Request" Association="Self.FK_ResultCompetition_Request">
-            <End Role="Request" EntitySet="Request" />
-            <End Role="ResultCompetition" EntitySet="ResultCompetition" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TypesProgram_TypeCompetition" Association="Self.FK_TypesProgram_TypeCompetition">
-            <End Role="TypeCompetition" EntitySet="TypeCompetition" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TypesProgram_TypeProgram" Association="Self.FK_TypesProgram_TypeProgram">
-            <End Role="TypeProgram" EntitySet="TypeProgram" />
-            <End Role="TypesProgram" EntitySet="TypesProgram" />
           </AssociationSet>
           <EntitySet Name="Team" EntityType="OrganizationAthleticsCompetitionsModel.Team" />
           <EntitySet Name="Trainer" EntityType="OrganizationAthleticsCompetitionsModel.Trainer" />
@@ -939,7 +813,33 @@
             <End Role="User" EntitySet="User" />
             <End Role="Trainer" EntitySet="Trainer" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="ProgramCompetition" EntityType="OrganizationAthleticsCompetitionsModel.ProgramCompetition" />
+          <AssociationSet Name="FK_TypesProgram_Competition" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypesProgram_TypeCompetition" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition">
+            <End Role="TypeCompetition" EntitySet="TypeCompetition" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypesProgram_TypeProgram" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram">
+            <End Role="TypeProgram" EntitySet="TypeProgram" />
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+          </AssociationSet>
+          <EntitySet Name="Request" EntityType="OrganizationAthleticsCompetitionsModel.Request" />
+          <AssociationSet Name="FK_Request_TypesProgram" Association="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram">
+            <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Sportsman" Association="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman">
+            <End Role="Sportsman" EntitySet="Sportsman" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultCompetition_Request" Association="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request">
+            <End Role="Request" EntitySet="Request" />
+            <End Role="ResultCompetition" EntitySet="ResultCompetition" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="Id" />
@@ -1033,7 +933,109 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="ProgramCompetition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdCompetition" Type="Int32" />
+          <Property Name="IdTypeProgram" Type="Int32" />
+          <Property Name="IdTypeCompetition" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="TimeStart" Type="Time" Precision="7" />
+          <Property Name="MaxCountAttendees" Type="Int32" />
+          <Property Name="CountAttendees" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Competition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" FromRole="ProgramCompetition" ToRole="Competition" />
+          <NavigationProperty Name="TypeCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" FromRole="ProgramCompetition" ToRole="TypeCompetition" />
+          <NavigationProperty Name="TypeProgram" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" FromRole="ProgramCompetition" ToRole="TypeProgram" />
+          <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" FromRole="ProgramCompetition" ToRole="Request" />
+        </EntityType>
+        <Association Name="FK_TypesProgram_Competition">
+          <End Type="OrganizationAthleticsCompetitionsModel.Competition" Role="Competition" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProgramCompetition">
+              <PropertyRef Name="IdCompetition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypesProgram_TypeCompetition">
+          <End Type="OrganizationAthleticsCompetitionsModel.TypeCompetition" Role="TypeCompetition" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeCompetition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProgramCompetition">
+              <PropertyRef Name="IdTypeCompetition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypesProgram_TypeProgram">
+          <End Type="OrganizationAthleticsCompetitionsModel.TypeProgram" Role="TypeProgram" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProgram">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProgramCompetition">
+              <PropertyRef Name="IdTypeProgram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="IdSportsman" Type="Int32" />
+          <Property Name="IdProgramCompetition" Type="Int32" />
+          <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" FromRole="Request" ToRole="ProgramCompetition" />
+          <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" FromRole="Request" ToRole="Sportsman" />
+          <NavigationProperty Name="ResultCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" FromRole="Request" ToRole="ResultCompetition" />
+        </EntityType>
+        <Association Name="FK_Request_TypesProgram">
+          <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramCompetition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="IdProgramCompetition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Sportsman">
+          <End Type="OrganizationAthleticsCompetitionsModel.Sportsman" Role="Sportsman" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportsman">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="IdSportsman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultCompetition_Request">
+          <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.ResultCompetition" Role="ResultCompetition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResultCompetition">
+              <PropertyRef Name="IdRequest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1080,16 +1082,6 @@
               <MappingFragment StoreEntitySet="FormatResult">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Request">
-            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Request">
-              <MappingFragment StoreEntitySet="Request">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="IdSportsman" ColumnName="IdSportsman" />
-                <ScalarProperty Name="IdTypesProgram" ColumnName="IdTypesProgram" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1160,20 +1152,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TypesProgram">
-            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.TypesProgram">
-              <MappingFragment StoreEntitySet="TypesProgram">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
-                <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
-                <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
-                <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
-                <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.User">
               <MappingFragment StoreEntitySet="User">
@@ -1222,6 +1200,31 @@
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
                 <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramCompetition">
+            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ProgramCompetition">
+              <MappingFragment StoreEntitySet="ProgramCompetition">
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
+                <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
+                <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
+                <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request">
+            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="IdProgramCompetition" ColumnName="IdProgramCompetition" />
+                <ScalarProperty Name="IdSportsman" ColumnName="IdSportsman" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

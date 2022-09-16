@@ -17,7 +17,7 @@ namespace OrganizationAthleticsCompetitions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeCompetition()
         {
-            this.TypesProgram = new HashSet<TypesProgram>();
+            this.ProgramCompetition = new HashSet<ProgramCompetition>();
         }
     
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace OrganizationAthleticsCompetitions
     
         public virtual FormatResult FormatResult { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypesProgram> TypesProgram { get; set; }
+        public virtual ICollection<ProgramCompetition> ProgramCompetition { get; set; }
     }
 }

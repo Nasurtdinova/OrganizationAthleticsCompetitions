@@ -45,16 +45,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Request">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Request">
-        <MappingFragment StoreEntitySet="Request">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="IdSportsman" ColumnName="IdSportsman" />
-          <ScalarProperty Name="IdTypesProgram" ColumnName="IdTypesProgram" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ResultCompetition">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ResultCompetition">
         <MappingFragment StoreEntitySet="ResultCompetition">
@@ -122,20 +112,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TypesProgram">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.TypesProgram">
-        <MappingFragment StoreEntitySet="TypesProgram">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
-          <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
-          <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
-          <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
-          <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.User">
         <MappingFragment StoreEntitySet="User">
@@ -184,6 +160,31 @@
           <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
           <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramCompetition">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ProgramCompetition">
+        <MappingFragment StoreEntitySet="ProgramCompetition">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
+          <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
+          <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
+          <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Request">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="IdProgramCompetition" ColumnName="IdProgramCompetition" />
+          <ScalarProperty Name="IdSportsman" ColumnName="IdSportsman" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

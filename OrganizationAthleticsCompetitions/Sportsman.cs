@@ -36,8 +36,8 @@ namespace OrganizationAthleticsCompetitions
     
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
+        public virtual Team Team { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }
-        public virtual Team Team { get; set; }
     }
 }

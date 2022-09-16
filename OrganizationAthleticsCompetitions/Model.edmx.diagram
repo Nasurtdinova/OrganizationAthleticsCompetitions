@@ -10,14 +10,12 @@
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.City" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Competition" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.FormatResult" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Request" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.ResultCompetition" Width="1.5" PointX="9.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Role" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Sportsman" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.TypeCompetition" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.TypeProgram" Width="1.5" PointX="5.25" PointY="25.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.TypesProgram" Width="1.5" PointX="7.5" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.User" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Venue" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Competition_CategoryCompetition" ManuallyRouted="false" />
@@ -26,14 +24,8 @@
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_City" ManuallyRouted="false" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Venue_City" ManuallyRouted="false" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Competition_Venue" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" ManuallyRouted="false" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypeCompetition_FormatResult" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" ManuallyRouted="false" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" ManuallyRouted="false" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" ManuallyRouted="false" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Team" Width="1.5" PointX="3" PointY="12" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Trainer" Width="1.5" PointX="5.25" PointY="6.5" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Trainer_Team" Width="1.5" PointX="7.5" PointY="6.625" />
@@ -42,6 +34,14 @@
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Trainer" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" />
+        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Width="1.5" PointX="7.5" PointY="21.125" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" />
+        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Request" Width="1.5" PointX="9.75" PointY="15.75" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

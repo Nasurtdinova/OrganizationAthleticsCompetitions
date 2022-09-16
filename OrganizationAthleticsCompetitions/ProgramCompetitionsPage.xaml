@@ -18,6 +18,13 @@
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
                     <GridViewColumn Header="Максимальное число участников" DisplayMemberBinding="{Binding MaxCountAttendees}"></GridViewColumn>
                     <GridViewColumn Header="Число участников" DisplayMemberBinding="{Binding CountAttendees}"></GridViewColumn>
+                    <GridViewColumn  Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnRequest" Width="100" Click="btnRequest_Click"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

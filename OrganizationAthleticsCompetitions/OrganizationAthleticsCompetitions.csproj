@@ -103,11 +103,17 @@
     <Compile Include="MyCommandPage.xaml.cs">
       <DependentUpon>MyCommandPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProgramCompetition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProgramCompetitionsPage.xaml.cs">
       <DependentUpon>ProgramCompetitionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Request.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestPage.xaml.cs">
+      <DependentUpon>RequestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResultCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -146,9 +152,6 @@
     <Compile Include="TypeProgram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypesProgram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProgramCompetitionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
