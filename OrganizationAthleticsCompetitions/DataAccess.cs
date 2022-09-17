@@ -15,27 +15,62 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<Team> GetTeams()
         {
-            return new List<Team>(Connection.connection.Team.ToList());
+            return new List<Team>(Connection.connection.Team.Where(a=>a.IsDeleted == false).ToList());
         }
 
         public static List<Sportsman> GetSportsmans()
         {
-            return new List<Sportsman>(Connection.connection.Sportsman.ToList());
+            return new List<Sportsman>(Connection.connection.Sportsman.Where(a => a.IsDeleted == false).ToList());
+        }
+
+        public static List<Request> GetRequests()
+        {
+            return new List<Request>(Connection.connection.Request).ToList();
+        }
+
+        public static List<Request> GetRequestsForProgramCompetition(ProgramCompetition pr)
+        {
+            return GetRequests().Where(a=>a.ProgramCompetition == pr).ToList();
+        }
+
+        public static List<ProgramCompetition> GetProgramsCompetition()
+        {
+            return new List<ProgramCompetition>(Connection.connection.ProgramCompetition).ToList();
         }
 
         public static List<ProgramCompetition> GetProgramsInCompetition(Competition com)
         {
-            return new List<ProgramCompetition>(Connection.connection.ProgramCompetition.Where(a=>a.IdCompetition == com.Id).ToList());
+            return GetProgramsCompetition().Where(a=>a.IdCompetition == com.Id).ToList();
         }
 
         public static List<Competition> GetCompetitions()
         {
-            return new List<Competition>(Connection.connection.Competition.ToList());
+            return new List<Competition>(Connection.connection.Competition.Where(a => a.IsDeleted == false).ToList());
         }
 
         public static List<Sportsman> GetSportmansInGenderAndTrainer(string gender)
         {
-            return new List<Sportsman>(Connection.connection.Sportsman.Where(a=>a.Gender == gender && GetTrainersInTeam(a.Team).Where(b=>b.IdTrainer == CurrentUser.trainer.Id).Count() > 0) );
+            List<Sportsman> list = new List<Sportsman>();
+            foreach (var i in GetTeamsInTreaner(CurrentUser.trainer))
+            {
+                foreach (var j in GetSportsmans().Where(a => a.IdTeam == i.IdTeam && a.Gender == gender))
+                    list.Add(j) ;
+            }
+            return list;
+        }
+
+        public static void RemoveTeam(int id)
+        {
+            try
+            {
+                Team team = Connection.connection.Team.FirstOrDefault(p => p.Id == id);
+                team.IsDeleted = true;
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static List<City> GetCities()
@@ -45,13 +80,34 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<Sportsman> GetSportsmansInTeam(Team team)
         {
-            return new List<Sportsman>(Connection.connection.Sportsman.Where(a => a.IdTeam == team.Id).ToList());
+            return GetSportsmans().Where(a => a.IdTeam == team.Id).ToList();
         }
 
+        public static void AddRequest(Request req)
+        {
+            try
+            {
+                Connection.connection.Request.Add(req);
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         public static List<Trainer_Team> GetTrainersInTeam(Team team)
         {
-            return new List<Trainer_Team>(Connection.connection.Trainer_Team.Where(a => a.IdTeam == team.Id).ToList());
+            return GetTeamsTrainers().Where(a => a.IdTeam == team.Id).ToList();
+        }
+        public static List<Trainer_Team> GetTeamsTrainers()
+        {
+            return new List<Trainer_Team>(Connection.connection.Trainer_Team.Where(a => a.Team.IsDeleted == false).ToList());
+        }
+
+        public static List<Trainer_Team> GetTeamsInTreaner(Trainer train)
+        {
+            return GetTeamsTrainers().Where(a => a.IdTrainer == train.Id && a.Team.IsDeleted == false).ToList();
         }
 
         public static List<Trainer> GetTrainers()

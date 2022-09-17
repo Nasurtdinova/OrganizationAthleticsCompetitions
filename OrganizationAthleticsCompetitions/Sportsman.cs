@@ -33,11 +33,12 @@ namespace OrganizationAthleticsCompetitions
         public string PhoneNumber { get; set; }
         public byte[] Image { get; set; }
         public Nullable<int> IdTeam { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
-        public virtual Team Team { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }
+        public virtual Team Team { get; set; }
     }
 }

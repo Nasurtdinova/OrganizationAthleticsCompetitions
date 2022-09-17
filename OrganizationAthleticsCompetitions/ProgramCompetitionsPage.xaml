@@ -16,12 +16,12 @@
                     <GridViewColumn Header="Тип соревнования" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
                     <GridViewColumn Header="Время начала" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
-                    <GridViewColumn Header="Максимальное число участников" DisplayMemberBinding="{Binding MaxCountAttendees}"></GridViewColumn>
+                    <GridViewColumn Header="Макс число участников" DisplayMemberBinding="{Binding MaxCountAttendees}"></GridViewColumn>
                     <GridViewColumn Header="Число участников" DisplayMemberBinding="{Binding CountAttendees}"></GridViewColumn>
                     <GridViewColumn  Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnRequest" Width="100" Click="btnRequest_Click"></Button>
+                                <Button Name="btnRequest" Width="100" Height="30" Content="Заявка" Click="btnRequest_Click"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

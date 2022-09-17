@@ -26,6 +26,7 @@ namespace OrganizationAthleticsCompetitions
         public Nullable<System.DateTime> DateEnd { get; set; }
         public Nullable<int> IdCategory { get; set; }
         public Nullable<int> IdVenue { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual CategoryCompetition CategoryCompetition { get; set; }
         public virtual Venue Venue { get; set; }

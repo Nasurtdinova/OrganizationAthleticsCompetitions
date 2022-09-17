@@ -26,7 +26,10 @@ namespace OrganizationAthleticsCompetitions
         private void btnRequest_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-            Manager.MainFrame.NavigationService.Navigate(new RequestPage(a));
+            if (a.CountAttendees == a.MaxCountAttendees)
+                MessageBox.Show("Мест нет!");
+            else
+                Manager.MainFrame.NavigationService.Navigate(new RequestPage(a));
         }
     }
 }

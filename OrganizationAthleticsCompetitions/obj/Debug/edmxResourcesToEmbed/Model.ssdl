@@ -25,12 +25,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="DateStart" Type="date" />
     <Property Name="DateEnd" Type="date" />
     <Property Name="IdCategory" Type="int" />
     <Property Name="IdVenue" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="FormatResult">
     <Key>
@@ -43,7 +44,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdCompetition" Type="int" />
     <Property Name="IdTypeProgram" Type="int" />
     <Property Name="IdTypeCompetition" Type="int" />
@@ -57,7 +58,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StartTime" Type="time" Precision="7" />
     <Property Name="IdSportsman" Type="int" />
     <Property Name="IdProgramCompetition" Type="int" />
@@ -82,7 +83,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Surname" Type="nvarchar" MaxLength="30" />
     <Property Name="Name" Type="nvarchar" MaxLength="20" />
     <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
@@ -95,6 +96,7 @@
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
     <Property Name="Image" Type="varbinary(max)" />
     <Property Name="IdTeam" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -110,17 +112,18 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" />
     <Property Name="IdCity" Type="int" />
     <Property Name="Score" Type="float" />
     <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Trainer">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdUser" Type="int" />
   </EntityType>
   <EntityType Name="Trainer_Team">
@@ -153,7 +156,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Surname" Type="nvarchar" MaxLength="30" />
     <Property Name="Name" Type="nvarchar" MaxLength="20" />
     <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />

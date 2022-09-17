@@ -25,18 +25,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Competition">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Competition">
-        <MappingFragment StoreEntitySet="Competition">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-          <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
-          <ScalarProperty Name="IdVenue" ColumnName="IdVenue" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="FormatResult">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.FormatResult">
         <MappingFragment StoreEntitySet="FormatResult">
@@ -60,25 +48,6 @@
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Sportsman">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Sportsman">
-        <MappingFragment StoreEntitySet="Sportsman">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
-          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-          <ScalarProperty Name="Height" ColumnName="Height" />
-          <ScalarProperty Name="Weight" ColumnName="Weight" />
-          <ScalarProperty Name="IdCategorySportsman" ColumnName="IdCategorySportsman" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -135,17 +104,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Team">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
-        <MappingFragment StoreEntitySet="Team">
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Trainer">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer">
         <MappingFragment StoreEntitySet="Trainer">
@@ -184,6 +142,51 @@
           <ScalarProperty Name="IdProgramCompetition" ColumnName="IdProgramCompetition" />
           <ScalarProperty Name="IdSportsman" ColumnName="IdSportsman" />
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competition">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Competition">
+        <MappingFragment StoreEntitySet="Competition">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IdVenue" ColumnName="IdVenue" />
+          <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sportsman">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Sportsman">
+        <MappingFragment StoreEntitySet="Sportsman">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="IdCategorySportsman" ColumnName="IdCategorySportsman" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

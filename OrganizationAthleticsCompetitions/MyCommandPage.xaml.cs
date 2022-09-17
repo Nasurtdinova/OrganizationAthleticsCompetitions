@@ -23,16 +23,23 @@ namespace OrganizationAthleticsCompetitions
         public MyCommandPage()
         {
             InitializeComponent();
+            lvMyCommands.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var i = (sender as Button).DataContext as Trainer_Team;
+            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(i.Team));
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show($"Вы точно хотите удалить?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                DataAccess.RemoveTeam(((sender as Button).DataContext as Trainer_Team).IdTeam);
+                lvMyCommands.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
+                MessageBox.Show("Данные удалены");
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

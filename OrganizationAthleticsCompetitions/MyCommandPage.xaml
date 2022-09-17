@@ -19,14 +19,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                        <Image Source="{Binding Image}"></Image>
+                        <TextBlock Text="{Binding Team.Name}"></TextBlock>
+                        <Image Source="{Binding Team.Image}"></Image>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="Очки: "/>
-                            <TextBlock Text="{Binding Score}"/>
+                            <TextBlock Text="{Binding Team.Score}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="100" Margin="10"></Button>
+                            <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="150" Margin="10"></Button>
                             <Button Content="Удалить" Background="#FF1C82C9" Name="btnRemove" Click="btnRemove_Click" Width="100" Margin="10"></Button>
                         </StackPanel>
                     </StackPanel>
