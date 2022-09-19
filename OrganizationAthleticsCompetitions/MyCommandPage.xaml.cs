@@ -36,7 +36,7 @@ namespace OrganizationAthleticsCompetitions
         {
             if (MessageBox.Show($"Вы точно хотите удалить?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                DataAccess.RemoveTeam(((sender as Button).DataContext as Trainer_Team).IdTeam);
+                DataAccess.RemoveTrainerFromTeam(((sender as Button).DataContext as Trainer_Team).IdTeam);
                 lvMyCommands.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
                 MessageBox.Show("Данные удалены");
             }

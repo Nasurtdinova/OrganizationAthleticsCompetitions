@@ -50,7 +50,12 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            if (CurrentCommand.Id == 0)
+                DataAccess.AddTeam(CurrentCommand);
+            else
+                DataAccess.UpdateTeam(CurrentCommand);
+            MessageBox.Show("Информация сохранена");
+            Manager.MainFrame.Navigate(new MyCommandPage());
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

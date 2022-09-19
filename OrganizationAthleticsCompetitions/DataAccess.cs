@@ -73,6 +73,19 @@ namespace OrganizationAthleticsCompetitions
             }
         }
 
+        public static void RemoveTrainerFromTeam(int idTeam)
+        {
+            try
+            {
+                Connection.connection.Trainer_Team.Remove(GetTeamsTrainers().Where(a => a.IdTeam == idTeam && CurrentUser.trainer == a.Trainer).FirstOrDefault());
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public static List<City> GetCities()
         {
             return new List<City>(Connection.connection.City.ToList());
@@ -88,6 +101,38 @@ namespace OrganizationAthleticsCompetitions
             try
             {
                 Connection.connection.Request.Add(req);
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void AddTeam(Team team)
+        {
+            try
+            {
+                Connection.connection.Team.Add(team);
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void UpdateTeam(Team command)
+        {
+            try
+            {
+                var com = Connection.connection.Team.SingleOrDefault(r => r.Id == command.Id);
+                com.IsDeleted = false;
+                com.Name = command.Name;
+                com.IdCity = command.IdCity;
+                if (command.Image != null)
+                    com.Image = command.Image;
+
                 Connection.connection.SaveChanges();
             }
             catch (Exception ex)

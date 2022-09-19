@@ -32,7 +32,7 @@
                         <TextBlock Text="Фотография" Grid.Row="2"></TextBlock>
                         <TextBlock Text="Город" Grid.Row="3"></TextBlock>
                         <TextBox Text="{Binding Name}" Grid.Column="1" Width="300" Height="50"></TextBox>
-                        <TextBox Text="{Binding Score}" Grid.Column="1" Grid.Row="1" Width="300" Height="50"></TextBox>
+                        <TextBox Text="{Binding Score}" IsEnabled="False" Grid.Column="1" Grid.Row="1" Width="300" Height="50"></TextBox>
                         <ComboBox SelectedItem="{Binding City}" Grid.Column="1" Grid.Row="3" DisplayMemberPath="Name" Name="comboCities" Width="300" Height="50"></ComboBox>
                         <StackPanel HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
                             <Image Source="{Binding Image}" Name="imgCom" Width="300" Margin="10"></Image>

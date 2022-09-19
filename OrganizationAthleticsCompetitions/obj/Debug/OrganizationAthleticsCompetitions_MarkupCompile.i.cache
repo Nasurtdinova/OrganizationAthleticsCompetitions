@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml
-9-1028734053
+11-1050518112
 2-1881755278
-39-1712227919
+41-329913811
 181694362083
-AddCommandPage.xaml;AuthorizationPage.xaml;CompetitionsPage.xaml;MyCommandPage.xaml;ProgramCompetitionsPage.xaml;RequestPage.xaml;TeamsPage.xaml;MainWindow.xaml;SportsmansInCommandPage.xaml;
+AddCommandPage.xaml;AuthorizationPage.xaml;CompetitionsPage.xaml;MyCommandPage.xaml;ProgramCompetitionsPage.xaml;RequestPage.xaml;ResultProgramCompetitionsPage.xaml;SportsmansPage.xaml;TeamsPage.xaml;MainWindow.xaml;SportsmansInCommandPage.xaml;
 
 True
 

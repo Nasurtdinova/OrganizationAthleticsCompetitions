@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для CompetitionsPage.xaml
-    /// </summary>
     public partial class CompetitionsPage : Page
     {
         public CompetitionsPage()
         {
             InitializeComponent();
-            dgCompetitions.ItemsSource = DataAccess.GetCompetitions();
+            dgFutureCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a=>a.DateStart>DateTime.Now);
+            dgPastCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart <= DateTime.Now);
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -48,6 +46,15 @@ namespace OrganizationAthleticsCompetitions
         private void comboCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnResult_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as Button).DataContext as Competition;
+            if (a != null)
+            {
+                Manager.MainFrame.NavigationService.Navigate(new ProgramCompetitionsPage(a));
+            }
         }
     }
 }

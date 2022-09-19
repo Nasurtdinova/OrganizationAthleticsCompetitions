@@ -20,6 +20,10 @@ namespace OrganizationAthleticsCompetitions
         public ProgramCompetitionsPage(Competition com)
         {
             InitializeComponent();
+            if (com.DateStart > DateTime.Now)
+                columnResult.Width = 0;
+            if (CurrentUser.user == null)
+                columnRequest.Width = 0;
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
         }
 
@@ -30,6 +34,12 @@ namespace OrganizationAthleticsCompetitions
                 MessageBox.Show("Мест нет!");
             else
                 Manager.MainFrame.NavigationService.Navigate(new RequestPage(a));
+        }
+
+        private void btnResult_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as Button).DataContext as ProgramCompetition;
+            Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage());
         }
     }
 }
