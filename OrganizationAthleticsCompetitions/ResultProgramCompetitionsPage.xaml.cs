@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для ResultProgramCompetitionsPage.xaml
-    /// </summary>
     public partial class ResultProgramCompetitionsPage : Page
     {
-        public ResultProgramCompetitionsPage()
+        public ResultProgramCompetitionsPage(ProgramCompetition prCom)
         {
             InitializeComponent();
+            lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(prCom);
         }
     }
 }

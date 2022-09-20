@@ -52,7 +52,6 @@
     <Property Name="TimeStart" Type="time" Precision="7" />
     <Property Name="MaxCountAttendees" Type="int" />
     <Property Name="CountAttendees" Type="int" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="Request">
     <Key>

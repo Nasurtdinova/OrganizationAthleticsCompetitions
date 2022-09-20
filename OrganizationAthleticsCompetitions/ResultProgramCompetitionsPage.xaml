@@ -9,6 +9,16 @@
       Title="ResultProgramCompetitionsPage">
 
     <Grid>
-        
+        <ListView Name="lvResultProgramCompetitinon">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия"  DisplayMemberBinding="{Binding Request.Sportsman.Surname}"></GridViewColumn>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Request.Sportsman.Name}"></GridViewColumn>
+                    <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}"></GridViewColumn>
+                    <GridViewColumn Header="Формат" DisplayMemberBinding="{Binding Request.ProgramCompetition.TypeCompetition.FormatResult.Name}"></GridViewColumn>
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

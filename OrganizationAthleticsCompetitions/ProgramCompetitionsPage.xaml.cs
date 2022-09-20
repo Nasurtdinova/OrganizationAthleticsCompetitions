@@ -22,6 +22,8 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             if (com.DateStart > DateTime.Now)
                 columnResult.Width = 0;
+            else
+                columnRequest.Width = 0;
             if (CurrentUser.user == null)
                 columnRequest.Width = 0;
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
@@ -39,7 +41,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnResult_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-            Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage());
+            Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage(a));
         }
     }
 }

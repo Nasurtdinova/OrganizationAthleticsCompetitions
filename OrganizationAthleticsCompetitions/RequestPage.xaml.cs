@@ -34,7 +34,7 @@ namespace OrganizationAthleticsCompetitions
                 timeStart = new TimeSpan(0, 5, 0) + DataAccess.GetRequestsForProgramCompetition(CurrentProgram).Last().StartTime;
                 tbStartTime.Text = timeStart.ToString();
             }
-            comboSportsman.ItemsSource = DataAccess.GetSportmansInGenderAndTrainer(prog.Gender);
+            comboSportsman.ItemsSource = DataAccess.GetSportmansInGenderAndTrainer(prog.TypeCompetition.Gender);
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)

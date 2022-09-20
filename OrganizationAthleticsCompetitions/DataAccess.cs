@@ -43,6 +43,16 @@ namespace OrganizationAthleticsCompetitions
             return GetProgramsCompetition().Where(a=>a.IdCompetition == com.Id).ToList();
         }
 
+        public static List<ResultCompetition> GetResultsCompetition()
+        {
+            return new List<ResultCompetition>(Connection.connection.ResultCompetition).ToList();
+        }
+
+        public static List<ResultCompetition> GetResultsInProgramCompetition(ProgramCompetition com)
+        {
+            return GetResultsCompetition().Where(a => a.Request.IdProgramCompetition == com.Id).ToList();
+        }
+
         public static List<Competition> GetCompetitions()
         {
             return new List<Competition>(Connection.connection.Competition.Where(a => a.IsDeleted == false).ToList());
