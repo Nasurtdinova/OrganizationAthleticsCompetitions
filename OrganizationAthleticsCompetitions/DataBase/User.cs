@@ -7,23 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public User()
         {
-            this.User = new HashSet<User>();
+            this.Trainer = new HashSet<Trainer>();
         }
     
         public int Id { get; set; }
+        public string Surname { get; set; }
         public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public Nullable<int> IdCity { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public Nullable<int> IdRole { get; set; }
     
+        public virtual City City { get; set; }
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Trainer> Trainer { get; set; }
     }
 }

@@ -7,30 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Competition
+    public partial class City
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Competition()
+        public City()
         {
-            this.ProgramCompetition = new HashSet<ProgramCompetition>();
+            this.User = new HashSet<User>();
+            this.Venue = new HashSet<Venue>();
+            this.Sportsman = new HashSet<Sportsman>();
+            this.Team = new HashSet<Team>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> DateStart { get; set; }
-        public Nullable<System.DateTime> DateEnd { get; set; }
-        public Nullable<int> IdCategory { get; set; }
-        public Nullable<int> IdVenue { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
     
-        public virtual CategoryCompetition CategoryCompetition { get; set; }
-        public virtual Venue Venue { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProgramCompetition> ProgramCompetition { get; set; }
+        public virtual ICollection<User> User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venue> Venue { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sportsman> Sportsman { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Team> Team { get; set; }
     }
 }

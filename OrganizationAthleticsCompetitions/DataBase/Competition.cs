@@ -7,31 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Team
+    public partial class Competition
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Team()
+        public Competition()
         {
-            this.Sportsman = new HashSet<Sportsman>();
-            this.Trainer_Team = new HashSet<Trainer_Team>();
+            this.ProgramCompetition = new HashSet<ProgramCompetition>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> IdCity { get; set; }
-        public Nullable<double> Score { get; set; }
-        public byte[] Image { get; set; }
+        public Nullable<System.DateTime> DateStart { get; set; }
+        public Nullable<System.DateTime> DateEnd { get; set; }
+        public Nullable<int> IdCategory { get; set; }
+        public Nullable<int> IdVenue { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
-        public virtual City City { get; set; }
+        public virtual CategoryCompetition CategoryCompetition { get; set; }
+        public virtual Venue Venue { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sportsman> Sportsman { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
+        public virtual ICollection<ProgramCompetition> ProgramCompetition { get; set; }
     }
 }

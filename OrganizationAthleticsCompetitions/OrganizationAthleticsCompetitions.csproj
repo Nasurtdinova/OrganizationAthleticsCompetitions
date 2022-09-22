@@ -64,139 +64,139 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddCommandPage.xaml.cs">
+    <Compile Include="Trainer\AddCommandPage.xaml.cs">
       <DependentUpon>AddCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CategoryCompetition.cs">
+    <Compile Include="DataBase\CategoryCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="CategorySportsman.cs">
+    <Compile Include="DataBase\CategorySportsman.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="City.cs">
+    <Compile Include="DataBase\City.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Competition.cs">
+    <Compile Include="DataBase\Competition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="CompetitionsPage.xaml.cs">
+    <Compile Include="Viewer\CompetitionsPage.xaml.cs">
       <DependentUpon>CompetitionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormatResult.cs">
+    <Compile Include="DataBase\FormatResult.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Context.cs">
+    <Compile Include="DataBase\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs">
+    <Compile Include="DataBase\Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Designer.cs">
+    <Compile Include="DataBase\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MyCommandPage.xaml.cs">
+    <Compile Include="Trainer\MyCommandPage.xaml.cs">
       <DependentUpon>MyCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProgramCompetition.cs">
+    <Compile Include="DataBase\ProgramCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProgramCompetitionsPage.xaml.cs">
+    <Compile Include="Viewer\ProgramCompetitionsPage.xaml.cs">
       <DependentUpon>ProgramCompetitionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Request.cs">
+    <Compile Include="DataBase\Request.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="RequestPage.xaml.cs">
+    <Compile Include="Trainer\RequestPage.xaml.cs">
       <DependentUpon>RequestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ResultCompetition.cs">
+    <Compile Include="DataBase\ResultCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ResultProgramCompetitionsPage.xaml.cs">
+    <Compile Include="Viewer\ResultProgramCompetitionsPage.xaml.cs">
       <DependentUpon>ResultProgramCompetitionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
+    <Compile Include="DataBase\Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sportsman.cs">
+    <Compile Include="DataBase\Sportsman.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportsmansPage.xaml.cs">
+    <Compile Include="Viewer\SportsmansPage.xaml.cs">
       <DependentUpon>SportsmansPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="DataBase\sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Team.cs">
+    <Compile Include="DataBase\Team.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TeamsPage.xaml.cs">
+    <Compile Include="Viewer\TeamsPage.xaml.cs">
       <DependentUpon>TeamsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connection.cs" />
-    <Compile Include="CurrentUser.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="Manager.cs" />
+    <Compile Include="DataBase\Connection.cs" />
+    <Compile Include="DataBase\CurrentUser.cs" />
+    <Compile Include="DataBase\DataAccess.cs" />
+    <Compile Include="DataBase\Manager.cs" />
     <Compile Include="SportsmansInCommandPage.xaml.cs">
       <DependentUpon>SportsmansInCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Trainer.cs">
+    <Compile Include="DataBase\Trainer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Trainer_Team.cs">
+    <Compile Include="DataBase\Trainer_Team.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypeCompetition.cs">
+    <Compile Include="DataBase\TypeCompetition.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TypeProgram.cs">
+    <Compile Include="DataBase\TypeProgram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="DataBase\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Venue.cs">
+    <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="AddCommandPage.xaml">
+    <Page Include="Trainer\AddCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AuthorizationPage.xaml">
+    <Page Include="MainPages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CompetitionsPage.xaml">
+    <Page Include="Viewer\CompetitionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyCommandPage.xaml">
+    <Page Include="Trainer\MyCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProgramCompetitionsPage.xaml">
+    <Page Include="Viewer\ProgramCompetitionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RequestPage.xaml">
+    <Page Include="Trainer\RequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResultProgramCompetitionsPage.xaml">
+    <Page Include="Viewer\ResultProgramCompetitionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SportsmansPage.xaml">
+    <Page Include="Viewer\SportsmansPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeamsPage.xaml">
+    <Page Include="Viewer\TeamsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,7 +208,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AuthorizationPage.xaml.cs">
+    <Compile Include="MainPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -238,11 +238,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model.edmx">
+    <EntityDeploy Include="DataBase\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model.edmx.diagram">
+    <None Include="DataBase\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -291,12 +291,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model.Context.tt">
+    <Content Include="DataBase\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model.tt">
+    <Content Include="DataBase\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>

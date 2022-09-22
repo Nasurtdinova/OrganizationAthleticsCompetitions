@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ResultCompetition
+    public partial class Trainer_Team
     {
-        public int Id { get; set; }
-        public Nullable<int> IdRequest { get; set; }
-        public Nullable<double> Result { get; set; }
-        public Nullable<int> Rank { get; set; }
-        public int Score { get; set; }
+        public int IdTrainer { get; set; }
+        public int IdTeam { get; set; }
+        public Nullable<int> Year { get; set; }
     
-        public virtual Request Request { get; set; }
+        public virtual Trainer Trainer { get; set; }
+        public virtual Team Team { get; set; }
     }
 }

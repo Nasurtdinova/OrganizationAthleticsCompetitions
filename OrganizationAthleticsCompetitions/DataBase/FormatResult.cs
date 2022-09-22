@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeCompetition
+    public partial class FormatResult
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypeCompetition()
+        public FormatResult()
         {
-            this.ProgramCompetition = new HashSet<ProgramCompetition>();
+            this.TypeCompetition = new HashSet<TypeCompetition>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> IdFormatResult { get; set; }
-        public Nullable<double> Distance { get; set; }
-        public string Gender { get; set; }
     
-        public virtual FormatResult FormatResult { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProgramCompetition> ProgramCompetition { get; set; }
+        public virtual ICollection<TypeCompetition> TypeCompetition { get; set; }
     }
 }

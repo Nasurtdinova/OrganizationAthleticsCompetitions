@@ -7,32 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizationAthleticsCompetitions
+namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProgramCompetition
+    public partial class Team
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProgramCompetition()
+        public Team()
         {
-            this.Request = new HashSet<Request>();
+            this.Sportsman = new HashSet<Sportsman>();
+            this.Trainer_Team = new HashSet<Trainer_Team>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> IdCompetition { get; set; }
-        public Nullable<int> IdTypeProgram { get; set; }
-        public Nullable<int> IdTypeCompetition { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public TimeSpan TimeStart { get; set; }
-        public Nullable<int> MaxCountAttendees { get; set; }
-        public Nullable<int> CountAttendees { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> IdCity { get; set; }
+        public Nullable<double> Score { get; set; }
+        public byte[] Image { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
-        public virtual Competition Competition { get; set; }
+        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
-        public virtual TypeCompetition TypeCompetition { get; set; }
-        public virtual TypeProgram TypeProgram { get; set; }
+        public virtual ICollection<Sportsman> Sportsman { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
     }
 }
