@@ -69,7 +69,8 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="IdRequest" Type="int" />
     <Property Name="Result" Type="float" />
-    <Property Name="Score" Type="int" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="Score" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">
     <Key>

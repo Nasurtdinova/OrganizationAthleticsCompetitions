@@ -17,7 +17,8 @@ namespace OrganizationAthleticsCompetitions
         public int Id { get; set; }
         public Nullable<int> IdRequest { get; set; }
         public Nullable<double> Result { get; set; }
-        public Nullable<int> Score { get; set; }
+        public Nullable<int> Rank { get; set; }
+        public int Score { get; set; }
     
         public virtual Request Request { get; set; }
     }

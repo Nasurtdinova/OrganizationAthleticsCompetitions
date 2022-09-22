@@ -29,7 +29,6 @@ namespace OrganizationAthleticsCompetitions
         public virtual DbSet<CategorySportsman> CategorySportsman { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<FormatResult> FormatResult { get; set; }
-        public virtual DbSet<ResultCompetition> ResultCompetition { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeCompetition> TypeCompetition { get; set; }
@@ -43,5 +42,6 @@ namespace OrganizationAthleticsCompetitions
         public virtual DbSet<Sportsman> Sportsman { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<ProgramCompetition> ProgramCompetition { get; set; }
+        public virtual DbSet<ResultCompetition> ResultCompetition { get; set; }
     }
 }

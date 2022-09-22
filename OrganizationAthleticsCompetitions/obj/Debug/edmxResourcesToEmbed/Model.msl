@@ -33,16 +33,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ResultCompetition">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ResultCompetition">
-        <MappingFragment StoreEntitySet="ResultCompetition">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Role">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Role">
         <MappingFragment StoreEntitySet="Role">
@@ -186,6 +176,17 @@
           <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
           <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
           <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultCompetition">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ResultCompetition">
+        <MappingFragment StoreEntitySet="ResultCompetition">
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
