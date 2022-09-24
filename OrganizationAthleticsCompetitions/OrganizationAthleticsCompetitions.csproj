@@ -143,7 +143,7 @@
     <Compile Include="DataBase\CurrentUser.cs" />
     <Compile Include="DataBase\DataAccess.cs" />
     <Compile Include="DataBase\Manager.cs" />
-    <Compile Include="SportsmansInCommandPage.xaml.cs">
+    <Compile Include="Viewer\SportsmansInCommandPage.xaml.cs">
       <DependentUpon>SportsmansInCommandPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Trainer.cs">
@@ -215,7 +215,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SportsmansInCommandPage.xaml">
+    <Page Include="Viewer\SportsmansInCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,7 +21,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
-        public Nullable<System.TimeSpan> StartTime { get; set; }
+        public TimeSpan StartTime { get; set; }
         public Nullable<int> IdSportsman { get; set; }
         public Nullable<int> IdProgramCompetition { get; set; }
     

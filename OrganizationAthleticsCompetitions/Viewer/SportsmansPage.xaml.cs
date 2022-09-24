@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для SportsmansPage.xaml
-    /// </summary>
     public partial class SportsmansPage : Page
     {
         public SportsmansPage()
         {
             InitializeComponent();
+            sportsmansList.ItemsSource = DataAccess.GetSportsmans();
         }
     }
 }

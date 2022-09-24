@@ -29,7 +29,6 @@ namespace OrganizationAthleticsCompetitions
 
             Manager.MainFrame = mainFrame;
 
-            Manager.SportsmansTrainer = sportsmanTrainer;
             Manager.Sportsmans = sportsman;
 
             Manager.CommandsTrainer = commandTrainer;
@@ -103,7 +102,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void sportsman_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new SportsmansPage());
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -143,12 +142,9 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void sportsmanTrainer_Click(object sender, RoutedEventArgs e)
-        {
-
+            CurrentUser.user = null;
+            Manager.DoViewer();
+            Manager.MainFrame.NavigationService.Navigate(new AuthorizationPage());
         }
 
         private void commandTrainer_Click(object sender, RoutedEventArgs e)

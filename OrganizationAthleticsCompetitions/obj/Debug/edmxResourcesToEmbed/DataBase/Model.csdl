@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrganizationAthleticsCompetitionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CategoryCompetition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Competition" Relationship="OrganizationAthleticsCompetitionsModel.FK_Competition_CategoryCompetition" FromRole="CategoryCompetition" ToRole="Competition" />
+  </EntityType>
+  <EntityType Name="CategorySportsman">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Category" FromRole="CategorySportsman" ToRole="Sportsman" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_City" FromRole="City" ToRole="User" />
+    <NavigationProperty Name="Venue" Relationship="Self.FK_Venue_City" FromRole="City" ToRole="Venue" />
+    <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_City" FromRole="City" ToRole="Sportsman" />
+    <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Team_City" FromRole="City" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="FormatResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TypeCompetition" Relationship="Self.FK_TypeCompetition_FormatResult" FromRole="FormatResult" ToRole="TypeCompetition" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeCompetition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IdFormatResult" Type="Int32" />
+    <Property Name="Distance" Type="Double" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FormatResult" Relationship="Self.FK_TypeCompetition_FormatResult" FromRole="TypeCompetition" ToRole="FormatResult" />
+    <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" FromRole="TypeCompetition" ToRole="ProgramCompetition" />
+  </EntityType>
+  <EntityType Name="TypeProgram">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" FromRole="TypeProgram" ToRole="ProgramCompetition" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IdCity" Type="Int32" />
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IdRole" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK_User_City" FromRole="User" ToRole="City" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Trainer" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" FromRole="User" ToRole="Trainer" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IdCity" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Venue_City" FromRole="Venue" ToRole="City" />
+    <NavigationProperty Name="Competition" Relationship="OrganizationAthleticsCompetitionsModel.FK_Competition_Venue" FromRole="Venue" ToRole="Competition" />
+  </EntityType>
+  <Association Name="FK_User_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venue_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Venue" Type="Self.Venue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venue">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeCompetition_FormatResult">
+    <End Role="FormatResult" Type="Self.FormatResult" Multiplicity="0..1" />
+    <End Role="TypeCompetition" Type="Self.TypeCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormatResult">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TypeCompetition">
+        <PropertyRef Name="IdFormatResult" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrganizationAthleticsCompetitionsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategoryCompetition" EntityType="Self.CategoryCompetition" />
+    <EntitySet Name="CategorySportsman" EntityType="Self.CategorySportsman" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="FormatResult" EntityType="Self.FormatResult" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TypeCompetition" EntityType="Self.TypeCompetition" />
+    <EntitySet Name="TypeProgram" EntityType="Self.TypeProgram" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Venue" EntityType="Self.Venue" />
+    <AssociationSet Name="FK_User_City" Association="Self.FK_User_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venue_City" Association="Self.FK_Venue_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Venue" EntitySet="Venue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeCompetition_FormatResult" Association="Self.FK_TypeCompetition_FormatResult">
+      <End Role="FormatResult" EntitySet="FormatResult" />
+      <End Role="TypeCompetition" EntitySet="TypeCompetition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Trainer" EntityType="OrganizationAthleticsCompetitionsModel.Trainer" />
+    <EntitySet Name="Trainer_Team" EntityType="OrganizationAthleticsCompetitionsModel.Trainer_Team" />
+    <AssociationSet Name="FK_Trainer_Team_Trainer" Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Trainer">
+      <End Role="Trainer" EntitySet="Trainer" />
+      <End Role="Trainer_Team" EntitySet="Trainer_Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainer_User" Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Trainer" EntitySet="Trainer" />
+    </AssociationSet>
+    <EntitySet Name="Request" EntityType="OrganizationAthleticsCompetitionsModel.Request" />
+    <EntitySet Name="Competition" EntityType="OrganizationAthleticsCompetitionsModel.Competition" />
+    <EntitySet Name="Sportsman" EntityType="OrganizationAthleticsCompetitionsModel.Sportsman" />
+    <EntitySet Name="Team" EntityType="OrganizationAthleticsCompetitionsModel.Team" />
+    <AssociationSet Name="FK_Competition_CategoryCompetition" Association="OrganizationAthleticsCompetitionsModel.FK_Competition_CategoryCompetition">
+      <End Role="CategoryCompetition" EntitySet="CategoryCompetition" />
+      <End Role="Competition" EntitySet="Competition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sportsman_Category" Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Category">
+      <End Role="CategorySportsman" EntitySet="CategorySportsman" />
+      <End Role="Sportsman" EntitySet="Sportsman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sportsman_City" Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Sportsman" EntitySet="Sportsman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_City" Association="OrganizationAthleticsCompetitionsModel.FK_Team_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competition_Venue" Association="OrganizationAthleticsCompetitionsModel.FK_Competition_Venue">
+      <End Role="Venue" EntitySet="Venue" />
+      <End Role="Competition" EntitySet="Competition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Sportsman" Association="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman">
+      <End Role="Sportsman" EntitySet="Sportsman" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sportsman_Team" Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Sportsman" EntitySet="Sportsman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainer_Team_Team" Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Trainer_Team" EntitySet="Trainer_Team" />
+    </AssociationSet>
+    <EntitySet Name="ProgramCompetition" EntityType="OrganizationAthleticsCompetitionsModel.ProgramCompetition" />
+    <AssociationSet Name="FK_TypesProgram_Competition" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_TypesProgram" Association="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram">
+      <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypesProgram_TypeCompetition" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition">
+      <End Role="TypeCompetition" EntitySet="TypeCompetition" />
+      <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypesProgram_TypeProgram" Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram">
+      <End Role="TypeProgram" EntitySet="TypeProgram" />
+      <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+    </AssociationSet>
+    <EntitySet Name="ResultCompetition" EntityType="OrganizationAthleticsCompetitionsModel.ResultCompetition" />
+    <AssociationSet Name="FK_ResultCompetition_Request" Association="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request">
+      <End Role="Request" EntitySet="Request" />
+      <End Role="ResultCompetition" EntitySet="ResultCompetition" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Trainer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdUser" Type="Int32" />
+    <NavigationProperty Name="Trainer_Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Trainer" FromRole="Trainer" ToRole="Trainer_Team" />
+    <NavigationProperty Name="User" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" FromRole="Trainer" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Trainer_Team">
+    <Key>
+      <PropertyRef Name="IdTrainer" />
+      <PropertyRef Name="IdTeam" />
+    </Key>
+    <Property Name="IdTrainer" Type="Int32" Nullable="false" />
+    <Property Name="IdTeam" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" />
+    <NavigationProperty Name="Trainer" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Trainer" FromRole="Trainer_Team" ToRole="Trainer" />
+    <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team" FromRole="Trainer_Team" ToRole="Team" />
+  </EntityType>
+  <Association Name="FK_Trainer_Team_Trainer">
+    <End Type="OrganizationAthleticsCompetitionsModel.Trainer" Role="Trainer" Multiplicity="1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Trainer_Team" Role="Trainer_Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trainer_Team">
+        <PropertyRef Name="IdTrainer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainer_User">
+    <End Type="OrganizationAthleticsCompetitionsModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Trainer" Role="Trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="IdSportsman" Type="Int32" />
+    <Property Name="IdProgramCompetition" Type="Int32" />
+    <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" FromRole="Request" ToRole="Sportsman" />
+    <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" FromRole="Request" ToRole="ProgramCompetition" />
+    <NavigationProperty Name="ResultCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" FromRole="Request" ToRole="ResultCompetition" />
+  </EntityType>
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateStart" Type="DateTime" Precision="0" />
+    <Property Name="DateEnd" Type="DateTime" Precision="0" />
+    <Property Name="IdCategory" Type="Int32" />
+    <Property Name="IdVenue" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="CategoryCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_Competition_CategoryCompetition" FromRole="Competition" ToRole="CategoryCompetition" />
+    <NavigationProperty Name="Venue" Relationship="OrganizationAthleticsCompetitionsModel.FK_Competition_Venue" FromRole="Competition" ToRole="Venue" />
+    <NavigationProperty Name="ProgramCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" FromRole="Competition" ToRole="ProgramCompetition" />
+  </EntityType>
+  <EntityType Name="Sportsman">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IdCity" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="IdCategorySportsman" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IdTeam" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="CategorySportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Category" FromRole="Sportsman" ToRole="CategorySportsman" />
+    <NavigationProperty Name="City" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_City" FromRole="Sportsman" ToRole="City" />
+    <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" FromRole="Sportsman" ToRole="Request" />
+    <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team" FromRole="Sportsman" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IdCity" Type="Int32" />
+    <Property Name="Score" Type="Double" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="City" Relationship="OrganizationAthleticsCompetitionsModel.FK_Team_City" FromRole="Team" ToRole="City" />
+    <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team" FromRole="Team" ToRole="Sportsman" />
+    <NavigationProperty Name="Trainer_Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team" FromRole="Team" ToRole="Trainer_Team" />
+  </EntityType>
+  <Association Name="FK_Competition_CategoryCompetition">
+    <End Type="OrganizationAthleticsCompetitionsModel.CategoryCompetition" Role="CategoryCompetition" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Competition" Role="Competition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryCompetition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competition">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sportsman_Category">
+    <End Type="OrganizationAthleticsCompetitionsModel.CategorySportsman" Role="CategorySportsman" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Sportsman" Role="Sportsman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySportsman">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sportsman">
+        <PropertyRef Name="IdCategorySportsman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sportsman_City">
+    <End Type="OrganizationAthleticsCompetitionsModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Sportsman" Role="Sportsman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sportsman">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_City">
+    <End Type="OrganizationAthleticsCompetitionsModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competition_Venue">
+    <End Type="OrganizationAthleticsCompetitionsModel.Venue" Role="Venue" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Competition" Role="Competition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competition">
+        <PropertyRef Name="IdVenue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Sportsman">
+    <End Type="OrganizationAthleticsCompetitionsModel.Sportsman" Role="Sportsman" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sportsman">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="IdSportsman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sportsman_Team">
+    <End Type="OrganizationAthleticsCompetitionsModel.Team" Role="Team" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Sportsman" Role="Sportsman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sportsman">
+        <PropertyRef Name="IdTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainer_Team_Team">
+    <End Type="OrganizationAthleticsCompetitionsModel.Team" Role="Team" Multiplicity="1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Trainer_Team" Role="Trainer_Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trainer_Team">
+        <PropertyRef Name="IdTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProgramCompetition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCompetition" Type="Int32" />
+    <Property Name="IdTypeProgram" Type="Int32" />
+    <Property Name="IdTypeCompetition" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="TimeStart" Type="Time" Precision="7" />
+    <Property Name="MaxCountAttendees" Type="Int32" />
+    <Property Name="CountAttendees" Type="Int32" />
+    <NavigationProperty Name="Competition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" FromRole="ProgramCompetition" ToRole="Competition" />
+    <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" FromRole="ProgramCompetition" ToRole="Request" />
+    <NavigationProperty Name="TypeCompetition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" FromRole="ProgramCompetition" ToRole="TypeCompetition" />
+    <NavigationProperty Name="TypeProgram" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" FromRole="ProgramCompetition" ToRole="TypeProgram" />
+  </EntityType>
+  <Association Name="FK_TypesProgram_Competition">
+    <End Type="OrganizationAthleticsCompetitionsModel.Competition" Role="Competition" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramCompetition">
+        <PropertyRef Name="IdCompetition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_TypesProgram">
+    <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramCompetition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="IdProgramCompetition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypesProgram_TypeCompetition">
+    <End Type="OrganizationAthleticsCompetitionsModel.TypeCompetition" Role="TypeCompetition" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCompetition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramCompetition">
+        <PropertyRef Name="IdTypeCompetition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypesProgram_TypeProgram">
+    <End Type="OrganizationAthleticsCompetitionsModel.TypeProgram" Role="TypeProgram" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.ProgramCompetition" Role="ProgramCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeProgram">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramCompetition">
+        <PropertyRef Name="IdTypeProgram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ResultCompetition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdRequest" Type="Int32" />
+    <Property Name="Result" Type="Double" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" FromRole="ResultCompetition" ToRole="Request" />
+  </EntityType>
+  <Association Name="FK_ResultCompetition_Request">
+    <End Type="OrganizationAthleticsCompetitionsModel.Request" Role="Request" Multiplicity="0..1" />
+    <End Type="OrganizationAthleticsCompetitionsModel.ResultCompetition" Role="ResultCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultCompetition">
+        <PropertyRef Name="IdRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
