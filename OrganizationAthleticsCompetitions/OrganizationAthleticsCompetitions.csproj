@@ -64,6 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddResultPage.xaml.cs">
+      <DependentUpon>AddResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProgramCompetitionpage.xaml.cs">
+      <DependentUpon>AdminProgramCompetitionpage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trainer\AddCommandPage.xaml.cs">
       <DependentUpon>AddCommandPage.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,14 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Page Include="AddResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminProgramCompetitionpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Trainer\AddCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

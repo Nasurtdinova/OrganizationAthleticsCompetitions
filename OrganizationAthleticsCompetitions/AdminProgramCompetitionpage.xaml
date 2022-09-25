@@ -1,0 +1,33 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.AdminProgramCompetitionpage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminProgramCompetitionpage">
+
+    <Grid>
+        <ListView Name="lvProgramsCompetition">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Тип программы"  DisplayMemberBinding="{Binding TypeProgram.Name}"></GridViewColumn>
+                    <GridViewColumn Header="Тип соревнования" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
+                    <GridViewColumn Header="Время начала" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
+                    <GridViewColumn Header="Род" DisplayMemberBinding="{Binding TypeCompetition.Gender}"></GridViewColumn>
+                    <GridViewColumn Header="Макс число участников" DisplayMemberBinding="{Binding MaxCountAttendees}"></GridViewColumn>
+                    <GridViewColumn Header="Число участников" DisplayMemberBinding="{Binding CountAttendees}"></GridViewColumn>
+                    <GridViewColumn Header="Результаты">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAddResult" Width="100" Height="30" Content="Добавить результат" Click="btnAddResult_Click" ></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

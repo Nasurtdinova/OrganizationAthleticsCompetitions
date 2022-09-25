@@ -516,7 +516,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdRequest" Type="Int32" />
     <Property Name="Result" Type="Double" />
     <Property Name="Rank" Type="Int32" />

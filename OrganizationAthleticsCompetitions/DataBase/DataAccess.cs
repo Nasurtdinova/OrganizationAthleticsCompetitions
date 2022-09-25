@@ -29,6 +29,11 @@ namespace OrganizationAthleticsCompetitions
             return new List<Request>(Connection.connection.Request).ToList();
         }
 
+        public static Request GetRequestSportsmanProgram(int idSportsman, int idProgram)
+        {
+            return GetRequests().Where(a => a.IdSportsman == idSportsman && a.IdProgramCompetition == idProgram).FirstOrDefault();
+        }
+
         public static List<Request> GetRequestsForProgramCompetition(ProgramCompetition pr)
         {
             return GetRequests().Where(a=>a.ProgramCompetition == pr).ToList();
@@ -120,6 +125,19 @@ namespace OrganizationAthleticsCompetitions
             }
         }
 
+        public static void AddResult(ResultCompetition res)
+        {
+            try
+            {
+                Connection.connection.ResultCompetition.Add(res);
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public static void AddTeam(Team team)
         {
             try
@@ -163,7 +181,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<Trainer_Team> GetTeamsInTreaner(Trainer train)
         {
-            return GetTeamsTrainers().Where(a => a.IdTrainer == train.Id && a.Team.IsDeleted == false).ToList();
+            return GetTeamsTrainers().Where(a => a.IdTrainer == train.Id).ToList();
         }
 
         public static List<Trainer> GetTrainers()

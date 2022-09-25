@@ -127,7 +127,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void resultCompetition_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new AdminProgramCompetitionpage());
         }
 
         private void resultCompetitionAdmin_Click(object sender, RoutedEventArgs e)
