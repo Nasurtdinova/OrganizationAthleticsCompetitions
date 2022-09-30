@@ -22,6 +22,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
     
         public int Id { get; set; }
         public Nullable<int> IdUser { get; set; }
+        public byte[] Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }

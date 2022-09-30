@@ -137,7 +137,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new EditProfileTPage());
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

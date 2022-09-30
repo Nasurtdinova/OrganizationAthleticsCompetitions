@@ -94,14 +94,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Trainer">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer">
-        <MappingFragment StoreEntitySet="Trainer">
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Trainer_Team">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer_Team">
         <MappingFragment StoreEntitySet="Trainer_Team">
@@ -187,6 +179,15 @@
           <ScalarProperty Name="Rank" ColumnName="Rank" />
           <ScalarProperty Name="Result" ColumnName="Result" />
           <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainer">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Trainer">
+        <MappingFragment StoreEntitySet="Trainer">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

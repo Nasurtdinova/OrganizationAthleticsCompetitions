@@ -36,14 +36,14 @@ namespace OrganizationAthleticsCompetitions
             VisibleCollapsedAuthReg();
             RoleNameLabel.Content = "Админ";
 
-            Sportsmans.Visibility = System.Windows.Visibility.Collapsed;
-            Commands.Visibility = System.Windows.Visibility.Collapsed;
+            Sportsmans.Visibility = System.Windows.Visibility.Visible;
+            Commands.Visibility = System.Windows.Visibility.Visible;
             Competitions.Visibility = System.Windows.Visibility.Collapsed;
             ResultCompetitions.Visibility = System.Windows.Visibility.Collapsed;
 
             EditProfile.Visibility = System.Windows.Visibility.Collapsed;
 
-            SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
+            //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
             CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
 
             CompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;       
@@ -63,7 +63,7 @@ namespace OrganizationAthleticsCompetitions
 
             EditProfile.Visibility = System.Windows.Visibility.Collapsed;
 
-            SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
+            //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
             CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
 
             CompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;

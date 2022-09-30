@@ -22,7 +22,7 @@
                     <GridViewColumn Header="Результаты">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnAddResult" Width="100" Height="30" Content="Добавить результат" Click="btnAddResult_Click" ></Button>
+                                <Button Name="btnAddResult" Width="100" Content="Добавить результат" Click="btnAddResult_Click" ></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

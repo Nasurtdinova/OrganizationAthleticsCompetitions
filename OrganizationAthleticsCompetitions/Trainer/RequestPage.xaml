@@ -7,13 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RequestPage">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -23,6 +21,6 @@
         <TextBlock Text="Старт" Grid.Row="1"></TextBlock>
         <ComboBox Name="comboSportsman" DisplayMemberPath="Name" SelectedItem="{Binding Sportsman}"  Grid.Column="1" Width="200"></ComboBox>
         <TextBox IsEnabled="False" Name="tbStartTime" Grid.Row="1" Grid.Column="1" Width="200"></TextBox>
-        <Button Name="btnSend" Click="btnSend_Click" Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="50" Content="Отправить"></Button>
+        <Button Name="btnSend" Click="btnSend_Click" Grid.Row="2" Grid.ColumnSpan="2" Width="100" Content="Отправить"></Button>
     </Grid>
 </Page>

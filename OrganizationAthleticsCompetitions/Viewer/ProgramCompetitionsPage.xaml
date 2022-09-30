@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProgramCompetitionsPage">
-
     <Grid>
         <ListView Name="lvProgramsCompetition">
             <ListView.View>
@@ -22,14 +21,14 @@
                     <GridViewColumn Header="Заявка" x:Name="columnRequest">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnRequest" Width="100" Height="30" Content="Заявка" Click="btnRequest_Click"></Button>
+                                <Button Name="btnRequest" Width="100" Content="Заявка" Click="btnRequest_Click"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Результаты" x:Name="columnResult">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnResult" Width="100" Height="30" Content="Результаты" Click="btnResult_Click"></Button>
+                                <Button Name="btnResult" Width="100" Content="Результаты" Click="btnResult_Click"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

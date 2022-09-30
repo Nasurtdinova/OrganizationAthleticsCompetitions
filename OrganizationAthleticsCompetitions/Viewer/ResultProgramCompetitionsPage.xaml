@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResultProgramCompetitionsPage">
-
     <Grid>
         <ListView Name="lvResultProgramCompetitinon">
             <ListView.View>
@@ -16,7 +15,6 @@
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Request.Sportsman.Name}"></GridViewColumn>
                     <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}"></GridViewColumn>
                     <GridViewColumn Header="Формат" DisplayMemberBinding="{Binding Request.ProgramCompetition.TypeCompetition.FormatResult.Name}"></GridViewColumn>
-                    
                 </GridView>
             </ListView.View>
         </ListView>

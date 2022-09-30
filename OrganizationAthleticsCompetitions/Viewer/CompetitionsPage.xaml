@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Image Height="25" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\search.png"></Image>
-            <TextBox  Width="180" Name="txtSearch" TextChanged="txtSearch_TextChanged" Margin="10"  Height="30"/>
+            <TextBox  Width="180" Name="txtSearch" TextChanged="txtSearch_TextChanged" Margin="10" Height="30"/>
             <CheckBox Name="checkMonth" Content="Текущий месяц" HorizontalAlignment="Right" IsChecked="False" Click="checkMonth_Click"  Margin="10" ></CheckBox>
             <Image Height="30" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\city.png"></Image>
             <ComboBox Name="comboCity" DisplayMemberPath="Name" Width="200" Height="30" SelectionChanged="comboCity_SelectionChanged" ></ComboBox>

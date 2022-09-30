@@ -22,6 +22,7 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
@@ -29,6 +30,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
         <Style TargetType="Button">
+            <Setter Property="Height" Value="50"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FF6273AA"></Setter>
             <Setter Property="BorderBrush" Value="#FF6273AA"></Setter>

@@ -78,11 +78,11 @@
         <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Name="editProfile"  Visibility="Collapsed" Margin="10 0">
                 <Image Source="Images\iconProfile.png" Height="20"/>
-                <Button Margin="15 0 0 0" Name="btnProfile" Content="Edit profile" Click="btnProfile_Click"/>
+                <Button Margin="15 0 0 0" Name="btnProfile" Content="Профиль" Click="btnProfile_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Name="exit" Visibility="Collapsed"  Margin="10 10">
                 <Image Source="Images\exit.png" Height="20"/>
-                <Button x:Name="btnExit" Margin="15 0 0 0" Content="Exit" Click="btnExit_Click"/>
+                <Button x:Name="btnExit" Margin="15 0 0 0" Content="Выйти" Click="btnExit_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

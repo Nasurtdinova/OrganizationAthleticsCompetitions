@@ -70,6 +70,9 @@
     <Compile Include="AdminProgramCompetitionpage.xaml.cs">
       <DependentUpon>AdminProgramCompetitionpage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditProfileTPage.xaml.cs">
+      <DependentUpon>EditProfileTPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trainer\AddCommandPage.xaml.cs">
       <DependentUpon>AddCommandPage.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminProgramCompetitionpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditProfileTPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

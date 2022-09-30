@@ -75,6 +75,27 @@ namespace OrganizationAthleticsCompetitions
             return list;
         }
 
+        public static void UpdateScoreTeam()
+        {
+            try
+            {
+                foreach (var i in GetTeams())
+                {
+                    int score = 0;
+                    foreach (var j in GetResultsCompetition().Where(a=>a.Request.Sportsman.IdTeam == i.Id))
+                    {
+                        score += j.Score;
+                    }
+                    i.Score = score;
+                    Connection.connection.SaveChanges();
+                }               
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public static void RemoveTeam(int id)
         {
             try

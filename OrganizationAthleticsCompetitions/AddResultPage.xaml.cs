@@ -39,10 +39,18 @@ namespace OrganizationAthleticsCompetitions
             for (int i = 0; i< list.Count(); i++)
             {
                 list[i].Rank = count;
+                if (count == 1)
+                    list[i].Score = 10;
+                else if (count == 2)
+                    list[i].Score = 7;
+                else if (count == 3)
+                    list[i].Score = 5;
+                else
+                    list[i].Score = 2;
                 Connection.connection.SaveChanges();
                 count++;
             }
-
+            DataAccess.UpdateScoreTeam();
         }
     }
 }
