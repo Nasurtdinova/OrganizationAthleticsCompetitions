@@ -63,5 +63,10 @@ namespace OrganizationAthleticsCompetitions
         {
 
         }
+
+        private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

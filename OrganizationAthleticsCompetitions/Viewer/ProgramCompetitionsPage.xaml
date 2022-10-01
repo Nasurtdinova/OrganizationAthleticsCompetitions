@@ -11,12 +11,12 @@
         <ListView Name="lvProgramsCompetition">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Тип программы"  DisplayMemberBinding="{Binding TypeProgram.Name}"></GridViewColumn>
-                    <GridViewColumn Header="Тип соревнования" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
-                    <GridViewColumn Header="Время начала" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
+                    <GridViewColumn Header="Тип программы" Width="200"  DisplayMemberBinding="{Binding TypeProgram.Name}"></GridViewColumn>
+                    <GridViewColumn Header="Тип соревнования" Width="200" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
+                    
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
+                    <GridViewColumn Header="Время начала" Width="170" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
                     <GridViewColumn Header="Род" DisplayMemberBinding="{Binding TypeCompetition.Gender}"></GridViewColumn>
-                    <GridViewColumn Header="Макс число участников" DisplayMemberBinding="{Binding MaxCountAttendees}"></GridViewColumn>
                     <GridViewColumn Header="Число участников" DisplayMemberBinding="{Binding CountAttendees}"></GridViewColumn>
                     <GridViewColumn Header="Заявка" x:Name="columnRequest">
                         <GridViewColumn.CellTemplate>
@@ -25,10 +25,10 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Результаты" x:Name="columnResult">
+                    <GridViewColumn x:Name="columnResult" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnResult" Width="100" Content="Результаты" Click="btnResult_Click"></Button>
+                                <Button Name="btnResult" Width="200" Content="Результаты" Click="btnResult_Click"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

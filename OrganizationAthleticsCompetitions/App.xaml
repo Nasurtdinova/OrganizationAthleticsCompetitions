@@ -30,7 +30,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FF6273AA"></Setter>
             <Setter Property="BorderBrush" Value="#FF6273AA"></Setter>
