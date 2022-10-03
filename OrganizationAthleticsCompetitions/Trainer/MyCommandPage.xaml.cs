@@ -16,9 +16,6 @@ using OrganizationAthleticsCompetitions.DataBase;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для MyCommandPage.xaml
-    /// </summary>
     public partial class MyCommandPage : Page
     {
         public MyCommandPage()

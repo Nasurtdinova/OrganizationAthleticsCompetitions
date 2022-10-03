@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml
-15-1239470188
+15644222805
 2-1329724926
-45-1664866748
+46-1398107277
 181694362083
-AddEditSportsmanPage.xaml;AddResultPage.xaml;AdminProgramCompetitionpage.xaml;EditProfileTPage.xaml;Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Viewer\CompetitionsPage.xaml;Trainer\MyCommandPage.xaml;Viewer\ProgramCompetitionsPage.xaml;Trainer\RequestPage.xaml;Viewer\ResultProgramCompetitionsPage.xaml;Viewer\SportsmansPage.xaml;Viewer\TeamsPage.xaml;MainWindow.xaml;Viewer\SportsmansInCommandPage.xaml;
+Trainer\AddEditSportsmanPage.xaml;AddResultPage.xaml;AdminProgramCompetitionpage.xaml;Trainer\EditProfileTPage.xaml;Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Viewer\CompetitionsPage.xaml;Trainer\MyCommandPage.xaml;Viewer\ProgramCompetitionsPage.xaml;Trainer\RequestPage.xaml;Viewer\ResultProgramCompetitionsPage.xaml;Viewer\SportsmansPage.xaml;Viewer\TeamsPage.xaml;MainWindow.xaml;Viewer\SportsmansInCommandPage.xaml;
 
-True
+False
 

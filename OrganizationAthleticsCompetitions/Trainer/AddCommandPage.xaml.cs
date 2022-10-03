@@ -61,12 +61,18 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.GoBack();
         }
 
         private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new AddEditSportsmanPage(null));
+        }
 
+        private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
+        {
+            var i = (sender as Button).DataContext as Sportsman;
+            Manager.MainFrame.Navigate(new AddEditSportsmanPage(i));
         }
     }
 }

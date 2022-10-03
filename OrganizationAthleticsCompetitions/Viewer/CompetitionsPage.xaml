@@ -24,7 +24,7 @@
             <Image Height="30" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\city.png"></Image>
             <ComboBox Name="comboCity" DisplayMemberPath="Name" Width="200" Height="30" SelectionChanged="comboCity_SelectionChanged" ></ComboBox>
         </StackPanel>
-        <TextBlock Text="Соревнования" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Text="Соревнования"></TextBlock>
         <TabControl Grid.Row="2">
             <TabItem Header="Предстоящие">
                 <TabItem.Content>

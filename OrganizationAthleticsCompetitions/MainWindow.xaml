@@ -29,7 +29,7 @@
                     <ListViewItem Height="30">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\home.png" Height="20"/>
-                            <Button Margin="15 0 0 0" Content="Главная" Name="btnHome" Click="btnHome_Click"/>
+                            <Button Height="30" Margin="15 0 0 0" Content="Главная" Name="btnHome" Click="btnHome_Click"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">

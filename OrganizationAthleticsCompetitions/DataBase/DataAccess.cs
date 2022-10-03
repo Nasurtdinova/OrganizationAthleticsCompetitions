@@ -29,6 +29,11 @@ namespace OrganizationAthleticsCompetitions
             return new List<Request>(Connection.connection.Request).ToList();
         }
 
+        public static List<CategorySportsman> GetCategorySportsmans()
+        {
+            return new List<CategorySportsman>(Connection.connection.CategorySportsman).ToList();
+        }
+
         public static Request GetRequestSportsmanProgram(int idSportsman, int idProgram)
         {
             return GetRequests().Where(a => a.IdSportsman == idSportsman && a.IdProgramCompetition == idProgram).FirstOrDefault();

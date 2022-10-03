@@ -64,7 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddEditSportsmanPage.xaml.cs">
+    <Compile Include="AddEditSportsman.cs" />
+    <Compile Include="Trainer\AddEditSportsmanPage.xaml.cs">
       <DependentUpon>AddEditSportsmanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddResultPage.xaml.cs">
@@ -73,7 +74,7 @@
     <Compile Include="AdminProgramCompetitionpage.xaml.cs">
       <DependentUpon>AdminProgramCompetitionpage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditProfileTPage.xaml.cs">
+    <Compile Include="Trainer\EditProfileTPage.xaml.cs">
       <DependentUpon>EditProfileTPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trainer\AddCommandPage.xaml.cs">
@@ -176,7 +177,7 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="AddEditSportsmanPage.xaml">
+    <Page Include="Trainer\AddEditSportsmanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +189,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditProfileTPage.xaml">
+    <Page Include="Trainer\EditProfileTPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
