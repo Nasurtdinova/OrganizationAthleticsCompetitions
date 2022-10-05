@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,15 +40,11 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)
         {
-            //Sponsor spon = new Sponsor()
-            //{
-            //    Name = tbName.Text,
-            //    Surname = tbSurname.Text,
-            //    Phone = tbPhone.Text,
-            //    Photo = CurrentUser.spon.Photo
-            //};
-            //ConnectionUser.UpdateSponsor(spon);
-            //MessageBox.Show("Информация сохранена");
+            CurrentUser.trainer.User.Login = tbPhone.Text;
+            CurrentUser.trainer.User.Surname = tbSurname.Text;
+            CurrentUser.trainer.User.Name = tbName.Text;
+            Connection.connection.SaveChanges();
+            MessageBox.Show("Информация сохранена");
         }
 
         private void btnEditPhoto_Click(object sender, RoutedEventArgs e)

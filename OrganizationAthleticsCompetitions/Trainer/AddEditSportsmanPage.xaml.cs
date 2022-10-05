@@ -28,10 +28,10 @@ namespace OrganizationAthleticsCompetitions
             if (sports != null)
             {
                 CurrentSportsman = sports;
-                cbGender.SelectedItem = CurrentSportsman.Gender;
             }
             comboCity.ItemsSource = DataAccess.GetCities();
             comboCategory.ItemsSource = DataAccess.GetCategorySportsmans();
+            comboGender.ItemsSource = DataAccess.GetGenders();
             DataContext = CurrentSportsman;
         }
 

@@ -40,6 +40,13 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="40" />
   </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="ProgramCompetition">
     <Key>
       <PropertyRef Name="Id" />
@@ -52,6 +59,7 @@
     <Property Name="TimeStart" Type="time" Precision="7" />
     <Property Name="MaxCountAttendees" Type="int" />
     <Property Name="CountAttendees" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="Request">
     <Key>
@@ -144,7 +152,6 @@
     <Property Name="Name" Type="nvarchar" MaxLength="30" />
     <Property Name="IdFormatResult" Type="int" />
     <Property Name="Distance" Type="float" />
-    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="TypeProgram">
     <Key>
@@ -195,6 +202,18 @@
       </Principal>
       <Dependent Role="Competition">
         <PropertyRef Name="IdVenue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramCompetition_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="ProgramCompetition" Type="Self.ProgramCompetition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="ProgramCompetition">
+        <PropertyRef Name="Gender" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -255,6 +274,18 @@
       </Principal>
       <Dependent Role="Sportsman">
         <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sportsman_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="Sportsman" Type="Self.Sportsman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Sportsman">
+        <PropertyRef Name="Gender" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -408,6 +439,7 @@
     <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FormatResult" EntityType="Self.FormatResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProgramCompetition" EntityType="Self.ProgramCompetition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResultCompetition" EntityType="Self.ResultCompetition" Schema="dbo" store:Type="Tables" />
@@ -429,6 +461,10 @@
       <End Role="Venue" EntitySet="Venue" />
       <End Role="Competition" EntitySet="Competition" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProgramCompetition_Gender" Association="Self.FK_ProgramCompetition_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
+    </AssociationSet>
     <AssociationSet Name="FK_Request_Sportsman" Association="Self.FK_Request_Sportsman">
       <End Role="Sportsman" EntitySet="Sportsman" />
       <End Role="Request" EntitySet="Request" />
@@ -447,6 +483,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Sportsman_City" Association="Self.FK_Sportsman_City">
       <End Role="City" EntitySet="City" />
+      <End Role="Sportsman" EntitySet="Sportsman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sportsman_Gender" Association="Self.FK_Sportsman_Gender">
+      <End Role="Gender" EntitySet="Gender" />
       <End Role="Sportsman" EntitySet="Sportsman" />
     </AssociationSet>
     <AssociationSet Name="FK_Sportsman_Team" Association="Self.FK_Sportsman_Team">

@@ -24,7 +24,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public string Name { get; set; }
         public Nullable<int> IdFormatResult { get; set; }
         public Nullable<double> Distance { get; set; }
-        public string Gender { get; set; }
     
         public virtual FormatResult FormatResult { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

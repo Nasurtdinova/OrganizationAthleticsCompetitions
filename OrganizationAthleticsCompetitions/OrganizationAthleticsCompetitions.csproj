@@ -65,6 +65,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AddEditSportsman.cs" />
+    <Compile Include="DataBase\Gender.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSportsmanWindow.xaml.cs">
+      <DependentUpon>SelectSportsmanWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trainer\AddEditSportsmanPage.xaml.cs">
       <DependentUpon>AddEditSportsmanPage.xaml</DependentUpon>
     </Compile>
@@ -177,6 +183,10 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Page Include="SelectSportsmanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Trainer\AddEditSportsmanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

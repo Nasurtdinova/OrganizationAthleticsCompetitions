@@ -66,7 +66,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditSportsmanPage(null));
+            Manager.MainFrame.NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
         }
 
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)

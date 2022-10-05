@@ -14,6 +14,11 @@ namespace OrganizationAthleticsCompetitions
             return new List<User>(Connection.connection.User.ToList());
         }
 
+        public static List<Gender> GetGenders()
+        {
+            return new List<Gender>(Connection.connection.Gender.ToList());
+        }
+
         public static List<Team> GetTeams()
         {
             return new List<Team>(Connection.connection.Team.Where(a=>a.IsDeleted == false).ToList());

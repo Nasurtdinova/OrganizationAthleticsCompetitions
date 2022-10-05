@@ -12,26 +12,20 @@ namespace OrganizationAthleticsCompetitions.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class City
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public City()
+        public Gender()
         {
-            this.User = new HashSet<User>();
-            this.Venue = new HashSet<Venue>();
-            this.Team = new HashSet<Team>();
+            this.ProgramCompetition = new HashSet<ProgramCompetition>();
             this.Sportsman = new HashSet<Sportsman>();
         }
     
-        public int Id { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Venue> Venue { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Team> Team { get; set; }
+        public virtual ICollection<ProgramCompetition> ProgramCompetition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sportsman> Sportsman { get; set; }
     }

@@ -10,9 +10,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="450"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -39,19 +39,12 @@
         <TextBox Grid.Column="1" Grid.Row="2" Name="tbPatronymic" Text="{Binding Patronymic}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="3" Name="tbDateOfBirth" Text="{Binding DateOfBirth}"></TextBox>
         <ComboBox Grid.Column="1" Grid.Row="4" Width="200" Name="comboCity" DisplayMemberPath="Name" SelectedItem="{Binding City}"></ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="5" Width="200" Name="comboCategory" DisplayMemberPath="Name" SelectedItem="{Binding CategorySportsman}"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="5" Width="470" Name="comboCategory" DisplayMemberPath="Name" SelectedItem="{Binding CategorySportsman}"></ComboBox>
         <TextBox Grid.Column="3" Name="tbHeight" Text="{Binding Height}"></TextBox>
         <TextBox Grid.Column="3" Grid.Row="1" Name="tbWeight" Text="{Binding Weight}"></TextBox>
-        <ComboBox Grid.Row="2" Grid.Column="3" Width="200" Name="cbGender">
-            <ComboBoxItem>
-                <TextBlock Text="м"></TextBlock>
-            </ComboBoxItem>
-            <ComboBoxItem>
-                <TextBlock Text="ж"></TextBlock>
-            </ComboBoxItem>
-        </ComboBox>
+        <ComboBox Grid.Row="2" Grid.Column="3" Width="200" Name="comboGender" DisplayMemberPath="Name" SelectedItem="{Binding Gender}"></ComboBox>
         <TextBox Grid.Row="3" Grid.Column="3" x:Name="tbNumber" Text="{Binding PhoneNumber}"></TextBox>
         <Button Grid.Column="3" Grid.Row="4" Content="Загрузить фото" Name="btnLoad" Click="btnLoad_Click"></Button>
-        <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Name="btnSave" Content="Сохранить" Click="btnSave_Click"></Button>
+        <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Width="130" Name="btnSave" Content="Сохранить" Click="btnSave_Click"></Button>
     </Grid>
 </Page>

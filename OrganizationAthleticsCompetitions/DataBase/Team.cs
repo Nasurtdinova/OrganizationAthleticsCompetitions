@@ -17,8 +17,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Team()
         {
-            this.Sportsman = new HashSet<Sportsman>();
             this.Trainer_Team = new HashSet<Trainer_Team>();
+            this.Sportsman = new HashSet<Sportsman>();
         }
     
         public int Id { get; set; }
@@ -30,8 +30,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sportsman> Sportsman { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sportsman> Sportsman { get; set; }
     }
 }
