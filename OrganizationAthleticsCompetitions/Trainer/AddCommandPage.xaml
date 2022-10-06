@@ -53,9 +53,8 @@
                         </Grid.RowDefinitions>
                         <DataGrid Name="lvSportsmans"  AutoGenerateColumns="False" CanUserAddRows="false">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Фамилия"  Binding="{Binding Surname}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="ФИО"  Binding="{Binding FullName}"></DataGridTextColumn>
+               
                                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Фотография" Width="200">
                                     <DataGridTemplateColumn.CellTemplate>

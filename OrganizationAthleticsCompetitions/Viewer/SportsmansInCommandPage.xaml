@@ -14,9 +14,8 @@
                     <ListView Name="lvSportsmansInTeam">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Фамилия"  DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
-                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
-                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"></GridViewColumn>
+                                <GridViewColumn Header="ФИО"  DisplayMemberBinding="{Binding FullName}" Width="400"></GridViewColumn>
+                                
                                 <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
                                 <GridViewColumn Header="Фотография" Width="200">
                                     <GridViewColumn.CellTemplate>
@@ -35,9 +34,8 @@
                     <ListView Name="lvTrainersInTeam">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Фамилия" Width="300" DisplayMemberBinding="{Binding Trainer.User.Surname}"></GridViewColumn>
-                                <GridViewColumn Header="Имя" Width="250" DisplayMemberBinding="{Binding Trainer.User.Name}"></GridViewColumn>
-                                <GridViewColumn Header="Отчество" Width="300" DisplayMemberBinding="{Binding Trainer.User.Patronymic}"></GridViewColumn>
+                                <GridViewColumn Header="ФИО" Width="400" DisplayMemberBinding="{Binding Trainer.User.FullName}"></GridViewColumn>
+                               
                                 <GridViewColumn Header="Количество тренерства" DisplayMemberBinding="{Binding Year}"></GridViewColumn>
                             </GridView>
                         </ListView.View>

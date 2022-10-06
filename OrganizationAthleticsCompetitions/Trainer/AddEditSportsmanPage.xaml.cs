@@ -21,7 +21,7 @@ namespace OrganizationAthleticsCompetitions
     public partial class AddEditSportsmanPage : Page
     {
         public Sportsman CurrentSportsman { get; set; }
-        public AddEditSportsmanPage(Sportsman sports)
+        public AddEditSportsmanPage(Sportsman sports, Team team)
         {
             InitializeComponent();
 
@@ -29,6 +29,9 @@ namespace OrganizationAthleticsCompetitions
             {
                 CurrentSportsman = sports;
             }
+
+            CurrentSportsman.Team = team;
+
             comboCity.ItemsSource = DataAccess.GetCities();
             comboCategory.ItemsSource = DataAccess.GetCategorySportsmans();
             comboGender.ItemsSource = DataAccess.GetGenders();
@@ -45,16 +48,19 @@ namespace OrganizationAthleticsCompetitions
             if (openFileDialog.ShowDialog() == true)
             {
                 string path = openFileDialog.FileName;
-                CurrentUser.trainer.Image = File.ReadAllBytes(path);
+                imgSportsman.Source = new BitmapImage(new Uri(path));
+                CurrentSportsman.Image = File.ReadAllBytes(path);
             }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentSportsman.Id == 0)
-                AddEditSportsman.AddingSportsman = CurrentSportsman;
+                DataAccess.AddSportsman(CurrentSportsman);
             else
-                AddEditSportsman.EditingSportsman = CurrentSportsman;
+                DataAccess.UpdateSportsman(CurrentSportsman);
+            MessageBox.Show("Информация сохранена!");
+            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(CurrentSportsman.Team));
         }
     }
 }

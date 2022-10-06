@@ -28,7 +28,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new AddEditSportsmanPage(null));
+            Manager.MainFrame.NavigationService.Navigate(new AddEditSportsmanPage(null,CurrentCommand));
         }
 
         private void btnSelect_Click(object sender, RoutedEventArgs e)

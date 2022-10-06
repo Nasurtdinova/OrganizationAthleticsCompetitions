@@ -23,28 +23,25 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Фамилия"></TextBlock>
-        <TextBlock Text="Имя" Grid.Row="1"></TextBlock>
-        <TextBlock Text="Отчество" Grid.Row="2"></TextBlock>
-        <TextBlock Text="Дата рождения" Grid.Row="3"></TextBlock>
-        <TextBlock Text="Город" Grid.Row="4"></TextBlock>
-        <TextBlock Text="Категория" Grid.Row="5"></TextBlock>
+        <TextBlock Text="ФИО"></TextBlock>
+        <TextBlock Text="Дата рождения" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Город" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Категория" Grid.Row="3"></TextBlock>
         <TextBlock Text="Рост" Grid.Column="2"></TextBlock>
         <TextBlock Text="Вес" Grid.Column="2" Grid.Row="1"></TextBlock>
         <TextBlock Text="Род" Grid.Column="2" Grid.Row="2"></TextBlock>
         <TextBlock Text="Номер" Grid.Column="2" Grid.Row="3"></TextBlock>
-        <TextBlock Text="Фотка" Grid.Column="2" Grid.Row="4"></TextBlock>
-        <TextBox Grid.Column="1" Name="tbSurname" Text="{Binding Surname}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="tbName" Text="{Binding Name}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="2" Name="tbPatronymic" Text="{Binding Patronymic}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="3" Name="tbDateOfBirth" Text="{Binding DateOfBirth}"></TextBox>
-        <ComboBox Grid.Column="1" Grid.Row="4" Width="200" Name="comboCity" DisplayMemberPath="Name" SelectedItem="{Binding City}"></ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="5" Width="470" Name="comboCategory" DisplayMemberPath="Name" SelectedItem="{Binding CategorySportsman}"></ComboBox>
+        <TextBlock Text="Фотка" Grid.Row="4"></TextBlock>
+        <TextBox Grid.Column="1" Name="tbFullName" Width="400" Text="{Binding FullName}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="tbDateOfBirth" Text="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></TextBox>
+        <ComboBox Grid.Column="1" Grid.Row="2" Width="200" Name="comboCity" DisplayMemberPath="Name" SelectedItem="{Binding City}"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="3" Width="455" Name="comboCategory" DisplayMemberPath="Name" SelectedItem="{Binding CategorySportsman}"></ComboBox>
         <TextBox Grid.Column="3" Name="tbHeight" Text="{Binding Height}"></TextBox>
         <TextBox Grid.Column="3" Grid.Row="1" Name="tbWeight" Text="{Binding Weight}"></TextBox>
         <ComboBox Grid.Row="2" Grid.Column="3" Width="200" Name="comboGender" DisplayMemberPath="Name" SelectedItem="{Binding Gender}"></ComboBox>
         <TextBox Grid.Row="3" Grid.Column="3" x:Name="tbNumber" Text="{Binding PhoneNumber}"></TextBox>
-        <Button Grid.Column="3" Grid.Row="4" Content="Загрузить фото" Name="btnLoad" Click="btnLoad_Click"></Button>
-        <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Width="130" Name="btnSave" Content="Сохранить" Click="btnSave_Click"></Button>
+        <Button  Grid.Row="5" Content="Загрузить фото" HorizontalAlignment="Center" Name="btnLoad" Click="btnLoad_Click"></Button>
+        <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Width="130" Height="70" Name="btnSave" Content="Сохранить" Click="btnSave_Click"></Button>
+        <Image Source="{Binding Image}" Name="imgSportsman" Grid.RowSpan="2" Grid.Row="4" Grid.Column="1"></Image>
     </Grid>
 </Page>

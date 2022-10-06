@@ -173,7 +173,21 @@ namespace OrganizationAthleticsCompetitions
         {
             try
             {
+                team.IsDeleted = false;
                 Connection.connection.Team.Add(team);
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void AddSportsman(Sportsman sports)
+        {
+            try
+            {
+                Connection.connection.Sportsman.Add(sports);
                 Connection.connection.SaveChanges();
             }
             catch (Exception ex)
@@ -190,6 +204,32 @@ namespace OrganizationAthleticsCompetitions
                 com.IsDeleted = false;
                 com.Name = command.Name;
                 com.IdCity = command.IdCity;
+                if (command.Image != null)
+                    com.Image = command.Image;
+
+                Connection.connection.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static void UpdateSportsman(Sportsman command)
+        {
+            try
+            {
+                var com = Connection.connection.Sportsman.SingleOrDefault(r => r.Id == command.Id);
+                com.IsDeleted = false;
+                com.FullName = command.FullName;
+                com.IdCity = command.IdCity;
+                com.DateOfBirth = command.DateOfBirth;
+                com.Gender = command.Gender;
+                com.Height = command.Height;
+                com.Weight = com.Weight;
+                com.PhoneNumber = com.PhoneNumber;
+                com.CategorySportsman = command.CategorySportsman;
+                com.Team = command.Team;
                 if (command.Image != null)
                     com.Image = command.Image;
 

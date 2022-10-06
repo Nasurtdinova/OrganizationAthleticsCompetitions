@@ -21,9 +21,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
+        public string FullName { get; set; }
         public Nullable<int> IdCity { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

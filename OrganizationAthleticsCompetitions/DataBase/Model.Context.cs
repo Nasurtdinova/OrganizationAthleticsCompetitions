@@ -32,7 +32,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeProgram> TypeProgram { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Venue> Venue { get; set; }
         public virtual DbSet<Trainer_Team> Trainer_Team { get; set; }
         public virtual DbSet<Request> Request { get; set; }
@@ -44,5 +43,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public virtual DbSet<ProgramCompetition> ProgramCompetition { get; set; }
         public virtual DbSet<TypeCompetition> TypeCompetition { get; set; }
         public virtual DbSet<Sportsman> Sportsman { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

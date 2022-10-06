@@ -52,7 +52,16 @@ namespace OrganizationAthleticsCompetitions
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentCommand.Id == 0)
+            {
                 DataAccess.AddTeam(CurrentCommand);
+                Trainer_Team trainer_Team = new Trainer_Team()
+                {
+                    Team = CurrentCommand,
+                    Trainer = CurrentUser.trainer
+                };
+                Connection.connection.Trainer_Team.Add(trainer_Team);
+                Connection.connection.SaveChanges();
+            }
             else
                 DataAccess.UpdateTeam(CurrentCommand);
             MessageBox.Show("Информация сохранена");
@@ -72,7 +81,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
         {
             var i = (sender as Button).DataContext as Sportsman;
-            Manager.MainFrame.Navigate(new AddEditSportsmanPage(i));
+            Manager.MainFrame.Navigate(new AddEditSportsmanPage(i, CurrentCommand));
         }
     }
 }

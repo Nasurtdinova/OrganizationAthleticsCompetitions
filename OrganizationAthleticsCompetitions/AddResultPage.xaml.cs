@@ -23,6 +23,7 @@ namespace OrganizationAthleticsCompetitions
         {
             InitializeComponent();
             ProgCompet = pr;
+            formatResult.Text = pr.TypeCompetition.FormatResult.Name;
             cbSportsman.ItemsSource = DataAccess.GetSportsmans();
         }
 

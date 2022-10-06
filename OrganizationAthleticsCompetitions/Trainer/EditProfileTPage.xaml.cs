@@ -41,8 +41,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)
         {
             CurrentUser.trainer.User.Login = tbPhone.Text;
-            CurrentUser.trainer.User.Surname = tbSurname.Text;
-            CurrentUser.trainer.User.Name = tbName.Text;
+            CurrentUser.trainer.User.FullName = tbFullName.Text;
             Connection.connection.SaveChanges();
             MessageBox.Show("Информация сохранена");
         }

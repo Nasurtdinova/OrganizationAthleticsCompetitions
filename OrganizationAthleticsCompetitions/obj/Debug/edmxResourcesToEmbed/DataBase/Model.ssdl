@@ -92,9 +92,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
-    <Property Name="Name" Type="nvarchar" MaxLength="20" />
-    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" />
     <Property Name="IdCity" Type="int" />
     <Property Name="DateOfBirth" Type="date" />
     <Property Name="Height" Type="int" />
@@ -165,9 +163,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
-    <Property Name="Name" Type="nvarchar" MaxLength="20" />
-    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="30" />
     <Property Name="IdCity" Type="int" />
     <Property Name="Login" Type="nvarchar" MaxLength="20" />
     <Property Name="Password" Type="nvarchar" MaxLength="20" />
