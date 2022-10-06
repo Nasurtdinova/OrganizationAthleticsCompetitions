@@ -23,7 +23,6 @@ namespace OrganizationAthleticsCompetitions
         public static Button CommandsTrainer { get; set; }
         public static Button Commands { get; set; }
 
-        public static Button CompetitionsAdmin { get; set; }
         public static Button Competitions { get; set; }
 
         public static Button ResultCompetitionsAdmin { get; set; }
@@ -38,15 +37,14 @@ namespace OrganizationAthleticsCompetitions
 
             Sportsmans.Visibility = System.Windows.Visibility.Visible;
             Commands.Visibility = System.Windows.Visibility.Visible;
-            Competitions.Visibility = System.Windows.Visibility.Collapsed;
+            Competitions.Visibility = System.Windows.Visibility.Visible;
             ResultCompetitions.Visibility = System.Windows.Visibility.Collapsed;
 
             EditProfile.Visibility = System.Windows.Visibility.Collapsed;
 
             //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
             CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
-
-            CompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;       
+      
             ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;
 
         }
@@ -66,7 +64,6 @@ namespace OrganizationAthleticsCompetitions
             //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
             CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
 
-            CompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
             ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
         }
 
@@ -82,7 +79,6 @@ namespace OrganizationAthleticsCompetitions
             EditProfile.Visibility = System.Windows.Visibility.Visible;
 
             CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
-            CompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
             ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
         }
 

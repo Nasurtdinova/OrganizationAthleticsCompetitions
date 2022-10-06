@@ -50,7 +50,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\competition.png" Height="20"/>
                             <Button Margin="15 0 0 0" Content="Соревнования" Name="competition" Click="competition_Click"/>
-                            <Button Margin="15 0 0 0" Content="Соревнования" Name="competitionAdmin" Click="competitionAdmin_Click" Visibility="Collapsed"/>
+                           
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">

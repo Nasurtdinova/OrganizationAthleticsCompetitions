@@ -34,7 +34,6 @@ namespace OrganizationAthleticsCompetitions
             Manager.CommandsTrainer = commandTrainer;
             Manager.Commands = command;
 
-            Manager.CompetitionsAdmin = competitionAdmin;
             Manager.Competitions = competition;
 
             Manager.ResultCompetitionsAdmin = resultCompetitionAdmin;
@@ -113,11 +112,6 @@ namespace OrganizationAthleticsCompetitions
         private void competition_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new CompetitionsPage());
-        }
-
-        private void competitionAdmin_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void command_Click(object sender, RoutedEventArgs e)

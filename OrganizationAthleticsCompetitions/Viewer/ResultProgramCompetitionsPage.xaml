@@ -11,9 +11,8 @@
         <ListView Name="lvResultProgramCompetitinon">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Фамилия"  DisplayMemberBinding="{Binding Request.Sportsman.Surname}"></GridViewColumn>
-                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Request.Sportsman.Name}"></GridViewColumn>
-                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Request.Sportsman.Patronymic}" Width="220"></GridViewColumn>
+                    <GridViewColumn Header="ФИО" Width="400"  DisplayMemberBinding="{Binding Request.Sportsman.FullName}"></GridViewColumn>
+
                    
                     <GridViewColumn Header="Место" DisplayMemberBinding="{Binding Rank}"></GridViewColumn>
                     <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}"></GridViewColumn>

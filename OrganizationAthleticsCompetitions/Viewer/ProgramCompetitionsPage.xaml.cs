@@ -27,6 +27,11 @@ namespace OrganizationAthleticsCompetitions
                 columnRequest.Width = 0;
             if (CurrentUser.user == null)
                 columnRequest.Width = 0;
+            else if (CurrentUser.user.Role.Name == "Администратор")
+            {
+                columnRequest.Width = 0;
+                columnAddResult.Width = 200;
+            }
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
         }
 
@@ -43,6 +48,12 @@ namespace OrganizationAthleticsCompetitions
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
             Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage(a));
+        }
+
+        private void btnAddResult_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as Button).DataContext as ProgramCompetition;
+            Manager.MainFrame.NavigationService.Navigate(new AddResultPage(a));
         }
     }
 }
