@@ -69,7 +69,7 @@
                     <ListViewItem Height="30" Name="exportExsel">
                         <StackPanel Orientation="Horizontal" >
                             <Image Source="Images\exportExcel.png" Height="20"/>
-                            <Button Margin="15 0 0 0" Name="btnExport" Content="Экспорт в эксель" Click="btnExport_Click"/>
+                            <Button Margin="15 0 0 0" Name="btnExport" Content="Отчеты" Click="btnExport_Click"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

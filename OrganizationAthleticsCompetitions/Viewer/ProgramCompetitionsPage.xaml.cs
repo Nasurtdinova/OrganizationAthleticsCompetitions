@@ -25,6 +25,7 @@ namespace OrganizationAthleticsCompetitions
                 columnResult.Width = 0;
             else
                 columnRequest.Width = 0;
+
             if (CurrentUser.user == null)
                 columnRequest.Width = 0;
             else if (CurrentUser.user.Role.Name == "Администратор")

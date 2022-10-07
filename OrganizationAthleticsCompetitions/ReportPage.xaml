@@ -1,0 +1,28 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.ReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReportPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Выберите название сореванония" Margin="20"></TextBlock>
+            <ComboBox Name="comboCompetitions" SelectedItem="{Binding Competition}" SelectionChanged="comboCompetitions_SelectionChanged" DisplayMemberPath="Name">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <TextBlock Text="Выберите вид сореванония" Margin="20"></TextBlock>
+            <ComboBox Name="comboTypeCompetitions" SelectionChanged="comboTypeCompetitions_SelectionChanged" SelectedItem="{Binding TypeCompetition}" DisplayMemberPath="Name"></ComboBox>
+        </StackPanel>
+        <Button x:Name="btnReport" Grid.Row="2" Width="100" Content="Вывести" Click="btnReport_Click"></Button>
+    </Grid>
+</Page>

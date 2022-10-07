@@ -1,8 +1,9 @@
 ﻿
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\ReportPage.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SelectSportsmanWindow.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\AddEditSportsmanPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\AddResultPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\AdminProgramCompetitionpage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\EditProfileTPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\AddCommandPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\MainPages\AuthorizationPage.xaml;;
@@ -15,5 +16,4 @@ FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthle
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\TeamsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\MainWindow.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\SportsmansInCommandPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SelectSportsmanWindow.xaml;;
 

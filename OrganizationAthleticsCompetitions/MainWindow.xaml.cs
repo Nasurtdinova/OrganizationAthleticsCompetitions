@@ -91,7 +91,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(new ReportPage());
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -126,7 +126,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void resultCompetitionAdmin_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new AdminProgramCompetitionpage());
+            //mainFrame.Navigate(new AdminProgramCompetitionpage());
         }
 
         private void btnProfile_Click(object sender, RoutedEventArgs e)

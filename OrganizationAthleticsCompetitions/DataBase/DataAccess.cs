@@ -24,6 +24,11 @@ namespace OrganizationAthleticsCompetitions
             return new List<Team>(Connection.connection.Team.Where(a=>a.IsDeleted == false).ToList());
         }
 
+        public static List<TypeCompetition> GetTypesCompetitions()
+        {
+            return new List<TypeCompetition>(Connection.connection.TypeCompetition).ToList();
+        }
+
         public static List<Sportsman> GetSportsmans()
         {
             return new List<Sportsman>(Connection.connection.Sportsman.Where(a => a.IsDeleted == false).ToList());
