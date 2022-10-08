@@ -85,12 +85,7 @@ namespace OrganizationAthleticsCompetitions
         private void comboCompetitions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectCompetition = (sender as ComboBox).SelectedItem as Competition;
-            List<TypeCompetition> list = new List<TypeCompetition>();
-            foreach(var i in DataAccess.GetProgramsCompetition().Where(a => a.Competition == SelectCompetition))
-            {
-                list.Add(i.TypeCompetition);
-            }
-            comboTypeCompetitions.ItemsSource = list.Distinct();
+            comboTypeCompetitions.ItemsSource = DataAccess.GetProgramsCompetition().Where(a => a.Competition == SelectCompetition).Select(b=>b.TypeCompetition).Distinct();
         }
 
         private void comboTypeCompetitions_SelectionChanged(object sender, SelectionChangedEventArgs e)

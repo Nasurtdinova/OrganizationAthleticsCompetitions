@@ -31,6 +31,7 @@ namespace OrganizationAthleticsCompetitions
             else if (CurrentUser.user.Role.Name == "Администратор")
             {
                 columnRequest.Width = 0;
+                //if
                 columnAddResult.Width = 200;
             }
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);

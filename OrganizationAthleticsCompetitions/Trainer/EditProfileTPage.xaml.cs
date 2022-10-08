@@ -48,10 +48,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnEditPhoto_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog()
-            {
-                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
-            };
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
             if (openFileDialog.ShowDialog() == true)
             {

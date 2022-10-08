@@ -65,8 +65,8 @@ namespace OrganizationAthleticsCompetitions
                     timer.Stop();
                     hidden = false;
                     lbRoleName.Visibility = Visibility.Visible;
-                    mainFrame.Margin = new Thickness(210, 50, 0, 0);
-                    panelHeader.Margin = new Thickness(210, 0, 0, 0);
+                    mainFrame.Margin = new Thickness(250, 50, 0, 0);
+                    panelHeader.Margin = new Thickness(250, 0, 0, 0);
                 }
             }
             else

@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Организация соревнований по легкой атлетике" Icon="Images/logoMain.png" Height="450" Width="800">
     <Grid>
         <Frame Background="WhiteSmoke" x:Name="mainFrame" Margin="250,50,0,0"/>
         <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" Background="#FF6273AA" Margin="210,0,0,0">
             <TextBlock Text="Организация соревнований по легкой атлетике" FontSize="25" Foreground="White"/>
         </Grid>
+        
         <Grid x:Name="sidePanel" Background="#FF6273AA" HorizontalAlignment="Left" Width="250">
             <StackPanel>
                 <Grid Height="200" Background="White">

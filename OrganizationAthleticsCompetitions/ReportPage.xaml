@@ -16,12 +16,12 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="Выберите название сореванония" Margin="20"></TextBlock>
-            <ComboBox Name="comboCompetitions" SelectedItem="{Binding Competition}" SelectionChanged="comboCompetitions_SelectionChanged" DisplayMemberPath="Name">
+            <ComboBox Name="comboCompetitions" Width="400" SelectedItem="{Binding Competition}" SelectionChanged="comboCompetitions_SelectionChanged" DisplayMemberPath="Name">
             </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
             <TextBlock Text="Выберите вид сореванония" Margin="20"></TextBlock>
-            <ComboBox Name="comboTypeCompetitions" SelectionChanged="comboTypeCompetitions_SelectionChanged" SelectedItem="{Binding TypeCompetition}" DisplayMemberPath="Name"></ComboBox>
+            <ComboBox Name="comboTypeCompetitions" Width="300" SelectionChanged="comboTypeCompetitions_SelectionChanged" SelectedItem="{Binding TypeCompetition}" DisplayMemberPath="Name"></ComboBox>
         </StackPanel>
         <Button x:Name="btnReport" Grid.Row="2" Width="100" Content="Вывести" Click="btnReport_Click"></Button>
     </Grid>

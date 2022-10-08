@@ -71,9 +71,7 @@ namespace OrganizationAthleticsCompetitions
         {
             var a = (sender as Button).DataContext as Competition;
             if (a != null)
-            {
                 Manager.MainFrame.NavigationService.Navigate(new ProgramCompetitionsPage(a));
-            }
         }
 
         private void comboCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,9 +83,7 @@ namespace OrganizationAthleticsCompetitions
         {
             var a = (sender as Button).DataContext as Competition;
             if (a != null)
-            {
                 Manager.MainFrame.NavigationService.Navigate(new ProgramCompetitionsPage(a));
-            }
         }
     }
 }

@@ -83,59 +83,34 @@ namespace OrganizationAthleticsCompetitions
         {
             List<Sportsman> list = new List<Sportsman>();
             foreach (var i in GetTeamsInTreaner(CurrentUser.trainer))
-            {
                 foreach (var j in GetSportsmans().Where(a => a.IdTeam == i.IdTeam && a.Gender == gender))
                     list.Add(j) ;
-            }
             return list;
         }
 
         public static void UpdateScoreTeam()
         {
-            try
+            foreach (var i in GetTeams())
             {
-                foreach (var i in GetTeams())
-                {
-                    int score = 0;
-                    foreach (var j in GetResultsCompetition().Where(a=>a.Request.Sportsman.IdTeam == i.Id))
-                    {
-                        score += j.Score;
-                    }
-                    i.Score = score;
-                    Connection.connection.SaveChanges();
-                }               
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                int score = 0;
+                foreach (var j in GetResultsCompetition().Where(a => a.Request.Sportsman.IdTeam == i.Id))
+                    score += j.Score;
+                i.Score = score;
+                Connection.connection.SaveChanges();
             }
         }
 
         public static void RemoveTeam(int id)
         {
-            try
-            {
-                Team team = Connection.connection.Team.FirstOrDefault(p => p.Id == id);
-                team.IsDeleted = true;
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Team team = Connection.connection.Team.FirstOrDefault(p => p.Id == id);
+            team.IsDeleted = true;
+            Connection.connection.SaveChanges();
         }
 
         public static void RemoveTrainerFromTeam(int idTeam)
         {
-            try
-            {
-                Connection.connection.Trainer_Team.Remove(GetTeamsTrainers().Where(a => a.IdTeam == idTeam && CurrentUser.trainer == a.Trainer).FirstOrDefault());
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Connection.connection.Trainer_Team.Remove(GetTeamsTrainers().Where(a => a.IdTeam == idTeam && CurrentUser.trainer == a.Trainer).FirstOrDefault());
+            Connection.connection.SaveChanges();
         }
 
         public static List<City> GetCities()
@@ -150,106 +125,62 @@ namespace OrganizationAthleticsCompetitions
 
         public static void AddRequest(Request req)
         {
-            try
-            {
-                Connection.connection.Request.Add(req);
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Connection.connection.Request.Add(req);
+            Connection.connection.SaveChanges();
         }
 
         public static void AddResult(ResultCompetition res)
         {
-            try
-            {
-                Connection.connection.ResultCompetition.Add(res);
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Connection.connection.ResultCompetition.Add(res);
+            Connection.connection.SaveChanges();
         }
 
         public static void AddTeam(Team team)
         {
-            try
-            {
-                team.IsDeleted = false;
-                Connection.connection.Team.Add(team);
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            team.IsDeleted = false;
+            Connection.connection.Team.Add(team);
+            Connection.connection.SaveChanges();
         }
 
         public static void AddSportsman(Sportsman sports)
         {
-            try
-            {
-                Connection.connection.Sportsman.Add(sports);
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Connection.connection.Sportsman.Add(sports);
+            Connection.connection.SaveChanges();
         }
 
         public static void UpdateTeam(Team command)
         {
-            try
-            {
-                var com = Connection.connection.Team.SingleOrDefault(r => r.Id == command.Id);
-                com.IsDeleted = false;
-                com.Name = command.Name;
-                com.IdCity = command.IdCity;
-                if (command.Image != null)
-                    com.Image = command.Image;
-
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            var com = Connection.connection.Team.SingleOrDefault(r => r.Id == command.Id);
+            com.IsDeleted = false;
+            com.Name = command.Name;
+            com.IdCity = command.IdCity;
+            if (command.Image != null)
+                com.Image = command.Image;
         }
 
         public static void UpdateSportsman(Sportsman command)
         {
-            try
-            {
-                var com = Connection.connection.Sportsman.SingleOrDefault(r => r.Id == command.Id);
-                com.IsDeleted = false;
-                com.FullName = command.FullName;
-                com.IdCity = command.IdCity;
-                com.DateOfBirth = command.DateOfBirth;
-                com.Gender = command.Gender;
-                com.Height = command.Height;
-                com.Weight = com.Weight;
-                com.PhoneNumber = com.PhoneNumber;
-                com.CategorySportsman = command.CategorySportsman;
-                com.Team = command.Team;
-                if (command.Image != null)
-                    com.Image = command.Image;
-
-                Connection.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            var com = Connection.connection.Sportsman.SingleOrDefault(r => r.Id == command.Id);
+            com.IsDeleted = false;
+            com.FullName = command.FullName;
+            com.IdCity = command.IdCity;
+            com.DateOfBirth = command.DateOfBirth;
+            com.Gender = command.Gender;
+            com.Height = command.Height;
+            com.Weight = com.Weight;
+            com.PhoneNumber = com.PhoneNumber;
+            com.CategorySportsman = command.CategorySportsman;
+            com.Team = command.Team;
+            if (command.Image != null)
+                com.Image = command.Image;
+            Connection.connection.SaveChanges();
         }
 
         public static List<Trainer_Team> GetTrainersInTeam(Team team)
         {
             return GetTeamsTrainers().Where(a => a.IdTeam == team.Id).ToList();
         }
+
         public static List<Trainer_Team> GetTeamsTrainers()
         {
             return new List<Trainer_Team>(Connection.connection.Trainer_Team.Where(a => a.Team.IsDeleted == false).ToList());
@@ -267,17 +198,9 @@ namespace OrganizationAthleticsCompetitions
 
         public static int IsCorrectUser(string email, string password)
         {
-            var admin = from usrs in GetUsers()
-                        where email == usrs.Login && password == usrs.Password && usrs.IdRole == 1
-                        select usrs;
-
-            var trainer = from usrs in GetUsers()
-                          where email == usrs.Login && password == usrs.Password && usrs.IdRole == 2
-                          select usrs;
-
-            var sponsor = from usrs in GetUsers()
-                          where email == usrs.Login && password == usrs.Password && usrs.IdRole == 3
-                          select usrs;
+            var admin = GetUsers().Where(a => email == a.Login && password == a.Password && a.IdRole == 1);
+            var trainer = GetUsers().Where(a => email == a.Login && password == a.Password && a.IdRole == 2);
+            var sponsor = GetUsers().Where(a => email == a.Login && password == a.Password && a.IdRole == 3);
 
             if (trainer.Count() == 1)
             {

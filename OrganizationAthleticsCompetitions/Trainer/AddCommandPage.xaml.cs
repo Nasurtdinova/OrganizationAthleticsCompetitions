@@ -75,7 +75,10 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
+            if (CurrentCommand.Id == 0)
+                MessageBox.Show("Вы еще не добавили команду!");
+            else
+                Manager.MainFrame.NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
         }
 
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
