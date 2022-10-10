@@ -31,12 +31,12 @@
                     <DataGrid AlternationCount="2" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy hh:mm'}" Width="*"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy hh:mm'}" Width="*"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}" Width="*"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}" Width="*"></DataGridTextColumn>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Content="Программа" Name="btnProgram" Click="btnProgram_Click"></Button>

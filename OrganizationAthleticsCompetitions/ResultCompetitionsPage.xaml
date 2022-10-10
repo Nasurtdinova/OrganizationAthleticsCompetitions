@@ -1,0 +1,45 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.ResultCompetitionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ResultCompetitionsPage">
+
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Text="Выберите соревнование" Margin="10"></TextBlock>
+            <ComboBox Name="comboCompetitions" Width="400" DisplayMemberPath="Name" SelectionChanged="comboCompetitions_SelectionChanged"></ComboBox>
+        </StackPanel>
+            <DataGrid Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dgRrogramsCompetitions" SelectionChanged="dgRrogramsCompetitions_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип программы" Width="170"  Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип соревнования" Width="*" Binding="{Binding TypeCompetition.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Время" Width="80" Binding="{Binding TimeStart}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Род" Binding="{Binding Gender}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Row="1" Grid.Column="1" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dgResulsPrograms">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Width="*"  Binding="{Binding Request.Sportsman.FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Место" Binding="{Binding Rank}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnBack" Content="Назад" Width="150" Click="btnBack_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

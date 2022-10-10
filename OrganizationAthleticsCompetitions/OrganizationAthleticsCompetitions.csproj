@@ -70,6 +70,9 @@
     <Compile Include="ReportPage.xaml.cs">
       <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ResultCompetitionsPage.xaml.cs">
+      <DependentUpon>ResultCompetitionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectSportsmanWindow.xaml.cs">
       <DependentUpon>SelectSportsmanWindow.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="ReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultCompetitionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

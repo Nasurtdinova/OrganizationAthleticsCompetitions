@@ -39,10 +39,5 @@ namespace OrganizationAthleticsCompetitions
                 MessageBox.Show("Incorrect login or password");
             }
         }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

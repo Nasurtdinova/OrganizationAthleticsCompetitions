@@ -32,7 +32,7 @@ namespace OrganizationAthleticsCompetitions
             {
                 columnRequest.Width = 0;
                 //if
-                columnAddResult.Width = 200;
+                columnAddResult.Width = 230;
             }
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
         }

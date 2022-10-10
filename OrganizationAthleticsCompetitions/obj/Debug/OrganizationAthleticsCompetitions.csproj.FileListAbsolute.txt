@@ -52,3 +52,5 @@ C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthlet
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\OrganizationAthleticsCompetitions.csproj.ResolveComReference.cache
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ReportPage.g.cs
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ReportPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ResultCompetitionsPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\ResultCompetitionsPage.baml

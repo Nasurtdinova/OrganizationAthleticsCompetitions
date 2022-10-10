@@ -31,7 +31,6 @@
         <PasswordBox x:Name="tbPassword" Height="80" Width="400" FontSize="25" Grid.Row="2" Grid.Column="1"></PasswordBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2">
             <Button x:Name="btnLogin" Background="#FF1C82C9" Content="Войти" Click="btnLogin_Click" Margin="10"  Width="150"></Button>
-            <Button x:Name="btnRegister" Background="#FF1C82C9" Content="Зарегистрироваться" Click="btnRegister_Click" Width="220" Margin="10"></Button>
         </StackPanel>
     </Grid>
 </Page>
