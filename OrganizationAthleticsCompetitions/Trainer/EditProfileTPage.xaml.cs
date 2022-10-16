@@ -22,19 +22,7 @@ namespace OrganizationAthleticsCompetitions
     {
         public EditProfileTPage()
         {
-            InitializeComponent();
-            if (CurrentUser.trainer.Image == null)
-                imgTrainer.Source = new BitmapImage(new Uri("C:/Users/nasur/Source/Repos/Final_Project_ASP_MVC_Clone/RunningCompetitionWPF/Icons/PhotoProfile.png"));
-            else
-            {
-                var stream = new MemoryStream(CurrentUser.trainer.Image);
-                stream.Seek(0, SeekOrigin.Begin);
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.StreamSource = stream;
-                image.EndInit();
-                imgTrainer.Source = image;
-            }
+            InitializeComponent();           
             DataContext = CurrentUser.trainer;
         }
 

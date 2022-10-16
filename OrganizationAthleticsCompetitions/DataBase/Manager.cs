@@ -17,7 +17,6 @@ namespace OrganizationAthleticsCompetitions
         public static ListViewItem Authorization { get; set; }
         public static StackPanel Exit { get; set; }
 
-        public static Button SportsmansTrainer { get; set; }
         public static Button Sportsmans { get; set; }
 
         public static Button CommandsTrainer { get; set; }
@@ -25,74 +24,36 @@ namespace OrganizationAthleticsCompetitions
 
         public static Button Competitions { get; set; }
 
-        public static Button ResultCompetitionsAdmin { get; set; }
         public static Button ResultCompetitions { get; set; }
 
         public static StackPanel EditProfile { get; set; }
 
-        public static void DoAdmin()
-        {
-            VisibleCollapsedAuthReg();
-            RoleNameLabel.Content = "Админ";
-
-            Sportsmans.Visibility = System.Windows.Visibility.Visible;
-            Commands.Visibility = System.Windows.Visibility.Visible;
-            Competitions.Visibility = System.Windows.Visibility.Visible;
-            ResultCompetitions.Visibility = System.Windows.Visibility.Collapsed;
-
-            EditProfile.Visibility = System.Windows.Visibility.Collapsed;
-
-            //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
-            CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
-      
-            ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Visible;
-
-        }
-
-        public static void DoViewer()
-        {
-            VisibleCollapsedAuthReg();
-            RoleNameLabel.Content = "Зритель";
-
-            Sportsmans.Visibility = System.Windows.Visibility.Visible;
-            Commands.Visibility = System.Windows.Visibility.Visible;
-            Competitions.Visibility = System.Windows.Visibility.Visible;
-            ResultCompetitions.Visibility = System.Windows.Visibility.Visible;
-
-            EditProfile.Visibility = System.Windows.Visibility.Collapsed;
-
-            //SportsmansTrainer.Visibility = System.Windows.Visibility.Collapsed;
-            CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
-
-            ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
-        }
-
-        public static void DoTrainer()
-        {
-            VisibleCollapsedAuthReg();
-            RoleNameLabel.Content = "Тренер";
-
-            Sportsmans.Visibility = System.Windows.Visibility.Visible;
-            Commands.Visibility = System.Windows.Visibility.Collapsed;
-            Competitions.Visibility = System.Windows.Visibility.Visible;
-            ResultCompetitions.Visibility = System.Windows.Visibility.Visible;
-            EditProfile.Visibility = System.Windows.Visibility.Visible;
-
-            CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
-            ResultCompetitionsAdmin.Visibility = System.Windows.Visibility.Collapsed;
-        }
-
-        public static void VisibleCollapsedAuthReg()
+        public static void UpdatePanel()
         {
             if (CurrentUser.user != null)
             {
+                if (CurrentUser.user.IdRole == 1)
+                {
+                    RoleNameLabel.Content = "Админ";
+                    CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
+                    Commands.Visibility = System.Windows.Visibility.Visible;
+                }
+                else if (CurrentUser.user.IdRole == 2)
+                {
+                    RoleNameLabel.Content = "Тренер";
+                    Commands.Visibility = System.Windows.Visibility.Collapsed;
+                    CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
+                    EditProfile.Visibility = System.Windows.Visibility.Visible;
+                }
                 Authorization.Visibility = System.Windows.Visibility.Collapsed;
                 Exit.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
+                RoleNameLabel.Content = "Зритель";
                 Authorization.Visibility = System.Windows.Visibility.Visible;
                 Exit.Visibility = System.Windows.Visibility.Collapsed;
+                EditProfile.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
     }

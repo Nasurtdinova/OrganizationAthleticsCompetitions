@@ -18,5 +18,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnAddResult" Click="btnAddResult_Click" Visibility="Collapsed"></Button>
     </Grid>
 </Page>

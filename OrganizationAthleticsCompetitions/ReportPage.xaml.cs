@@ -1,5 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
-using OrganizationAthleticsCompetitions.DataBase;
+﻿using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,23 +34,23 @@ namespace OrganizationAthleticsCompetitions
             foreach (var i in DataAccess.GetProgramsCompetition().Where(a => a.Competition == com && a.TypeCompetition == type))
             {
                 allTypePrograms.Add(i.TypeProgram);
-            } 
+            }
 
             Excel.Application application = new Excel.Application();
             application.SheetsInNewWorkbook = allTypePrograms.Distinct().Count();
 
-            Workbook workbook = application.Workbooks.Add(Type.Missing);
+            Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
 
             int startRowIndex = 1;
 
             for (int i = 0; i < allTypePrograms.Distinct().Count(); i++)
             {
-                Worksheet worksheet = application.Worksheets.Item[i + 1];
+                Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
                 worksheet.Name = allTypePrograms[i].Name;
                 worksheet.Cells[1][startRowIndex] = "Соревнование";
                 worksheet.Cells[2][startRowIndex] = com.Name;
-                worksheet.Cells[1][startRowIndex+1] = "Тип программы";
-                worksheet.Cells[2][startRowIndex+1] = type.Name;
+                worksheet.Cells[1][startRowIndex + 1] = "Тип программы";
+                worksheet.Cells[2][startRowIndex + 1] = type.Name;
                 worksheet.Cells[1][startRowIndex + 2] = "Формат результатов";
                 worksheet.Cells[2][startRowIndex + 2] = type.FormatResult.Name;
                 startRowIndex = 5;
@@ -67,7 +66,7 @@ namespace OrganizationAthleticsCompetitions
                     worksheet.Cells[1][startRowIndex] = result.Request.Sportsman.FullName;
                     worksheet.Cells[2][startRowIndex] = result.Result;
                     worksheet.Cells[3][startRowIndex] = result.Rank;
- 
+
                     startRowIndex++;
                 }
                 worksheet.Columns.AutoFit();

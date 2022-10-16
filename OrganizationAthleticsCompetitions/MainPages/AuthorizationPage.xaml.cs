@@ -26,13 +26,11 @@ namespace OrganizationAthleticsCompetitions
         {
             if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 1)
             {
-                Manager.DoAdmin();
-                //NavigationService.Navigate(new ViewerMainPage());
+                Manager.UpdatePanel();
             }
             else if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 2)
             {
-                Manager.DoTrainer();
-                //NavigationService.Navigate(new ViewerMainPage());
+                Manager.UpdatePanel();
             }
             else
             {

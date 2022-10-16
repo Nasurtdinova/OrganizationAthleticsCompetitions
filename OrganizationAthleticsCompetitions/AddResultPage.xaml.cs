@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    public partial class AddResultPage : Page
+    public partial class AddResultPage : Window
     {
         public ProgramCompetition ProgCompet;
         public AddResultPage(ProgramCompetition pr)
@@ -51,7 +51,7 @@ namespace OrganizationAthleticsCompetitions
                 Connection.connection.SaveChanges();
                 count++;
             }
-            DataAccess.UpdateScoreTeam();
+            Close();
         }
     }
 }

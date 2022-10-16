@@ -19,26 +19,18 @@ namespace OrganizationAthleticsCompetitions
     public partial class MainWindow : Window
     {
         DispatcherTimer timer;
-
         double panelWidth;
         bool hidden;
 
         public MainWindow()
         {
             InitializeComponent();
-
             Manager.MainFrame = mainFrame;
-
             Manager.Sportsmans = sportsman;
-
             Manager.CommandsTrainer = commandTrainer;
             Manager.Commands = command;
-
             Manager.Competitions = competition;
-
-            Manager.ResultCompetitionsAdmin = resultCompetitionAdmin;
             Manager.ResultCompetitions = resultCompetition;
-
             Manager.Authorization = login;
             Manager.Exit = exit;
 
@@ -52,7 +44,7 @@ namespace OrganizationAthleticsCompetitions
             panelWidth = sidePanel.Width;
 
             mainFrame.Navigate(new AuthorizationPage());
-        }
+        }     
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -124,11 +116,6 @@ namespace OrganizationAthleticsCompetitions
             mainFrame.Navigate(new ResultCompetitionsPage());
         }
 
-        private void resultCompetitionAdmin_Click(object sender, RoutedEventArgs e)
-        {
-            //mainFrame.Navigate(new AdminProgramCompetitionpage());
-        }
-
         private void btnProfile_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new EditProfileTPage());
@@ -137,13 +124,18 @@ namespace OrganizationAthleticsCompetitions
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             CurrentUser.user = null;
-            Manager.DoViewer();
-            Manager.MainFrame.NavigationService.Navigate(new AuthorizationPage());
+            Manager.UpdatePanel();
+            mainFrame.Navigate(new AuthorizationPage());
         }
 
         private void commandTrainer_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.NavigationService.Navigate(new MyCommandPage());
+        }
+
+        private void btnScore_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(new TotalPersonalScoresPage());
         }
     }
 }

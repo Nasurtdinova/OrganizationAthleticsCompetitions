@@ -17,7 +17,7 @@ using OrganizationAthleticsCompetitions.DataBase;
 namespace OrganizationAthleticsCompetitions
 {
 
-    public partial class RequestPage : Page
+    public partial class RequestPage : Window
     {
         ProgramCompetition CurrentProgram = new ProgramCompetition();
         TimeSpan timeStart = new TimeSpan();
@@ -40,18 +40,24 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            Request req = new Request()
+            if (DataAccess.GetRequests().Where(a => a.IdSportsman == (comboSportsman.SelectedItem as Sportsman).Id && a.IdProgramCompetition == CurrentProgram.Id).FirstOrDefault() == null)
             {
-                IdProgramCompetition = CurrentProgram.Id,
-                IdSportsman = (comboSportsman.SelectedItem as Sportsman).Id,
-                StartTime = timeStart
-            };
-            
-            DataAccess.AddRequest(req);
-            CurrentProgram.CountAttendees += 1;
-            Connection.connection.SaveChanges();
-            MessageBox.Show("Информация сохранена");
-            Manager.MainFrame.Navigate(new ProgramCompetitionsPage(CurrentProgram.Competition));
+                Request req = new Request()
+                {
+                    IdProgramCompetition = CurrentProgram.Id,
+                    IdSportsman = (comboSportsman.SelectedItem as Sportsman).Id,
+                    StartTime = timeStart
+                };
+
+                DataAccess.AddRequest(req);
+                CurrentProgram.CountAttendees += 1;
+                Connection.connection.SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                Close();
+                Manager.MainFrame.Navigate(new ProgramCompetitionsPage(CurrentProgram.Competition));
+            }
+            else
+                MessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");
         }
     }
 }

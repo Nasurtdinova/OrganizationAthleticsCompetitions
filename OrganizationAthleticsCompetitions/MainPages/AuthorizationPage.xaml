@@ -27,7 +27,7 @@
         <TextBlock Text="Авторизация" Grid.ColumnSpan="2" FontSize="25" ></TextBlock>
         <TextBlock Text="Логин" Grid.Row="1" FontSize="25"></TextBlock>
         <TextBlock Text="Пароль" Grid.Row="2" FontSize="25"></TextBlock>
-        <TextBox x:Name="tbLogin" Height="80" FontSize="25" Width="400" Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox x:Name="tbLogin" MaxLength="10" Height="80" FontSize="25" Width="400" Grid.Row="1" Grid.Column="1"></TextBox>
         <PasswordBox x:Name="tbPassword" Height="80" Width="400" FontSize="25" Grid.Row="2" Grid.Column="1"></PasswordBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2">
             <Button x:Name="btnLogin" Background="#FF1C82C9" Content="Войти" Click="btnLogin_Click" Margin="10"  Width="150"></Button>

@@ -1,8 +1,10 @@
 ﻿
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\AdminRequestsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\ReportPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\ResultCompetitionsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SelectSportsmanWindow.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\TotalPersonalScoresPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\AddEditSportsmanPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\AddResultPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\EditProfileTPage.xaml;;
@@ -11,7 +13,7 @@ FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthle
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\CompetitionsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\MyCommandPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\ProgramCompetitionsPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\RequestPage.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Trainer\SendRequestPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\ResultProgramCompetitionsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\SportsmansPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Viewer\TeamsPage.xaml;;

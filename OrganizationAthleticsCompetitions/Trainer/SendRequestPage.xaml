@@ -1,4 +1,4 @@
-﻿<Page x:Class="OrganizationAthleticsCompetitions.RequestPage"
+﻿<Window x:Class="OrganizationAthleticsCompetitions.RequestPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RequestPage">
+      Title="Отправка запроса">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -19,8 +19,8 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Спортсмен"></TextBlock>
         <TextBlock Text="Старт" Grid.Row="1"></TextBlock>
-        <ComboBox Name="comboSportsman" DisplayMemberPath="Name" SelectedItem="{Binding Sportsman}"  Grid.Column="1" Width="200"></ComboBox>
+        <ComboBox Name="comboSportsman" DisplayMemberPath="FullName" SelectedItem="{Binding Sportsman}"  Grid.Column="1" Width="400"></ComboBox>
         <TextBox IsEnabled="False" Name="tbStartTime" Grid.Row="1" Grid.Column="1" Width="200"></TextBox>
         <Button Name="btnSend" Click="btnSend_Click" Grid.Row="2" Grid.ColumnSpan="2" Width="200" Content="Отправить"></Button>
     </Grid>
-</Page>
+</Window>

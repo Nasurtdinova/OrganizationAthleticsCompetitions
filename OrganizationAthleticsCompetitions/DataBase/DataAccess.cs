@@ -88,16 +88,20 @@ namespace OrganizationAthleticsCompetitions
             return list;
         }
 
-        public static void UpdateScoreTeam()
+        public static int GetScoreTeam(int idTeam)
         {
-            foreach (var i in GetTeams())
-            {
-                int score = 0;
-                foreach (var j in GetResultsCompetition().Where(a => a.Request.Sportsman.IdTeam == i.Id))
-                    score += j.Score;
-                i.Score = score;
-                Connection.connection.SaveChanges();
-            }
+            int score = 0;
+            foreach (var j in GetResultsCompetition().Where(a => a.Request.Sportsman.IdTeam == idTeam))
+                score += j.Score;
+            return score;
+        }
+
+        public static int GetScoreSportsman(int idSportsman)
+        {
+            int score = 0;
+            foreach (var j in GetResultsCompetition().Where(a => a.Request.IdSportsman == idSportsman))
+                score += j.Score;
+            return score;
         }
 
         public static void RemoveTeam(int id)
@@ -205,7 +209,7 @@ namespace OrganizationAthleticsCompetitions
             if (trainer.Count() == 1)
             {
                 CurrentUser.user = trainer.FirstOrDefault();
-                CurrentUser.trainer = GetSponsor(CurrentUser.user.Id);
+                CurrentUser.trainer = GetTrainer(CurrentUser.user.Id);
                 return 2;
             }
             else if (admin.Count() == 1)
@@ -219,7 +223,7 @@ namespace OrganizationAthleticsCompetitions
             }
         }
 
-        public static Trainer GetSponsor(int idUser)
+        public static Trainer GetTrainer(int idUser)
         {
             return GetTrainers().Where(t => t.IdUser == idUser).FirstOrDefault();
         }

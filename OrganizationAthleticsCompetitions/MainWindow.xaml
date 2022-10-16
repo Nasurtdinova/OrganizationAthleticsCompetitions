@@ -11,7 +11,6 @@
         <Grid x:Name="panelHeader" VerticalAlignment="Top" Height="50" Background="#FF6273AA" Margin="210,0,0,0">
             <TextBlock Text="Организация соревнований по легкой атлетике" FontSize="25" Foreground="White"/>
         </Grid>
-        
         <Grid x:Name="sidePanel" Background="#FF6273AA" HorizontalAlignment="Left" Width="250">
             <StackPanel>
                 <Grid Height="200" Background="White">
@@ -37,7 +36,6 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\sportsmans.png" Height="20" VerticalAlignment="Center"/>
                             <Button Margin="15 0 0 0" Content="Спортсмены" Click="sportsman_Click" Name="sportsman"/>
-                          
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">
@@ -51,14 +49,12 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\competition.png" Height="20"/>
                             <Button Margin="15 0 0 0" Content="Соревнования" Name="competition" Click="competition_Click"/>
-                           
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\result.png" Height="20"/>
                             <Button Margin="15 0 0 0" Content="Результаты" Name="resultCompetition" Click="resultCompetition_Click"/>
-                            <Button Margin="15 0 0 0" Content="Результаты" Name="resultCompetitionAdmin" Click="resultCompetitionAdmin_Click" Visibility="Collapsed"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="30" Name="login">
@@ -67,12 +63,19 @@
                             <Button Name="btnLogin" Margin="15 0 0 0" Content="Авторизоваться" Click="btnLogin_Click" />
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="30" Name="score">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="Images\exportExcel.png" Height="20"/>
+                            <Button Margin="15 0 0 0" Name="btnScore" Content="Очки" Click="btnScore_Click"/>
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem Height="30" Name="exportExsel">
                         <StackPanel Orientation="Horizontal" >
                             <Image Source="Images\exportExcel.png" Height="20"/>
                             <Button Margin="15 0 0 0" Name="btnExport" Content="Отчеты" Click="btnExport_Click"/>
                         </StackPanel>
                     </ListViewItem>
+                    
                 </ListView>
             </StackPanel>
         </Grid>

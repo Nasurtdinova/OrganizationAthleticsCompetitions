@@ -27,7 +27,6 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="150" Margin="10"></Button>
-                            <Button Content="Прекратить тренертсво" Background="#FF1C82C9" Name="btnRemove" Click="btnRemove_Click" Width="250" Margin="10"></Button>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

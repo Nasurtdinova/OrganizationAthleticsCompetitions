@@ -56,7 +56,7 @@
     <Property Name="IdTypeProgram" Type="int" />
     <Property Name="IdTypeCompetition" Type="int" />
     <Property Name="Date" Type="date" />
-    <Property Name="TimeStart" Type="time" Precision="7" />
+    <Property Name="TimeStart" Type="time" Precision="4" />
     <Property Name="MaxCountAttendees" Type="int" />
     <Property Name="CountAttendees" Type="int" />
     <Property Name="Gender" Type="nvarchar" MaxLength="1" />
@@ -121,7 +121,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" />
     <Property Name="IdCity" Type="int" />
-    <Property Name="Score" Type="float" />
     <Property Name="Image" Type="varbinary(max)" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>

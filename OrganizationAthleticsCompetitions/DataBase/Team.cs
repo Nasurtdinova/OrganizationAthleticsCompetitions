@@ -17,21 +17,22 @@ namespace OrganizationAthleticsCompetitions.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Team()
         {
-            this.Trainer_Team = new HashSet<Trainer_Team>();
             this.Sportsman = new HashSet<Sportsman>();
+            this.Trainer_Team = new HashSet<Trainer_Team>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> IdCity { get; set; }
-        public Nullable<double> Score { get; set; }
         public byte[] Image { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-    
+
+        public double Score => DataAccess.GetScoreTeam(Id);
+
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sportsman> Sportsman { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
     }
 }

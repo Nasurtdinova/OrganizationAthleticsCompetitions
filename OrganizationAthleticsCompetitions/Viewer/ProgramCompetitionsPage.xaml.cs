@@ -24,26 +24,17 @@ namespace OrganizationAthleticsCompetitions
             if (com.DateStart > DateTime.Now)
                 columnResult.Width = 0;
             else
-                columnRequest.Width = 0;
+                columnSendRequest.Width = 0;
 
             if (CurrentUser.user == null)
-                columnRequest.Width = 0;
+                columnSendRequest.Width = 0;
+            
             else if (CurrentUser.user.Role.Name == "Администратор")
             {
-                columnRequest.Width = 0;
-                //if
-                columnAddResult.Width = 230;
+                columnSendRequest.Width = 0;
+                columnRequests.Width = 100;
             }
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
-        }
-
-        private void btnRequest_Click(object sender, RoutedEventArgs e)
-        {
-            var a = (sender as Button).DataContext as ProgramCompetition;
-            if (a.CountAttendees == a.MaxCountAttendees)
-                MessageBox.Show("Мест нет!");
-            else
-                Manager.MainFrame.NavigationService.Navigate(new RequestPage(a));
         }
 
         private void btnResult_Click(object sender, RoutedEventArgs e)
@@ -52,10 +43,23 @@ namespace OrganizationAthleticsCompetitions
             Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage(a));
         }
 
-        private void btnAddResult_Click(object sender, RoutedEventArgs e)
+        private void btnRequests_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-            Manager.MainFrame.NavigationService.Navigate(new AddResultPage(a));
+
+            Manager.MainFrame.NavigationService.Navigate(new AdminRequestsPage(DataAccess.GetRequestsForProgramCompetition(a)));
+        }
+
+        private void btnSendRequest_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as Button).DataContext as ProgramCompetition;
+            if (a.CountAttendees == a.MaxCountAttendees)
+                MessageBox.Show("Мест нет!");
+            else
+            {
+                RequestPage request = new RequestPage(a);
+                request.Show();
+            }
         }
     }
 }

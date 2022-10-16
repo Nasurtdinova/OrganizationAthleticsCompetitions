@@ -101,18 +101,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Team">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
-        <MappingFragment StoreEntitySet="Team">
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ResultCompetition">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ResultCompetition">
         <MappingFragment StoreEntitySet="ResultCompetition">
@@ -192,6 +180,17 @@
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="IdCity" ColumnName="IdCity" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
