@@ -1,0 +1,46 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.TrainersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TrainersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Тренеры" FontSize="25"></TextBlock>
+        <ListView x:Name="trainersList" Grid.Row="1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Width="400" Height="220">
+                            <Image.Source>
+                                <Binding Path="Image">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding User.FullName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Content="Назад" Margin="10" Width="100" Name="btnBack" Click="btnBack_Click"></Button>
+            <Button Content="Зарегистрировать" Margin="10" Width="200" Name="btnRegistrTrainer" Click="btnRegistrTrainer_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

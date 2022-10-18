@@ -19,8 +19,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
         {
             this.Venue = new HashSet<Venue>();
             this.Sportsman = new HashSet<Sportsman>();
-            this.User = new HashSet<User>();
             this.Team = new HashSet<Team>();
+            this.User = new HashSet<User>();
         }
     
         public int Id { get; set; }
@@ -31,8 +31,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sportsman> Sportsman { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Team> Team { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }

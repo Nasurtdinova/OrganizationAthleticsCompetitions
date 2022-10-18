@@ -172,18 +172,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Team">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Team">
         <MappingFragment StoreEntitySet="Team">
@@ -191,6 +179,19 @@
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="IdCity" ColumnName="IdCity" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="DayOfBirth" ColumnName="DayOfBirth" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

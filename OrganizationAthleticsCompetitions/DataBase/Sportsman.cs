@@ -32,9 +32,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public byte[] Image { get; set; }
         public Nullable<int> IdTeam { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-
-        public double Score => DataAccess.GetScoreSportsman(Id);
-
+    
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
         public virtual Gender Gender1 { get; set; }

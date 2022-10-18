@@ -1,0 +1,55 @@
+﻿<Window x:Class="OrganizationAthleticsCompetitions.RegistrEditTrainerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+        mc:Ignorable="d"
+        Title="RegistrEditTrainerWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="ФИО"></TextBlock>
+            <TextBox Text="{Binding User.FullName}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Дата рождения"></TextBlock>
+            <DatePicker SelectedDate="{Binding User.DayOfBirth}"></DatePicker>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Логин"></TextBlock>
+            <TextBox Text="{Binding User.Login}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Пароль"></TextBlock>
+            <PasswordBox x:Name="password"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBlock Text="Повторите пароль"></TextBlock>
+            <PasswordBox x:Name="confirmPassword"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.RowSpan="3">
+            <Image Width="200">
+                <Image.Source>
+                    <Binding Path="Image">
+                        <Binding.TargetNullValue>
+                            <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+            <Button x:Name="editImage" Content="Фото" Width="200" Click="editImage_Click"></Button>
+        </StackPanel>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Width="200" x:Name="btnSave" Content="Сохранить" Click="btnSave_Click"></Button>
+    </Grid>
+</Window>

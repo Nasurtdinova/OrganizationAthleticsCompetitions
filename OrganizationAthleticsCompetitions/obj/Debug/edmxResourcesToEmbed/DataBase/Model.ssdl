@@ -167,6 +167,7 @@
     <Property Name="Login" Type="nvarchar" MaxLength="20" />
     <Property Name="Password" Type="nvarchar" MaxLength="20" />
     <Property Name="IdRole" Type="int" />
+    <Property Name="DayOfBirth" Type="date" />
   </EntityType>
   <EntityType Name="Venue">
     <Key>

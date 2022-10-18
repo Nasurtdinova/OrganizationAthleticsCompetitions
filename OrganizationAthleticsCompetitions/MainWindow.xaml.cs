@@ -137,5 +137,10 @@ namespace OrganizationAthleticsCompetitions
         {
             mainFrame.NavigationService.Navigate(new TotalPersonalScoresPage());
         }
+
+        private void trainer_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(new TrainersPage());
+        }
     }
 }

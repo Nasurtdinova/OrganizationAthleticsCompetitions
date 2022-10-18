@@ -139,27 +139,37 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
-        public static void AddTeam(Team team)
+        public static void SaveTeam(Team team)
         {
-            team.IsDeleted = false;
-            Connection.connection.Team.Add(team);
+            if (team.Id == 0)
+            {
+                team.IsDeleted = false;
+                Connection.connection.Team.Add(team);
+                Connection.connection.SaveChanges();
+                Trainer_Team trainer_Team = new Trainer_Team()
+                {
+                    Team = team,
+                    Trainer = CurrentUser.trainer
+                };
+                Connection.connection.Trainer_Team.Add(trainer_Team);
+            }
+            else
+            {
+                var com = Connection.connection.Team.SingleOrDefault(r => r.Id == team.Id);
+                com.IsDeleted = false;
+                com.Name = team.Name;
+                com.IdCity = team.IdCity;
+                if (team.Image != null)
+                    com.Image = team.Image;
+            }
             Connection.connection.SaveChanges();
+
         }
 
         public static void AddSportsman(Sportsman sports)
         {
             Connection.connection.Sportsman.Add(sports);
             Connection.connection.SaveChanges();
-        }
-
-        public static void UpdateTeam(Team command)
-        {
-            var com = Connection.connection.Team.SingleOrDefault(r => r.Id == command.Id);
-            com.IsDeleted = false;
-            com.Name = command.Name;
-            com.IdCity = command.IdCity;
-            if (command.Image != null)
-                com.Image = command.Image;
         }
 
         public static void UpdateSportsman(Sportsman command)

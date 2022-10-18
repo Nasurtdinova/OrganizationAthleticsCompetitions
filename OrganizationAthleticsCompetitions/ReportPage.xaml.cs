@@ -28,52 +28,57 @@ namespace OrganizationAthleticsCompetitions
             comboTypeCompetitions.ItemsSource = DataAccess.GetTypesCompetitions();
         }
 
-        public static void ExportExcel(Competition com, TypeCompetition type)
+        public void ExportExcel(Competition com, TypeCompetition type)
         {
-            var allTypePrograms = new List<TypeProgram>();
-            foreach (var i in DataAccess.GetProgramsCompetition().Where(a => a.Competition == com && a.TypeCompetition == type))
+            if (comboCompetitions.SelectedItem != null && comboTypeCompetitions.SelectedItem != null)
             {
-                allTypePrograms.Add(i.TypeProgram);
-            }
-
-            Excel.Application application = new Excel.Application();
-            application.SheetsInNewWorkbook = allTypePrograms.Distinct().Count();
-
-            Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
-
-            int startRowIndex = 1;
-
-            for (int i = 0; i < allTypePrograms.Distinct().Count(); i++)
-            {
-                Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
-                worksheet.Name = allTypePrograms[i].Name;
-                worksheet.Cells[1][startRowIndex] = "Соревнование";
-                worksheet.Cells[2][startRowIndex] = com.Name;
-                worksheet.Cells[1][startRowIndex + 1] = "Тип программы";
-                worksheet.Cells[2][startRowIndex + 1] = type.Name;
-                worksheet.Cells[1][startRowIndex + 2] = "Формат результатов";
-                worksheet.Cells[2][startRowIndex + 2] = type.FormatResult.Name;
-                startRowIndex = 5;
-
-                worksheet.Cells[1][startRowIndex] = "ФИО";
-                worksheet.Cells[2][startRowIndex] = "Результат";
-                worksheet.Cells[3][startRowIndex] = "Место";
-                startRowIndex++;
-                ProgramCompetition prog = DataAccess.GetProgramsCompetition().Where(a => a.Competition == com && a.TypeCompetition == type && a.TypeProgram == allTypePrograms[i]).FirstOrDefault();
-                var results = DataAccess.GetResultsInProgramCompetition(prog);
-                foreach (var result in results)
+                var allTypePrograms = new List<TypeProgram>();
+                foreach (var i in DataAccess.GetProgramsCompetition().Where(a => a.Competition == com && a.TypeCompetition == type))
                 {
-                    worksheet.Cells[1][startRowIndex] = result.Request.Sportsman.FullName;
-                    worksheet.Cells[2][startRowIndex] = result.Result;
-                    worksheet.Cells[3][startRowIndex] = result.Rank;
-
-                    startRowIndex++;
+                    allTypePrograms.Add(i.TypeProgram);
                 }
-                worksheet.Columns.AutoFit();
-                worksheet.Rows.AutoFit();
-                startRowIndex = 1;
+
+                Excel.Application application = new Excel.Application();
+                application.SheetsInNewWorkbook = allTypePrograms.Distinct().Count();
+
+                Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
+
+                int startRowIndex = 1;
+
+                for (int i = 0; i < allTypePrograms.Distinct().Count(); i++)
+                {
+                    Excel.Worksheet worksheet = application.Worksheets.Item[i + 1];
+                    worksheet.Name = allTypePrograms[i].Name;
+                    worksheet.Cells[1][startRowIndex] = "Соревнование";
+                    worksheet.Cells[2][startRowIndex] = com.Name;
+                    worksheet.Cells[1][startRowIndex + 1] = "Тип программы";
+                    worksheet.Cells[2][startRowIndex + 1] = type.Name;
+                    worksheet.Cells[1][startRowIndex + 2] = "Формат результатов";
+                    worksheet.Cells[2][startRowIndex + 2] = type.FormatResult.Name;
+                    startRowIndex = 5;
+
+                    worksheet.Cells[1][startRowIndex] = "ФИО";
+                    worksheet.Cells[2][startRowIndex] = "Результат";
+                    worksheet.Cells[3][startRowIndex] = "Место";
+                    startRowIndex++;
+                    ProgramCompetition prog = DataAccess.GetProgramsCompetition().Where(a => a.Competition == com && a.TypeCompetition == type && a.TypeProgram == allTypePrograms[i]).FirstOrDefault();
+                    var results = DataAccess.GetResultsInProgramCompetition(prog);
+                    foreach (var result in results)
+                    {
+                        worksheet.Cells[1][startRowIndex] = result.Request.Sportsman.FullName;
+                        worksheet.Cells[2][startRowIndex] = result.Result;
+                        worksheet.Cells[3][startRowIndex] = result.Rank;
+
+                        startRowIndex++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Rows.AutoFit();
+                    startRowIndex = 1;
+                }
+                application.Visible = true;
             }
-            application.Visible = true;
+            else
+                MessageBox.Show("Не ввели достаточно данных!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void btnReport_Click(object sender, RoutedEventArgs e)

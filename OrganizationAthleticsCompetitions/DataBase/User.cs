@@ -26,6 +26,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public string Login { get; set; }
         public string Password { get; set; }
         public Nullable<int> IdRole { get; set; }
+        public Nullable<System.DateTime> DayOfBirth { get; set; }
     
         public virtual City City { get; set; }
         public virtual Role Role { get; set; }

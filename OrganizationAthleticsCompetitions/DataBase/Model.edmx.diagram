@@ -33,18 +33,18 @@
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Sportsman" Width="1.5" PointX="7.5" PointY="12.125" />
-        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.User" Width="1.5" PointX="3" PointY="8.625" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Category" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_City" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_City" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Gender" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Request_Sportsman" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_Role" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Team" Width="1.5" PointX="3" PointY="5" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Team_City" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team" />
+        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.User" Width="1.5" PointX="3" PointY="8.5" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_City" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_User_Role" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

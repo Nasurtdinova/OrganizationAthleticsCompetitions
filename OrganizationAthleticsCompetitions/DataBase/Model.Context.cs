@@ -42,7 +42,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public virtual DbSet<ProgramCompetition> ProgramCompetition { get; set; }
         public virtual DbSet<TypeCompetition> TypeCompetition { get; set; }
         public virtual DbSet<Sportsman> Sportsman { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Team> Team { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

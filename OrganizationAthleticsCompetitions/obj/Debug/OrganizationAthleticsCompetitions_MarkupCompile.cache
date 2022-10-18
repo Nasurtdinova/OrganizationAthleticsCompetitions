@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml
-19-678497056
+21720237045
 2-1329724926
-491375205320
+51-1513976883
 21856124992
-AdminRequestsPage.xaml;ReportPage.xaml;ResultCompetitionsPage.xaml;SelectSportsmanWindow.xaml;TotalPersonalScoresPage.xaml;Trainer\AddEditSportsmanPage.xaml;AddResultPage.xaml;Trainer\EditProfileTPage.xaml;Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Viewer\CompetitionsPage.xaml;Trainer\MyCommandPage.xaml;Viewer\ProgramCompetitionsPage.xaml;Trainer\SendRequestPage.xaml;Viewer\ResultProgramCompetitionsPage.xaml;Viewer\SportsmansPage.xaml;Viewer\TeamsPage.xaml;MainWindow.xaml;Viewer\SportsmansInCommandPage.xaml;
+Pages\Admin\AdminRequestsPage.xaml;RegistrEditTrainerWindow.xaml;ReportPage.xaml;Pages\Viewer\ResultCompetitionsPage.xaml;Pages\Trainer\SelectSportsmanWindow.xaml;Pages\Viewer\TotalPersonalScoresPage.xaml;Pages\Trainer\AddEditSportsmanPage.xaml;Pages\Admin\AddResultPage.xaml;Pages\Trainer\EditProfileTPage.xaml;Pages\Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Pages\Viewer\CompetitionsPage.xaml;Pages\Trainer\MyCommandPage.xaml;Pages\Viewer\ProgramCompetitionsPage.xaml;Pages\Trainer\SendRequestPage.xaml;Pages\Viewer\ResultProgramCompetitionsPage.xaml;Pages\Viewer\SportsmansPage.xaml;Pages\Viewer\TeamsPage.xaml;MainWindow.xaml;Pages\Viewer\SportsmansInCommandPage.xaml;TrainersPage.xaml;
 
 False
 
