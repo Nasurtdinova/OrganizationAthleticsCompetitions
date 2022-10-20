@@ -28,7 +28,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new AddEditSportsmanPage(null,CurrentCommand));
+            NavigationService.Navigate(new AddEditSportsmanPage(null,CurrentCommand));
         }
 
         private void btnSelect_Click(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace OrganizationAthleticsCompetitions
             var a = comboSportsmans.SelectedItem as Sportsman;
             a.Team = CurrentCommand;
             Connection.connection.SaveChanges();
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(CurrentCommand));
+            NavigationService.Navigate(new AddCommandPage(CurrentCommand));
         }
     }
 }

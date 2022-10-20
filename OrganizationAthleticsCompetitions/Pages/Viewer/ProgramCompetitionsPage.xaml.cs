@@ -40,14 +40,14 @@ namespace OrganizationAthleticsCompetitions
         private void btnResult_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-            Manager.MainFrame.NavigationService.Navigate(new ResultProgramCompetitionsPage(a));
+            NavigationService.Navigate(new ResultProgramCompetitionsPage(a));
         }
 
         private void btnRequests_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
 
-            Manager.MainFrame.NavigationService.Navigate(new AdminRequestsPage(DataAccess.GetRequestsForProgramCompetition(a)));
+            NavigationService.Navigate(new AdminRequestsPage(DataAccess.GetRequestsForProgramCompetition(a)));
         }
 
         private void btnSendRequest_Click(object sender, RoutedEventArgs e)

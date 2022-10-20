@@ -53,12 +53,12 @@ namespace OrganizationAthleticsCompetitions
         {
             DataAccess.SaveTeam(CurrentCommand);
             MessageBox.Show("Информация сохранена");
-            Manager.MainFrame.Navigate(new MyCommandPage());
+            NavigationService.Navigate(new MyCommandPage());
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.GoBack();
+            NavigationService.GoBack();
         }
 
         private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
@@ -66,13 +66,13 @@ namespace OrganizationAthleticsCompetitions
             if (CurrentCommand.Id == 0)
                 MessageBox.Show("Вы еще не добавили команду!");
             else
-                Manager.MainFrame.NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
+                NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
         }
 
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
         {
             var i = (sender as Button).DataContext as Sportsman;
-            Manager.MainFrame.Navigate(new AddEditSportsmanPage(i, CurrentCommand));
+            NavigationService.Navigate(new AddEditSportsmanPage(i, CurrentCommand));
         }
     }
 }

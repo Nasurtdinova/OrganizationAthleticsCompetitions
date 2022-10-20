@@ -60,7 +60,7 @@ namespace OrganizationAthleticsCompetitions
             else
                 DataAccess.UpdateSportsman(CurrentSportsman);
             MessageBox.Show("Информация сохранена!");
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(CurrentSportsman.Team));
+            NavigationService.Navigate(new AddCommandPage(CurrentSportsman.Team));
         }
     }
 }

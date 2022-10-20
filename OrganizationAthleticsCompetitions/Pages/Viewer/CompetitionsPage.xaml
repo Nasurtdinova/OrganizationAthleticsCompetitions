@@ -29,22 +29,22 @@
             <TabItem Header="Предстоящие">
                 <TabItem.Content>
                     <DataGrid AlternationCount="2" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
-                                <DataGridTemplateColumn Width="*">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Content="Программа" Name="btnProgram" Click="btnProgram_Click"></Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                            <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Программа" Name="btnProgram" Click="btnProgram_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </TabItem.Content>
             </TabItem>
             <TabItem Header="Прошедшие">
@@ -68,5 +68,4 @@
             </TabItem>
         </TabControl>
     </Grid>
-
 </Page>

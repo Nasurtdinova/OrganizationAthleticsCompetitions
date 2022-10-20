@@ -25,17 +25,17 @@ namespace OrganizationAthleticsCompetitions
         public MainWindow()
         {
             InitializeComponent();
-            Manager.MainFrame = mainFrame;
-            Manager.Sportsmans = sportsman;
-            Manager.CommandsTrainer = commandTrainer;
-            Manager.Commands = command;
-            Manager.Competitions = competition;
-            Manager.ResultCompetitions = resultCompetition;
-            Manager.Authorization = login;
-            Manager.Exit = exit;
+            //Manager.MainFrame = mainFrame;
+            //Manager.Sportsmans = sportsman;
+            //Manager.CommandsTrainer = commandTrainer;
+            //Manager.Commands = command;
+            //Manager.Competitions = competition;
+            //Manager.ResultCompetitions = resultCompetition;
+            //Manager.Authorization = login;
+            //Manager.Exit = exit;
 
-            Manager.RoleNameLabel = lbRoleName;
-            Manager.EditProfile = editProfile;
+            //Manager.RoleNameLabel = lbRoleName;
+            //Manager.EditProfile = editProfile;
 
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(1);

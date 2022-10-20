@@ -54,7 +54,7 @@ namespace OrganizationAthleticsCompetitions
                 Connection.connection.SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 Close();
-                Manager.MainFrame.Navigate(new ProgramCompetitionsPage(CurrentProgram.Competition));
+                //NavigationService.Navigate(new ProgramCompetitionsPage(CurrentProgram.Competition));
             }
             else
                 MessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");

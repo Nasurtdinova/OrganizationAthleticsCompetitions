@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace OrganizationAthleticsCompetitions
+{
+    /// <summary>
+    /// Логика взаимодействия для MenuWindow.xaml
+    /// </summary>
+    public partial class MenuWindow : Window
+    {
+        public MenuWindow()
+        {
+            InitializeComponent();
+            //Manager.MainFrame = GridMain;
+            Manager.Sportsmans = ItemSportsmans;
+            Manager.CommandsTrainer = ItemMyCommand;
+            Manager.Commands = ItemCommand;
+            Manager.ResultCompetitions = ItemResult;
+            Manager.Trainers = ItemTrainers;
+            Manager.Authorization = login;
+            Manager.Exit = exit;
+            Manager.EditProfile = profile;
+        }
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "ItemHome":
+                    GridMain.Navigate(new AuthorizationPage());
+                    break;
+                case "ItemSportsmans":
+                    GridMain.Navigate(new SportsmansPage());
+                    break;
+                case "ItemTrainers":
+                    GridMain.Navigate(new TrainersPage());
+                    break;
+                case "ItemCommand":
+                    GridMain.Navigate(new TeamsPage());
+                    break;
+                case "ItemMyCommand":
+                    GridMain.Navigate(new MyCommandPage());
+                    break;
+                case "ItemCompetition":
+                    GridMain.Navigate(new CompetitionsPage());
+                    break;
+                case "ItemResult":
+                    GridMain.Navigate(new ResultCompetitionsPage());
+                    break;
+                case "ItemScore":
+                    GridMain.Navigate(new TotalPersonalScoresPage());
+                    break;
+                case "ItemReports":
+                    GridMain.Navigate(new ReportPage());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            GridMain.Navigate(new AuthorizationPage());
+        }
+
+        private void profile_Click(object sender, RoutedEventArgs e)
+        {
+            GridMain.Navigate(new EditProfileTPage());
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentUser.user = null;
+            Manager.UpdatePanel();
+            GridMain.Navigate(new AuthorizationPage());
+        }
+    }
+}

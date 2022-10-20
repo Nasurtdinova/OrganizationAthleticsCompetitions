@@ -27,7 +27,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var i = (sender as Button).DataContext as Trainer_Team;
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(i.Team));
+            NavigationService.Navigate(new AddCommandPage(i.Team));
         }
 
         //private void btnRemove_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.NavigationService.Navigate(new AddCommandPage(null));
+            NavigationService.Navigate(new AddCommandPage(null));
         }
     }
 }
