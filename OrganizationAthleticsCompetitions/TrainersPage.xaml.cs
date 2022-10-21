@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganizationAthleticsCompetitions.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,22 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnRegistrTrainer_Click(object sender, RoutedEventArgs e)
         {
-            RegistrEditTrainerWindow edit = new RegistrEditTrainerWindow();
+            RegistrEditTrainerWindow edit = new RegistrEditTrainerWindow(null);
             edit.Show();
+            edit.Closed += (s, eventarg) =>
+            {
+                trainersList.ItemsSource = DataAccess.GetTrainers();
+            };
+        }
+
+        private void trainersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RegistrEditTrainerWindow edit = new RegistrEditTrainerWindow((sender as ListView).SelectedItem as Trainer);
+            edit.Show();
+            edit.Closed += (s, eventarg) =>
+            {
+                trainersList.ItemsSource = DataAccess.GetTrainers();
+            };
         }
     }
 }

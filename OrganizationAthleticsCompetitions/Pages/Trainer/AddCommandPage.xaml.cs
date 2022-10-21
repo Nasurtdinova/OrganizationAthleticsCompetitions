@@ -72,7 +72,12 @@ namespace OrganizationAthleticsCompetitions
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
         {
             var i = (sender as Button).DataContext as Sportsman;
-            NavigationService.Navigate(new AddEditSportsmanPage(i, CurrentCommand));
+            AddEditSportsmanPage add = new AddEditSportsmanPage(i, CurrentCommand);
+            add.Show();
+            add.Closed += (s, eventarg) =>
+            {
+                lvSportsmans.ItemsSource = DataAccess.GetSportsmansInTeam(CurrentCommand);
+            };
         }
     }
 }

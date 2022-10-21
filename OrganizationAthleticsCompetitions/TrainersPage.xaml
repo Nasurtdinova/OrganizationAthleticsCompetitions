@@ -15,7 +15,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Тренеры" FontSize="25"></TextBlock>
-        <ListView x:Name="trainersList" Grid.Row="1">
+        <ListView x:Name="trainersList" Grid.Row="1" SelectionChanged="trainersList_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>

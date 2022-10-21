@@ -24,7 +24,7 @@
             <Image Height="30" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\city.png"></Image>
             <ComboBox Name="comboCity" DisplayMemberPath="Name" Width="200" Height="30" SelectionChanged="comboCity_SelectionChanged" ></ComboBox>
         </StackPanel>
-        <TextBlock Text="Соревнования"></TextBlock>
+        <TextBlock Text="Соревнования" FontSize="23"></TextBlock>
         <TabControl Grid.Row="2">
             <TabItem Header="Предстоящие">
                 <TabItem.Content>
@@ -36,10 +36,10 @@
                             <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn Width="160">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Программа" Name="btnProgram" Click="btnProgram_Click"></Button>
+                                        <Button Content="Программы" Name="btnProgram" Click="btnProgram_Click"></Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -56,7 +56,7 @@
                         <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}" Width="*"></DataGridTextColumn>
                         <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}" Width="*"></DataGridTextColumn>
-                        <DataGridTemplateColumn Width="150">
+                        <DataGridTemplateColumn Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Content="Результаты" Name="btnResult" Click="btnResult_Click"></Button>

@@ -233,7 +233,30 @@ namespace OrganizationAthleticsCompetitions
             }
         }
 
-        public static Trainer GetTrainer(int idUser)
+        public static void SaveTrainer(Trainer trainer, User user)
+        {
+            if (trainer.Id == 0)
+            {
+                AddUser(user);
+                trainer.User = GetUsers().LastOrDefault();
+                Connection.connection.Trainer.Add(trainer);
+            }
+            else
+            {
+                var a = GetTrainers().Where(b => b.Id == trainer.Id).FirstOrDefault();
+                a.Image = trainer.Image;
+                a.User = trainer.User;
+            }
+            Connection.connection.SaveChanges();
+        }
+
+        public static void AddUser(User user)
+        {
+            Connection.connection.User.Add(user);
+            Connection.connection.SaveChanges();
+        }
+
+            public static Trainer GetTrainer(int idUser)
         {
             return GetTrainers().Where(t => t.IdUser == idUser).FirstOrDefault();
         }

@@ -14,18 +14,23 @@
             <RowDefinition Height="9*"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Мои команды"></TextBlock>
+        <TextBlock Text="Мои команды" FontSize="23"></TextBlock>
         <ListView x:Name="lvMyCommands" Grid.Row="1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" Width="1100"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="{Binding Team.Name}"></TextBlock>
-                        <Image Source="{Binding Team.Image}" Width="200"></Image>
+                        <Image Source="{Binding Team.Image}" Width="300"></Image>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Очки: "/>
                             <TextBlock Text="{Binding Team.Score}"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="150" Margin="10"></Button>
                         </StackPanel>
                     </StackPanel>

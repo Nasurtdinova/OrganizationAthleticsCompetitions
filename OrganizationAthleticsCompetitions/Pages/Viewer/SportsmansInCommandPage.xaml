@@ -15,9 +15,8 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ФИО"  DisplayMemberBinding="{Binding FullName}" Width="400"></GridViewColumn>
-                                
                                 <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
-                                <GridViewColumn Header="Фотография" Width="200">
+                                <GridViewColumn Header="Фотография">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Image Source="{Binding Image}" Height="200"></Image>
@@ -35,8 +34,14 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ФИО" Width="400" DisplayMemberBinding="{Binding Trainer.User.FullName}"></GridViewColumn>
-                               
-                                <GridViewColumn Header="Количество тренерства" DisplayMemberBinding="{Binding Year}"></GridViewColumn>
+                                <GridViewColumn Header="Стаж" DisplayMemberBinding="{Binding Year}"></GridViewColumn>
+                                <GridViewColumn Header="Фотография" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Trainer.User.Image}" Height="200"></Image>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

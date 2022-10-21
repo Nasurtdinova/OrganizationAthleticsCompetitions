@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    public partial class AddEditSportsmanPage : Page
+    public partial class AddEditSportsmanPage : Window
     {
         public Sportsman CurrentSportsman { get; set; }
         public AddEditSportsmanPage(Sportsman sports, Team team)
@@ -26,9 +26,9 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
 
             if (sports != null)
-            {
                 CurrentSportsman = sports;
-            }
+
+            Title = CurrentSportsman.Id != 0 ? "Редактирование спортсмена" : "Добавление спортсмена в команду";
 
             CurrentSportsman.Team = team;
 
@@ -60,7 +60,7 @@ namespace OrganizationAthleticsCompetitions
             else
                 DataAccess.UpdateSportsman(CurrentSportsman);
             MessageBox.Show("Информация сохранена!");
-            NavigationService.Navigate(new AddCommandPage(CurrentSportsman.Team));
+            Close();
         }
     }
 }

@@ -20,15 +20,15 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <TextBlock Text="ФИО"></TextBlock>
-            <TextBox Text="{Binding User.FullName}"></TextBox>
+            <TextBox Text="{Binding User.FullName}" Name="tbFullName"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <TextBlock Text="Дата рождения"></TextBlock>
-            <DatePicker SelectedDate="{Binding User.DayOfBirth}"></DatePicker>
+            <DatePicker SelectedDate="{Binding User.DayOfBirth}" Name="dpDayOfBirth"></DatePicker>
         </StackPanel>
         <StackPanel Grid.Row="2">
             <TextBlock Text="Логин"></TextBlock>
-            <TextBox Text="{Binding User.Login}"></TextBox>
+            <TextBox Text="{Binding User.Login}" Name="tbLogin"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="3">
             <TextBlock Text="Пароль"></TextBlock>
@@ -38,8 +38,8 @@
             <TextBlock Text="Повторите пароль"></TextBlock>
             <PasswordBox x:Name="confirmPassword"></PasswordBox>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.RowSpan="3">
-            <Image Width="200">
+        <StackPanel Grid.Column="1" Grid.RowSpan="3" Margin="10">
+            <Image Width="200" Name="imgTrainer">
                 <Image.Source>
                     <Binding Path="Image">
                         <Binding.TargetNullValue>

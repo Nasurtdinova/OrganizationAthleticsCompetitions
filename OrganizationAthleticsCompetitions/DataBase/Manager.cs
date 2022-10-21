@@ -11,8 +11,8 @@ namespace OrganizationAthleticsCompetitions
     {
         public static Label RoleNameLabel { get; set; }
 
-        public static Button Authorization { get; set; }
-        public static Button Exit { get; set; }
+        public static StackPanel Authorization { get; set; }
+        public static StackPanel Exit { get; set; }
 
         public static ListViewItem Sportsmans { get; set; }
 
@@ -25,7 +25,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static ListViewItem ResultCompetitions { get; set; }
 
-        public static Button EditProfile { get; set; }
+        public static StackPanel EditProfile { get; set; }
 
         public static void UpdatePanel()
         {
@@ -37,6 +37,7 @@ namespace OrganizationAthleticsCompetitions
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     Commands.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Visible;
+                    CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 else if (CurrentUser.user.IdRole == 2)
                 {
@@ -52,6 +53,7 @@ namespace OrganizationAthleticsCompetitions
             else
             {
                 //RoleNameLabel.Content = "Зритель";
+                CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 Authorization.Visibility = System.Windows.Visibility.Visible;
                 Exit.Visibility = System.Windows.Visibility.Collapsed;
                 EditProfile.Visibility = System.Windows.Visibility.Collapsed;

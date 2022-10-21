@@ -30,18 +30,27 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid Background="#FFDEDEDE">
-        <Frame x:Name="GridMain" Background="White" NavigationUIVisibility="Hidden" Height="650" VerticalAlignment="Bottom" Width="1300" HorizontalAlignment="Stretch"/>
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
+        <Frame x:Name="GridMain" Background="White" NavigationUIVisibility="Hidden" Margin="70,60,0,0"/>
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF6273AA">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                     <StackPanel Width="150">
-                        <Button Content="Войти" Name="login" Click="login_Click"/>
-                        <Button Content="Профиль" Name="profile" Click="profile_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal" Name="login">
+                            <materialDesign:PackIcon Kind="Login" Width="30" Margin="0 10" Height="30"/>
+                            <Button Content="Войти" Margin="0 5"  Click="login_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Visibility="Collapsed" Name="profile">
+                            <materialDesign:PackIcon Kind="Account" Width="30" Margin="0 10" Height="30"/>
+                            <Button Content="Профиль" Margin="0 5"  Click="profile_Click" />
+                        </StackPanel>
                         <Separator/>
-                        <Button Content="Выйти" Name="exit" Click="exit_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal" Visibility="Collapsed" Name="exit">
+                            <materialDesign:PackIcon Kind="LogoutVariant" Width="30" Margin="0 10" Height="30"/>
+                            <Button Content="Выйти" Margin="0 5"  Click="exit_Click" />
+                        </StackPanel>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -51,8 +60,9 @@
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
+
             <StackPanel>
-                <Grid Height="200" Background="White" RenderTransformOrigin="0.5,0.5">
+                <Grid  Height="200" Background="White" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -73,55 +83,55 @@
                     <ListViewItem x:Name="ItemHome" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Главная" VerticalAlignment="Center" Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Главная" VerticalAlignment="Center" Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemSportsmans" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\sportsmans.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Спортсмены" VerticalAlignment="Center" Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Спортсмены" VerticalAlignment="Center" Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemTrainers"  Height="60" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\iconTrainer.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Тренеры" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Тренеры" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemCommand"  Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\team.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Команды" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Команды" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemMyCommand"  Height="60" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\team.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Мои команды" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Мои команды" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemCompetition"  Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\competition.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Соревнования" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Соревнования" VerticalAlignment="Center"  Margin="9 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemResult"  Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\result.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Результаты" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Результаты" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemScore"  Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\score.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Очки" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Очки" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemReports"  Height="60">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\exportExcel.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Отчеты" VerticalAlignment="Center"  Margin="10 10"/>
+                            <TextBlock Foreground="White" Text="Отчеты" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
