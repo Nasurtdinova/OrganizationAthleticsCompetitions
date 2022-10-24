@@ -11,27 +11,28 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-        </Style>
-       
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="25"></Setter>
-            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
-            <Setter Property="Foreground" Value="#FF0F4E7A"></Setter>
-        </Style>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+                <Setter Property="Foreground" Value="#FF0F4E7A"></Setter>
+             </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="250"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
             <Setter Property="Width" Value="250"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
@@ -44,7 +45,8 @@
         </Style>
         <Style TargetType="DatePicker">
             <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
+                <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+                <Setter Property="Width" Value="200"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
         </Style>
@@ -59,12 +61,13 @@
                 </Style>
             </Style.Resources>
             <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FF6273AA"></Setter>
             <Setter Property="BorderBrush" Value="#FF6273AA"></Setter>
-                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            </Style>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Height" Value="35" />

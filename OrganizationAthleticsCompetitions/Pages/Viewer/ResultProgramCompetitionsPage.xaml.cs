@@ -30,7 +30,12 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAddResult_Click(object sender, RoutedEventArgs e)
         {
-            (new AddResultPage(ProgramCompetition)).Show();
+            AddResultPage add = new AddResultPage(ProgramCompetition);
+            add.Show();
+            add.Closed += (s, eventarg) =>
+            {
+                lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(ProgramCompetition);
+            };
         }
     }
 }

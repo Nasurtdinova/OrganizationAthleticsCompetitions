@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using BespokeFusion;
+using Microsoft.Win32;
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace OrganizationAthleticsCompetitions
                 DataAccess.AddSportsman(CurrentSportsman);
             else
                 DataAccess.UpdateSportsman(CurrentSportsman);
-            MessageBox.Show("Информация сохранена!");
+            MaterialMessageBox.Show("Информация сохранена!");
             Close();
         }
     }

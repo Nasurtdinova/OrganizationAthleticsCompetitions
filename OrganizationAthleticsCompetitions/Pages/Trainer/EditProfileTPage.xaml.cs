@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using BespokeFusion;
+using Microsoft.Win32;
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace OrganizationAthleticsCompetitions
             CurrentUser.trainer.User.Login = tbPhone.Text;
             CurrentUser.trainer.User.FullName = tbFullName.Text;
             Connection.connection.SaveChanges();
-            MessageBox.Show("Информация сохранена");
+            MaterialMessageBox.Show("Информация сохранена");
         }
 
         private void btnEditPhoto_Click(object sender, RoutedEventArgs e)

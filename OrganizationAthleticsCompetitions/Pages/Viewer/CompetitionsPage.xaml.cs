@@ -29,6 +29,8 @@ namespace OrganizationAthleticsCompetitions
             comboCity.ItemsSource = city;
             comboCity.SelectedIndex = 0;
 
+            if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
+                btnAddCompet.Visibility = Visibility.Visible;
             dgFutureCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a=>a.DateStart>DateTime.Now);
             dgPastCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart <= DateTime.Now);
         }
@@ -84,6 +86,37 @@ namespace OrganizationAthleticsCompetitions
             var a = (sender as Button).DataContext as Competition;
             if (a != null)
                 NavigationService.Navigate(new ProgramCompetitionsPage(a));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void btnAddCompet_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditCompetitionWindow add = new AddEditCompetitionWindow(null);
+            add.Show();
+            add.Closed += (s, eventarg) =>
+            {
+                dgFutureCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart > DateTime.Now);
+                dgPastCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart <= DateTime.Now);
+            };
+        }
+
+        private void dgFutureCompetitions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
+            {
+                var compet = (sender as DataGrid).SelectedItem as Competition;
+                AddEditCompetitionWindow add = new AddEditCompetitionWindow(compet);
+                add.Show();
+                add.Closed += (s, eventarg) =>
+                {
+                    dgFutureCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart > DateTime.Now);
+                    dgPastCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a => a.DateStart <= DateTime.Now);
+                };
+            }
         }
     }
 }

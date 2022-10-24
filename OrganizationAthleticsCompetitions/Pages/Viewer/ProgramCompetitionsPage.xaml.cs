@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BespokeFusion;
 using OrganizationAthleticsCompetitions.DataBase;
 
 namespace OrganizationAthleticsCompetitions
@@ -46,7 +47,6 @@ namespace OrganizationAthleticsCompetitions
         private void btnRequests_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-
             NavigationService.Navigate(new AdminRequestsPage(DataAccess.GetRequestsForProgramCompetition(a)));
         }
 
@@ -54,7 +54,7 @@ namespace OrganizationAthleticsCompetitions
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
             if (a.CountAttendees == a.MaxCountAttendees)
-                MessageBox.Show("Мест нет!");
+                MaterialMessageBox.ShowError("Мест нет!");
             else
             {
                 RequestPage request = new RequestPage(a);

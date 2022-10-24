@@ -1,4 +1,5 @@
-﻿using OrganizationAthleticsCompetitions.DataBase;
+﻿using BespokeFusion;
+using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +79,7 @@ namespace OrganizationAthleticsCompetitions
                 application.Visible = true;
             }
             else
-                MessageBox.Show("Не ввели достаточно данных!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
+                MaterialMessageBox.ShowError("Не ввели достаточно данных!", "Предупреждение");
         }
 
         private void btnReport_Click(object sender, RoutedEventArgs e)

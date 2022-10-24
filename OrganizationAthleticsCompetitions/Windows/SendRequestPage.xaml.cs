@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BespokeFusion;
 using OrganizationAthleticsCompetitions.DataBase;
 
 namespace OrganizationAthleticsCompetitions
@@ -21,20 +22,18 @@ namespace OrganizationAthleticsCompetitions
     {
         ProgramCompetition CurrentProgram = new ProgramCompetition();
         TimeSpan timeStart = new TimeSpan();
+
         public RequestPage(ProgramCompetition prog)
         {
             InitializeComponent();
             CurrentProgram = prog;
+
             if (CurrentProgram.CountAttendees == 0)
-            {
                 timeStart = CurrentProgram.TimeStart;
-                tbStartTime.Text = timeStart.ToString();
-            }
             else
-            {
                 timeStart = new TimeSpan(0, 5, 0) + DataAccess.GetRequestsForProgramCompetition(CurrentProgram).Last().StartTime;
-                tbStartTime.Text = timeStart.ToString();
-            }
+            
+            tbStartTime.Text = timeStart.ToString();
             comboSportsman.ItemsSource = DataAccess.GetSportmansInGenderAndTrainer(prog.Gender);
         }
 
@@ -52,12 +51,11 @@ namespace OrganizationAthleticsCompetitions
                 DataAccess.AddRequest(req);
                 CurrentProgram.CountAttendees += 1;
                 Connection.connection.SaveChanges();
-                MessageBox.Show("Информация сохранена");
+                MaterialMessageBox.Show("Информация сохранена");
                 Close();
-                //NavigationService.Navigate(new ProgramCompetitionsPage(CurrentProgram.Competition));
             }
             else
-                MessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");
+                MaterialMessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");
         }
     }
 }

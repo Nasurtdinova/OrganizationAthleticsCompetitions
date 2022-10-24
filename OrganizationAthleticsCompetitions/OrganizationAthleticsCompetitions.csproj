@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditCompetitionWindow.xaml.cs">
+      <DependentUpon>AddEditCompetitionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -90,10 +93,10 @@
     <Compile Include="DataBase\Gender.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="RegistrEditTrainerWindow.xaml.cs">
+    <Compile Include="Windows\RegistrEditTrainerWindow.xaml.cs">
       <DependentUpon>RegistrEditTrainerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportPage.xaml.cs">
+    <Compile Include="Pages\ReportPage.xaml.cs">
       <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Viewer\ResultCompetitionsPage.xaml.cs">
@@ -162,7 +165,7 @@
     <Compile Include="DataBase\Request.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Trainer\SendRequestPage.xaml.cs">
+    <Compile Include="Windows\SendRequestPage.xaml.cs">
       <DependentUpon>SendRequestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBase\ResultCompetition.cs">
@@ -211,9 +214,13 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TrainersPage.xaml.cs">
+    <Compile Include="Pages\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddEditCompetitionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,11 +229,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegistrEditTrainerWindow.xaml">
+    <Page Include="Windows\RegistrEditTrainerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReportPage.xaml">
+    <Page Include="Pages\ReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,7 +281,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Trainer\SendRequestPage.xaml">
+    <Page Include="Windows\SendRequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,10 +297,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -301,15 +304,11 @@
     <Compile Include="MainPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Pages\Viewer\SportsmansInCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrainersPage.xaml">
+    <Page Include="Pages\TrainersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

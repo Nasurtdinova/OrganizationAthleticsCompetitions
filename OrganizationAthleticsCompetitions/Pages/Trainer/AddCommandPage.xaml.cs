@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OrganizationAthleticsCompetitions.DataBase;
+using BespokeFusion;
 
 namespace OrganizationAthleticsCompetitions
 {
@@ -52,7 +53,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             DataAccess.SaveTeam(CurrentCommand);
-            MessageBox.Show("Информация сохранена");
+            MaterialMessageBox.Show("Информация сохранена");
             NavigationService.Navigate(new MyCommandPage());
         }
 
@@ -64,7 +65,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnAddSportsman_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentCommand.Id == 0)
-                MessageBox.Show("Вы еще не добавили команду!");
+                MaterialMessageBox.ShowError("Вы еще не добавили команду!");
             else
                 NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
         }

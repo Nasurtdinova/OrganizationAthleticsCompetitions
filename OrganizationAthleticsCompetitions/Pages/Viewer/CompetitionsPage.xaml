@@ -14,7 +14,9 @@
             </RowDefinition>
             <RowDefinition Height="50">
             </RowDefinition>
-            <RowDefinition Height="550">
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition Height="50">
             </RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -28,7 +30,7 @@
         <TabControl Grid.Row="2">
             <TabItem Header="Предстоящие">
                 <TabItem.Content>
-                    <DataGrid AlternationCount="2" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
+                    <DataGrid AlternationCount="2" SelectionChanged="dgFutureCompetitions_SelectionChanged" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy hh:mm'}"></DataGridTextColumn>
@@ -67,5 +69,9 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" Margin="10"></Button>
+            <Button x:Name="btnAddCompet" Content="Добавить" Visibility="Collapsed" Click="btnAddCompet_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

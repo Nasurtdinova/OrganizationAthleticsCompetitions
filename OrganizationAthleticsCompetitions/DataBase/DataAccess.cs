@@ -19,6 +19,16 @@ namespace OrganizationAthleticsCompetitions
             return new List<Gender>(Connection.connection.Gender.ToList());
         }
 
+        public static List<Venue> GetVenues()
+        {
+            return new List<Venue>(Connection.connection.Venue.ToList());
+        }
+
+        public static List<CategoryCompetition> GetCategoryCompetitions()
+        {
+            return new List<CategoryCompetition>(Connection.connection.CategoryCompetition.ToList());
+        }
+
         public static List<Team> GetTeams()
         {
             return new List<Team>(Connection.connection.Team.Where(a=>a.IsDeleted == false).ToList());

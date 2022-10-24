@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml
-22-994834940
+22-1464130252
 2-1329724926
-5336085643
+53-1943970209
 25-348806900
-MenuWindow.xaml;Pages\Admin\AdminRequestsPage.xaml;RegistrEditTrainerWindow.xaml;ReportPage.xaml;Pages\Viewer\ResultCompetitionsPage.xaml;Pages\Trainer\SelectSportsmanWindow.xaml;Pages\Viewer\TotalPersonalScoresPage.xaml;Pages\Trainer\AddEditSportsmanPage.xaml;Pages\Admin\AddResultPage.xaml;Pages\Trainer\EditProfileTPage.xaml;Pages\Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Pages\Viewer\CompetitionsPage.xaml;Pages\Trainer\MyCommandPage.xaml;Pages\Viewer\ProgramCompetitionsPage.xaml;Pages\Trainer\SendRequestPage.xaml;Pages\Viewer\ResultProgramCompetitionsPage.xaml;Pages\Viewer\SportsmansPage.xaml;Pages\Viewer\TeamsPage.xaml;MainWindow.xaml;Pages\Viewer\SportsmansInCommandPage.xaml;TrainersPage.xaml;
+Windows\AddEditCompetitionWindow.xaml;MenuWindow.xaml;Pages\Admin\AdminRequestsPage.xaml;Windows\RegistrEditTrainerWindow.xaml;Pages\ReportPage.xaml;Pages\Viewer\ResultCompetitionsPage.xaml;Pages\Trainer\SelectSportsmanWindow.xaml;Pages\Viewer\TotalPersonalScoresPage.xaml;Pages\Trainer\AddEditSportsmanPage.xaml;Pages\Admin\AddResultPage.xaml;Pages\Trainer\EditProfileTPage.xaml;Pages\Trainer\AddCommandPage.xaml;MainPages\AuthorizationPage.xaml;Pages\Viewer\CompetitionsPage.xaml;Pages\Trainer\MyCommandPage.xaml;Pages\Viewer\ProgramCompetitionsPage.xaml;Windows\SendRequestPage.xaml;Pages\Viewer\ResultProgramCompetitionsPage.xaml;Pages\Viewer\SportsmansPage.xaml;Pages\Viewer\TeamsPage.xaml;Pages\Viewer\SportsmansInCommandPage.xaml;Pages\TrainersPage.xaml;
 
 True
 

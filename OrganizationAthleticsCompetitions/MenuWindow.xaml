@@ -11,12 +11,12 @@
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="210"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="210"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -94,7 +94,7 @@
                     </ListViewItem>
                     <ListViewItem x:Name="ItemTrainers"  Height="60" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\iconTrainer.png" Height="25" Width="25" Margin="10"/>
+                            <materialDesign:PackIcon Kind="Teaching" Width="25" Margin="10" Height="25"/>
                             <TextBlock Foreground="White" Text="Тренеры" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>
@@ -124,7 +124,7 @@
                     </ListViewItem>
                     <ListViewItem x:Name="ItemScore"  Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\score.png" Height="25" Width="25" Margin="10"/>
+                            <materialDesign:PackIcon Kind="ScoreboardOutline" Width="25" Margin="10" Height="25"/>
                             <TextBlock Foreground="White" Text="Очки" VerticalAlignment="Center"  Margin="10 10"/>
                         </StackPanel>
                     </ListViewItem>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="OrganizationAthleticsCompetitions.AddEditCompetitionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+        mc:Ignorable="d"
+        Title="AddEditCompetitionWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Данные">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Название"></TextBlock>
+                    <TextBlock Text="Дата начала" Grid.Row="1"></TextBlock>
+                    <TextBlock Text="Дата конца" Grid.Row="2"></TextBlock>
+                    <TextBlock Text="Категория" Grid.Row="3"></TextBlock>
+                    <TextBlock Text="Место проведения" Grid.Row="4"></TextBlock>
+
+                    <TextBox x:Name="tbName" Text="{Binding Name}" Width="500" Grid.Column="1"></TextBox>
+                    <DatePicker x:Name="dpDateStart" SelectedDate="{Binding DateStart}" Grid.Column="1" Grid.Row="1"></DatePicker>
+                    <DatePicker x:Name="dpDateEnd" SelectedDate="{Binding DateEnd}" Grid.Column="1" Grid.Row="2"></DatePicker>
+                    <ComboBox Name="comboCategory" Width="300" SelectedItem="{Binding CategoryCompetition}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="3"></ComboBox>
+                    <StackPanel Grid.Row="4" Grid.Column="1">
+                        <ComboBox x:Name="comboVenue" Width="300" Margin="10" SelectedItem="{Binding Venue}" DisplayMemberPath="Name"></ComboBox>
+                        <ComboBox x:Name="comboCity" Width="300" SelectedItem="{Binding Venue.City}" DisplayMemberPath="Name"></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Программы">
+                <DataGrid x:Name="dgProgramsCompetitions" IsReadOnly="True" AutoGenerateColumns="False"> 
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Тип программы" Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Вид бега" Binding="{Binding TypeCompetition.Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Время" Binding="{Binding TimeStart}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Род" Binding="{Binding Gender1.Name}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
