@@ -29,7 +29,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> MaxCountAttendees { get; set; }
         public Nullable<int> CountAttendees { get; set; }
         public string Gender { get; set; }
-    
         public virtual Competition Competition { get; set; }
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

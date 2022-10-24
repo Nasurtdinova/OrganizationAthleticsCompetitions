@@ -78,7 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddEditCompetitionWindow.xaml.cs">
+    <Compile Include="AddEditProgramCompetition.xaml.cs">
+      <DependentUpon>AddEditProgramCompetition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddEditCompetitionWindow.xaml.cs">
       <DependentUpon>AddEditCompetitionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBase\User.cs">
@@ -217,7 +220,11 @@
     <Compile Include="Pages\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddEditCompetitionWindow.xaml">
+    <Page Include="AddEditProgramCompetition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddEditCompetitionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

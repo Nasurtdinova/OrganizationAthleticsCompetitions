@@ -69,6 +69,11 @@ namespace OrganizationAthleticsCompetitions
             return new List<ProgramCompetition>(Connection.connection.ProgramCompetition).ToList();
         }
 
+        public static List<TypeProgram> GetTypesProgram()
+        {
+            return new List<TypeProgram>(Connection.connection.TypeProgram).ToList();
+        }
+
         public static List<ProgramCompetition> GetProgramsInCompetition(Competition com)
         {
             return GetProgramsCompetition().Where(a=>a.IdCompetition == com.Id).ToList();
@@ -260,13 +265,29 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
+        public static void SaveCompetition(Competition compet)
+        {
+            if (compet.Id == 0)
+                Connection.connection.Competition.Add(compet);
+            else
+            {
+                var a = GetCompetitions().Where(b => b.Id == compet.Id).FirstOrDefault();
+                a.Name = compet.Name;
+                a.DateStart = compet.DateStart;
+                a.DateEnd = compet.DateEnd;
+                a.CategoryCompetition = compet.CategoryCompetition;
+                a.Venue = compet.Venue;
+            }
+            Connection.connection.SaveChanges();
+        }
+
         public static void AddUser(User user)
         {
             Connection.connection.User.Add(user);
             Connection.connection.SaveChanges();
         }
 
-            public static Trainer GetTrainer(int idUser)
+        public static Trainer GetTrainer(int idUser)
         {
             return GetTrainers().Where(t => t.IdUser == idUser).FirstOrDefault();
         }

@@ -11,8 +11,9 @@
             <TabItem Header="Данные">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="99*"></ColumnDefinition>
+                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                        <ColumnDefinition Width="59*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -20,33 +21,45 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Название"></TextBlock>
-                    <TextBlock Text="Дата начала" Grid.Row="1"></TextBlock>
-                    <TextBlock Text="Дата конца" Grid.Row="2"></TextBlock>
-                    <TextBlock Text="Категория" Grid.Row="3"></TextBlock>
-                    <TextBlock Text="Место проведения" Grid.Row="4"></TextBlock>
+                    <TextBlock Text="Название" Margin="153,17"></TextBlock>
+                    <TextBlock Text="Дата начала" Grid.Row="1" Margin="140,17,139,17"></TextBlock>
+                    <TextBlock Text="Дата конца" Grid.Row="2" Margin="145,17,144,16"></TextBlock>
+                    <TextBlock Text="Категория" Grid.Row="3" Margin="149,17,148,17"></TextBlock>
+                    <TextBlock Text="Место проведения" Grid.Row="4" Margin="108,17"></TextBlock>
 
-                    <TextBox x:Name="tbName" Text="{Binding Name}" Width="500" Grid.Column="1"></TextBox>
-                    <DatePicker x:Name="dpDateStart" SelectedDate="{Binding DateStart}" Grid.Column="1" Grid.Row="1"></DatePicker>
-                    <DatePicker x:Name="dpDateEnd" SelectedDate="{Binding DateEnd}" Grid.Column="1" Grid.Row="2"></DatePicker>
-                    <ComboBox Name="comboCategory" Width="300" SelectedItem="{Binding CategoryCompetition}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="3"></ComboBox>
-                    <StackPanel Grid.Row="4" Grid.Column="1">
-                        <ComboBox x:Name="comboVenue" Width="300" Margin="10" SelectedItem="{Binding Venue}" DisplayMemberPath="Name"></ComboBox>
-                        <ComboBox x:Name="comboCity" Width="300" SelectedItem="{Binding Venue.City}" DisplayMemberPath="Name"></ComboBox>
+                    <TextBox x:Name="tbName" Text="{Binding Name}" Width="500" Grid.ColumnSpan="3" Margin="344,16,-52,16"/>
+                    <DatePicker x:Name="dpDateStart" SelectedDate="{Binding DateStart}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="98,13"></DatePicker>
+                    <DatePicker x:Name="dpDateEnd" SelectedDate="{Binding DateEnd}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="98,12,98,13"></DatePicker>
+                    <ComboBox Name="comboCategory" Width="300" SelectedItem="{Binding CategoryCompetition}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="48,14"></ComboBox>
+                    <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                        <ComboBox x:Name="comboCity" Width="300" SelectedItem="{Binding City}" SelectionChanged="comboCity_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
+                        <ComboBox x:Name="comboVenue" Width="300" Margin="10" SelectedItem="{Binding Venue}" SelectionChanged="comboVenue_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
+                    <Button x:Name="btnSave" Grid.Row="5" Grid.ColumnSpan="2" Content="Сохранить" Click="btnSave_Click" Margin="321,16,84.735,16"></Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Программы">
-                <DataGrid x:Name="dgProgramsCompetitions" IsReadOnly="True" AutoGenerateColumns="False"> 
+                <StackPanel>
+                <DataGrid x:Name="dgProgramsCompetitions" IsReadOnly="True" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Тип программы" Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Вид бега" Binding="{Binding TypeCompetition.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Время" Binding="{Binding TimeStart}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Род" Binding="{Binding Gender1.Name}"></DataGridTextColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnEditProgram" Content="Редактировать" Click="btnEditProgram_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                    <Button x:Name="btnAddProgram" Content="Добавить программу" Width="250" Margin="20" Click="btnAddProgram_Click"></Button>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>
