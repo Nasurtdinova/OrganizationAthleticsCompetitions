@@ -24,6 +24,8 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             if (compet != null)
                 CurrentCompetition = compet;
+            dpDateStart.DisplayDateStart = DateTime.Now;
+            dpDateEnd.DisplayDateStart = DateTime.Now;
             Title = CurrentCompetition.Id == 0 ? "Добавление соревнования" : "Редактирование соревнования";
             DataContext = CurrentCompetition;
             comboCategory.ItemsSource = DataAccess.GetCategoryCompetitions();
@@ -35,6 +37,8 @@ namespace OrganizationAthleticsCompetitions
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             DataAccess.SaveCompetition(CurrentCompetition);
+            MaterialMessageBox.Show("Информация сохранена!");
+            Close();
         }
 
         private void btnAddProgram_Click(object sender, RoutedEventArgs e)
@@ -59,7 +63,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void comboVenue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comboCity.ItemsSource = DataAccess.GetCities().Where(a => a.Venue == comboVenue.SelectedItem as Venue);
+            comboCity.ItemsSource = DataAccess.GetVenues().Where(a => a.Name == (comboVenue.SelectedItem as Venue).Name).Select(a=>a.City);
         }
 
         private void btnEditProgram_Click(object sender, RoutedEventArgs e)

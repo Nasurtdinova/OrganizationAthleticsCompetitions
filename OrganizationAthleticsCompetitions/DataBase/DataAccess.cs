@@ -281,6 +281,22 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
+        public static void SaveProgramCompetition(ProgramCompetition compet)
+        {
+            if (compet.Id == 0)
+                Connection.connection.ProgramCompetition.Add(compet);
+            else
+            {
+                var a = GetProgramsCompetition().Where(b => b.Id == compet.Id).FirstOrDefault();
+                a.TimeStart = compet.TimeStart;
+                a.Date = compet.Date;
+                a.MaxCountAttendees = compet.MaxCountAttendees;
+                a.TypeCompetition = compet.TypeCompetition;
+                a.TypeProgram = compet.TypeProgram;
+            }
+            Connection.connection.SaveChanges();
+        }
+
         public static void AddUser(User user)
         {
             Connection.connection.User.Add(user);

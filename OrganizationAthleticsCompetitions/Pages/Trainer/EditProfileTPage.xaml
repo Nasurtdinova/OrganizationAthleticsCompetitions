@@ -21,10 +21,10 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Edit photo" Name="btnEditPhoto" Click="btnEditPhoto_Click" Background="#FFA0D0F1" Grid.ColumnSpan="2" Grid.Row="1" Width="200"></Button>
+        <Button Content="Добавить фото" Name="btnEditPhoto" Click="btnEditPhoto_Click" Grid.ColumnSpan="2" Grid.Row="1" Width="200"></Button>
         <TextBlock Text="ФИО" Grid.Row="2"></TextBlock>
         <TextBlock Text="Логин" Grid.Row="4"></TextBlock>
-        <Button Content="Редактировать профиль" Background="#FFA0D0F1" Name="btnEditProfile" Click="btnEditProfile_Click" Grid.ColumnSpan="2" Grid.Row="5" Width="300"></Button>
+        <Button Content="Редактировать профиль" Name="btnEditProfile" Click="btnEditProfile_Click" Grid.ColumnSpan="2" Grid.Row="5" Width="300"></Button>
         <Image x:Name="imgTrainer" Grid.ColumnSpan="2" Grid.Row="0">
             <Image.Source>
                 <Binding Path="Image">

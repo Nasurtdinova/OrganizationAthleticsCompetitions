@@ -19,21 +19,18 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Тип программы"></TextBlock>
         <TextBlock Text="Вид бега" Grid.Row="1"></TextBlock>
         <TextBlock Text="Дата" Grid.Row="2"></TextBlock>
         <TextBlock Text="Время" Grid.Row="3"></TextBlock>
         <TextBlock Text="Максимальное число участников" Grid.Row="4"></TextBlock>
-        <TextBlock Text="Род" Grid.Row="5"></TextBlock>
 
         <ComboBox Grid.Column="1" x:Name="comboTypeProgram" SelectedItem="{Binding TypeProgram}" DisplayMemberPath="Name"></ComboBox>
         <ComboBox Grid.Column="1" Grid.Row="1" x:Name="comboTypeCompetition" SelectedItem="{Binding TypeCompetition}" DisplayMemberPath="Name"></ComboBox>
-        <DatePicker Grid.Column="1" Grid.Row="2" SelectedDate="{Binding Date}"></DatePicker>
-        <materialDesign:TimePicker Is24Hours="True" SelectedTimeFormat="Short" SelectedTime="{Binding TimeStart, StringFormat='HH:mm'}" Grid.Column="1" Width="200" Height="50" Grid.Row="3"></materialDesign:TimePicker>
+        <DatePicker Grid.Column="1" Name="dpDate" Grid.Row="2" SelectedDate="{Binding Date}"></DatePicker>
+        <materialDesign:TimePicker Name="tpTime" FontSize="25" Is24Hours="True" SelectedTimeFormat="Short" Grid.Column="1" Width="250" Height="50" Grid.Row="3"></materialDesign:TimePicker>
         <TextBox Text="{Binding MaxCountAttendees}" Grid.Row="4" Grid.Column="1"></TextBox>
-        <ComboBox Name="comboGender" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Gender1}" DisplayMemberPath="Name"></ComboBox>
-        <Button x:Name="btnSave" Click="btnSave_Click" Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="6"></Button>
+        <Button x:Name="btnSave" Click="btnSave_Click" Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="5"></Button>
     </Grid>
 </Window>

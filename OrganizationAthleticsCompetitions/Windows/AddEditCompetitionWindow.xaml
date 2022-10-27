@@ -11,9 +11,8 @@
             <TabItem Header="Данные">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="99*"></ColumnDefinition>
-                        <ColumnDefinition Width="40*"></ColumnDefinition>
-                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -29,12 +28,12 @@
                     <TextBlock Text="Категория" Grid.Row="3" Margin="149,17,148,17"></TextBlock>
                     <TextBlock Text="Место проведения" Grid.Row="4" Margin="108,17"></TextBlock>
 
-                    <TextBox x:Name="tbName" Text="{Binding Name}" Width="500" Grid.ColumnSpan="3" Margin="344,16,-52,16"/>
+                    <TextBox x:Name="tbName" Text="{Binding Name}" Width="500" Grid.Column="1"/>
                     <DatePicker x:Name="dpDateStart" SelectedDate="{Binding DateStart}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="98,13"></DatePicker>
                     <DatePicker x:Name="dpDateEnd" SelectedDate="{Binding DateEnd}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="98,12,98,13"></DatePicker>
                     <ComboBox Name="comboCategory" Width="300" SelectedItem="{Binding CategoryCompetition}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="48,14"></ComboBox>
                     <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                        <ComboBox x:Name="comboCity" Width="300" SelectedItem="{Binding City}" SelectionChanged="comboCity_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
+                        <ComboBox x:Name="comboCity" Width="300" SelectedItem="{Binding Venue.City}" SelectionChanged="comboCity_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
                         <ComboBox x:Name="comboVenue" Width="300" Margin="10" SelectedItem="{Binding Venue}" SelectionChanged="comboVenue_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
                     </StackPanel>
                     <Button x:Name="btnSave" Grid.Row="5" Grid.ColumnSpan="2" Content="Сохранить" Click="btnSave_Click" Margin="321,16,84.735,16"></Button>

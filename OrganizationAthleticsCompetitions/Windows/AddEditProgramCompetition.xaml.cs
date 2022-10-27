@@ -1,4 +1,5 @@
-﻿using OrganizationAthleticsCompetitions.DataBase;
+﻿using BespokeFusion;
+using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,10 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             if (prog != null)
                 CurrentProgramCompetition = prog;
+
+            tpTime.SelectedTime = new DateTime(CurrentProgramCompetition.TimeStart.Ticks);
             DataContext = CurrentProgramCompetition;
-            comboGender.ItemsSource = DataAccess.GetGenders();
+            dpDate.DisplayDateStart = DateTime.Now;
             comboTypeCompetition.ItemsSource = DataAccess.GetTypesCompetitions();
             comboTypeProgram.ItemsSource = DataAccess.GetTypesProgram();
             Title = CurrentProgramCompetition.Id == 0 ? "Добавление программы" : "Редактирование программы";
@@ -32,7 +35,9 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
+            MaterialMessageBox.Show("Информация сохранена");
+            Close();
         }
     }
 }
