@@ -9,6 +9,10 @@
       Title="AdminRequestsPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <ListView Name="lvRequestProgramCompetitinon">
             <ListView.View>
                 <GridView>
@@ -17,5 +21,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Page>

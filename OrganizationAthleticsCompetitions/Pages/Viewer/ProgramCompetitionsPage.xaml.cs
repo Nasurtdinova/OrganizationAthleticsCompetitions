@@ -59,7 +59,16 @@ namespace OrganizationAthleticsCompetitions
             {
                 RequestPage request = new RequestPage(a);
                 request.Show();
+                request.Closed += (s, eventarg) =>
+                {
+                    lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
+                };
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

@@ -8,6 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProgramCompetitionsPage">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <ListView Name="lvProgramsCompetition">
             <ListView.View>
                 <GridView>
@@ -39,9 +43,9 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Page>

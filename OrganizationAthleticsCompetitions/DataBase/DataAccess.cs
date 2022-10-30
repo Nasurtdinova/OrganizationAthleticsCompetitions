@@ -183,6 +183,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static void AddSportsman(Sportsman sports)
         {
+            sports.IsDeleted = false;
             Connection.connection.Sportsman.Add(sports);
             Connection.connection.SaveChanges();
         }
@@ -267,6 +268,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static void SaveCompetition(Competition compet)
         {
+            compet.IsDeleted = false;
             if (compet.Id == 0)
                 Connection.connection.Competition.Add(compet);
             else
@@ -284,7 +286,10 @@ namespace OrganizationAthleticsCompetitions
         public static void SaveProgramCompetition(ProgramCompetition compet)
         {
             if (compet.Id == 0)
+            {
+                compet.CountAttendees = 0;
                 Connection.connection.ProgramCompetition.Add(compet);
+            }
             else
             {
                 var a = GetProgramsCompetition().Where(b => b.Id == compet.Id).FirstOrDefault();

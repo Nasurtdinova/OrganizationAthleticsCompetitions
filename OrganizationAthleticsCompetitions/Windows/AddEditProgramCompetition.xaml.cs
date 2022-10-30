@@ -19,22 +19,28 @@ namespace OrganizationAthleticsCompetitions
     public partial class AddEditProgramCompetition : Window
     {
         public ProgramCompetition CurrentProgramCompetition = new ProgramCompetition();
-        public AddEditProgramCompetition(ProgramCompetition prog)
+        public AddEditProgramCompetition(ProgramCompetition prog,Competition competition)
         {
             InitializeComponent();
             if (prog != null)
+            {
                 CurrentProgramCompetition = prog;
-
+                comboGender.Visibility = Visibility.Collapsed;
+                tbGender.Visibility = Visibility.Collapsed;
+            }
+            CurrentProgramCompetition.Competition = competition;
             tpTime.SelectedTime = new DateTime(CurrentProgramCompetition.TimeStart.Ticks);
             DataContext = CurrentProgramCompetition;
             dpDate.DisplayDateStart = DateTime.Now;
             comboTypeCompetition.ItemsSource = DataAccess.GetTypesCompetitions();
             comboTypeProgram.ItemsSource = DataAccess.GetTypesProgram();
+            comboGender.ItemsSource = DataAccess.GetGenders();
             Title = CurrentProgramCompetition.Id == 0 ? "Добавление программы" : "Редактирование программы";
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            CurrentProgramCompetition.TimeStart =new TimeSpan(tpTime.SelectedTime.Value.Ticks);
             DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
             MaterialMessageBox.Show("Информация сохранена");
             Close();

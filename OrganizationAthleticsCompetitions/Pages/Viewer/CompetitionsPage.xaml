@@ -30,7 +30,7 @@
         <TabControl Grid.Row="2">
             <TabItem Header="Предстоящие">
                 <TabItem.Content>
-                    <DataGrid AlternationCount="2" SelectionChanged="dgFutureCompetitions_SelectionChanged" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
+                    <DataGrid AlternationCount="2" MouseDoubleClick="dgFutureCompetitions_MouseDoubleClick" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>

@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -61,9 +62,18 @@ namespace OrganizationAthleticsCompetitions
                     Password = password.Password,
                     IdRole = 2
                 };
-                DataAccess.SaveTrainer(CurrentTrainer, user);
-                MaterialMessageBox.Show("Информация сохранена!");
-                Close();
+                var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+                var context = new ValidationContext(user);
+
+                if (!Validator.TryValidateObject(user, context, sportsmans, true))
+                    foreach (var error in sportsmans)
+                        MaterialMessageBox.ShowError(error.ErrorMessage);
+                else
+                {
+                    DataAccess.SaveTrainer(CurrentTrainer, user);
+                    MaterialMessageBox.Show("Информация сохранена!");
+                    Close();
+                }
             }
             else
                 MaterialMessageBox.ShowError("Пароли не совпадают!");

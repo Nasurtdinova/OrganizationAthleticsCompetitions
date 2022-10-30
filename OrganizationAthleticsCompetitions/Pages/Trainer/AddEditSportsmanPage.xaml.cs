@@ -21,7 +21,7 @@ namespace OrganizationAthleticsCompetitions
 {
     public partial class AddEditSportsmanPage : Window
     {
-        public Sportsman CurrentSportsman { get; set; }
+        public Sportsman CurrentSportsman = new Sportsman();
         public AddEditSportsmanPage(Sportsman sports, Team team)
         {
             InitializeComponent();

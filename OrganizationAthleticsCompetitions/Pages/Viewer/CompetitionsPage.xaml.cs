@@ -104,7 +104,7 @@ namespace OrganizationAthleticsCompetitions
             };
         }
 
-        private void dgFutureCompetitions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dgFutureCompetitions_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
             {

@@ -45,7 +45,7 @@ namespace OrganizationAthleticsCompetitions
         {
             if (CurrentCompetition.Id != 0)
             {
-                AddEditProgramCompetition add = new AddEditProgramCompetition(null);
+                AddEditProgramCompetition add = new AddEditProgramCompetition(null, CurrentCompetition);
                 add.Show();
                 add.Closed += (s, eventarg) =>
                 {
@@ -69,7 +69,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnEditProgram_Click(object sender, RoutedEventArgs e)
         {
             var a = (sender as Button).DataContext as ProgramCompetition;
-            AddEditProgramCompetition edit = new AddEditProgramCompetition(a);
+            AddEditProgramCompetition edit = new AddEditProgramCompetition(a, CurrentCompetition);
             edit.Show();
             edit.Closed += (s, eventarg) =>
             {
