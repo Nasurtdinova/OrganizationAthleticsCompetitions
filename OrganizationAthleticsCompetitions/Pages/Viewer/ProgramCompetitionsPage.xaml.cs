@@ -19,6 +19,7 @@ namespace OrganizationAthleticsCompetitions
 {
     public partial class ProgramCompetitionsPage : Page
     {
+        public Competition CurrentCompetition = new Competition();
         public ProgramCompetitionsPage(Competition com)
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace OrganizationAthleticsCompetitions
                 columnSendRequest.Width = 0;
                 columnRequests.Width = 100;
             }
+            CurrentCompetition = com;
             lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
         }
 
@@ -61,7 +63,7 @@ namespace OrganizationAthleticsCompetitions
                 request.Show();
                 request.Closed += (s, eventarg) =>
                 {
-                    lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(com);
+                    lvProgramsCompetition.ItemsSource = DataAccess.GetProgramsInCompetition(CurrentCompetition);
                 };
             }
         }
