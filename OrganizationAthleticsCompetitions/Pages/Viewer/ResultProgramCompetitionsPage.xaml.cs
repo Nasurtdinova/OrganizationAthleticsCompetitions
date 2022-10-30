@@ -37,5 +37,10 @@ namespace OrganizationAthleticsCompetitions
                 lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(ProgramCompetition);
             };
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
