@@ -78,23 +78,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\CategoryCompetition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CategorySportsman.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\City.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Competition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\FormatResult.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Gender.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\ProgramCompetition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Request.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\ResultCompetition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Sportsman.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Team.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Trainer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Trainer_Team.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TypeCompetition.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TypeProgram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Venue.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddEditProgramCompetition.xaml.cs">
       <DependentUpon>AddEditProgramCompetition.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddEditCompetitionWindow.xaml.cs">
       <DependentUpon>AddEditCompetitionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\User.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\AdminRequestsPage.xaml.cs">
       <DependentUpon>AdminRequestsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Gender.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\RegistrEditTrainerWindow.xaml.cs">
       <DependentUpon>RegistrEditTrainerWindow.xaml</DependentUpon>
@@ -123,23 +174,8 @@
     <Compile Include="Pages\Trainer\AddCommandPage.xaml.cs">
       <DependentUpon>AddCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\CategoryCompetition.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\CategorySportsman.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\City.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Competition.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Viewer\CompetitionsPage.xaml.cs">
       <DependentUpon>CompetitionsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\FormatResult.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -159,38 +195,17 @@
     <Compile Include="Pages\Trainer\MyCommandPage.xaml.cs">
       <DependentUpon>MyCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\ProgramCompetition.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Viewer\ProgramCompetitionsPage.xaml.cs">
       <DependentUpon>ProgramCompetitionsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Request.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\SendRequestPage.xaml.cs">
       <DependentUpon>SendRequestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\ResultCompetition.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Viewer\ResultProgramCompetitionsPage.xaml.cs">
       <DependentUpon>ResultProgramCompetitionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Role.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Sportsman.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Viewer\SportsmansPage.xaml.cs">
       <DependentUpon>SportsmansPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\sysdiagrams.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Team.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Viewer\TeamsPage.xaml.cs">
       <DependentUpon>TeamsPage.xaml</DependentUpon>
@@ -201,21 +216,6 @@
     <Compile Include="DataBase\Manager.cs" />
     <Compile Include="Pages\Viewer\SportsmansInCommandPage.xaml.cs">
       <DependentUpon>SportsmansInCommandPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Trainer.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Trainer_Team.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\TypeCompetition.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\TypeProgram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Venue.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>

@@ -21,13 +21,13 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
-        public TimeSpan StartTime { get; set; }
+        public Nullable<System.TimeSpan> StartTime { get; set; }
         public Nullable<int> IdSportsman { get; set; }
         public Nullable<int> IdProgramCompetition { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ResultCompetition> ResultCompetition { get; set; }
         public virtual ProgramCompetition ProgramCompetition { get; set; }
         public virtual Sportsman Sportsman { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ResultCompetition> ResultCompetition { get; set; }
     }
 }

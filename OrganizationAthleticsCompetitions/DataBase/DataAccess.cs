@@ -164,7 +164,8 @@ namespace OrganizationAthleticsCompetitions
                 Trainer_Team trainer_Team = new Trainer_Team()
                 {
                     Team = team,
-                    Trainer = CurrentUser.trainer
+                    Trainer = CurrentUser.trainer,
+                    IsActive = true
                 };
                 Connection.connection.Trainer_Team.Add(trainer_Team);
             }
@@ -213,7 +214,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<Trainer_Team> GetTeamsTrainers()
         {
-            return new List<Trainer_Team>(Connection.connection.Trainer_Team.Where(a => a.Team.IsDeleted == false).ToList());
+            return new List<Trainer_Team>(Connection.connection.Trainer_Team.Where(a => a.Team.IsDeleted == false && a.IsActive == true).ToList());
         }
 
         public static List<Trainer_Team> GetTeamsInTreaner(Trainer train)

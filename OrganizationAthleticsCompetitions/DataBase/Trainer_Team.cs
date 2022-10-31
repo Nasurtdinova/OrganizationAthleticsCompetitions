@@ -17,8 +17,9 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public int IdTrainer { get; set; }
         public int IdTeam { get; set; }
         public Nullable<int> Year { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
-        public virtual Trainer Trainer { get; set; }
         public virtual Team Team { get; set; }
+        public virtual Trainer Trainer { get; set; }
     }
 }

@@ -22,7 +22,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
-
         [Required(ErrorMessage = "Заполните ФИО!")]
         public string FullName { get; set; }
 
@@ -33,7 +32,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
 
         [Required(ErrorMessage = "Заполните пароль!")]
         public string Password { get; set; }
-        public Nullable<int> IdRole { get; set; }
+        public int IdRole { get; set; }
         public Nullable<System.DateTime> DayOfBirth { get; set; }
     
         public virtual City City { get; set; }

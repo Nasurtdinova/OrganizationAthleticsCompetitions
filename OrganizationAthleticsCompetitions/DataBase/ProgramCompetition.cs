@@ -25,14 +25,14 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdTypeProgram { get; set; }
         public Nullable<int> IdTypeCompetition { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public TimeSpan TimeStart { get; set; }
+        public Nullable<System.TimeSpan> TimeStart { get; set; }
         public Nullable<int> MaxCountAttendees { get; set; }
         public Nullable<int> CountAttendees { get; set; }
         public string Gender { get; set; }
-        public virtual Competition Competition { get; set; }
 
         public string ProgramCompet => $"{TypeProgram.Name} {TypeCompetition.Name}";
 
+        public virtual Competition Competition { get; set; }
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }

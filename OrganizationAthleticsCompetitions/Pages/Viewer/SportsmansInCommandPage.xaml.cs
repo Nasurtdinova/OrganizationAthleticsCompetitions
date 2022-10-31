@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BespokeFusion;
 using OrganizationAthleticsCompetitions.DataBase;
 
 namespace OrganizationAthleticsCompetitions
@@ -23,6 +24,14 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             lvSportsmansInTeam.ItemsSource = DataAccess.GetSportsmansInTeam(team);
             lvTrainersInTeam.ItemsSource = DataAccess.GetTrainersInTeam(team);
+        }
+
+        private void btnRemoveTrainer_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as Button).DataContext as Trainer_Team;
+            a.IsActive = false;
+            Connection.connection.SaveChanges();
+            MaterialMessageBox.Show("Тренерство прекращено!");
         }
     }
 }
