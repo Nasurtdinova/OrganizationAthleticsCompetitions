@@ -19,6 +19,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<double> Result { get; set; }
         public Nullable<int> Rank { get; set; }
         public int Score { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Request Request { get; set; }
     }

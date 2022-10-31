@@ -41,9 +41,14 @@ namespace OrganizationAthleticsCompetitions
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             CurrentProgramCompetition.TimeStart =new TimeSpan(tpTime.SelectedTime.Value.Ticks);
-            DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
-            MaterialMessageBox.Show("Информация сохранена");
-            Close();
+            if (CurrentProgramCompetition.MaxCountAttendees < CurrentProgramCompetition.CountAttendees)
+                MaterialMessageBox.ShowError("Максимальное количество участников меньше количества участников!");
+            else
+            {
+                DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
+                MaterialMessageBox.Show("Информация сохранена");
+                Close();
+            }
         }
     }
 }

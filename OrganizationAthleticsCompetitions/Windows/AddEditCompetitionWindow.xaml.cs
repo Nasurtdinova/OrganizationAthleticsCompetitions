@@ -76,5 +76,50 @@ namespace OrganizationAthleticsCompetitions
                 dgProgramsCompetitions.ItemsSource = DataAccess.GetProgramsInCompetition(CurrentCompetition);
             };
         }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            bool IsYes = false;
+            foreach (var i in CurrentCompetition.ProgramCompetition)
+            {
+                if (DataAccess.GetRequestsForProgramCompetition(i).Count > 0)
+                    IsYes = true;
+            }
+            if (!IsYes)
+            {
+                if (MessageBox.Show("Вы точно хотите удалить это соревнование?", "Предупреждение", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    CurrentCompetition.IsDeleted = true;
+                    foreach (var i in CurrentCompetition.ProgramCompetition)
+                        i.IsDeleted = true;
+                    Connection.connection.SaveChanges();
+                    MaterialMessageBox.Show("Соревнование было успешно удалено!");
+                    Close();
+                }
+            }
+            else
+            {
+                MaterialMessageBox.ShowError("Вы не можете удалить соревнование, так как уже есть записанные участники!");
+            }
+        }
+
+        private void btnRemoveProgram_Click(object sender, RoutedEventArgs e)
+        {
+            var prog = (sender as Button).DataContext as ProgramCompetition;
+            if (DataAccess.GetRequestsForProgramCompetition(prog).Count == 0)
+            {
+                if (MessageBox.Show("Вы точно хотите удалить эту программу?", "Предупреждение", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    prog.IsDeleted = true;
+                    Connection.connection.SaveChanges();
+                    MaterialMessageBox.Show("Программа была успешно удалена!");
+                    dgProgramsCompetitions.Items.Refresh();
+                }
+            }
+            else
+            {
+                MaterialMessageBox.ShowError("Вы не можете удалить программу, так как уже есть записанные участники!");
+            }
+        }
     }
 }

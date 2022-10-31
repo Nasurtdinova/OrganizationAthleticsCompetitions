@@ -65,6 +65,7 @@
           <Property Name="MaxCountAttendees" Type="int" />
           <Property Name="CountAttendees" Type="int" />
           <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Request">
           <Key>
@@ -84,6 +85,7 @@
           <Property Name="Result" Type="float" />
           <Property Name="Rank" Type="int" />
           <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -721,6 +723,7 @@
           <Property Name="MaxCountAttendees" Type="Int32" />
           <Property Name="CountAttendees" Type="Int32" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Competition" Relationship="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_Competition" FromRole="ProgramCompetition" ToRole="Competition" />
           <NavigationProperty Name="Gender1" Relationship="OrganizationAthleticsCompetitionsModel.FK_ProgramCompetition_Gender" FromRole="ProgramCompetition" ToRole="Gender" />
           <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_Request_TypesProgram" FromRole="ProgramCompetition" ToRole="Request" />
@@ -748,6 +751,7 @@
           <Property Name="Result" Type="Double" />
           <Property Name="Rank" Type="Int32" />
           <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Request" Relationship="OrganizationAthleticsCompetitionsModel.FK_ResultCompetition_Request" FromRole="ResultCompetition" ToRole="Request" />
         </EntityType>
         <EntityType Name="Role">
@@ -1183,6 +1187,7 @@
           <EntitySetMapping Name="ProgramCompetition">
             <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ProgramCompetition">
               <MappingFragment StoreEntitySet="ProgramCompetition">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
                 <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
@@ -1208,6 +1213,7 @@
           <EntitySetMapping Name="ResultCompetition">
             <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ResultCompetition">
               <MappingFragment StoreEntitySet="ResultCompetition">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
                 <ScalarProperty Name="Rank" ColumnName="Rank" />
                 <ScalarProperty Name="Result" ColumnName="Result" />

@@ -25,10 +25,11 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdTypeProgram { get; set; }
         public Nullable<int> IdTypeCompetition { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.TimeSpan> TimeStart { get; set; }
+        public TimeSpan TimeStart { get; set; }
         public Nullable<int> MaxCountAttendees { get; set; }
         public Nullable<int> CountAttendees { get; set; }
         public string Gender { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
 
         public string ProgramCompet => $"{TypeProgram.Name} {TypeCompetition.Name}";
 

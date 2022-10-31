@@ -24,6 +24,8 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             lvSportsmansInTeam.ItemsSource = DataAccess.GetSportsmansInTeam(team);
             lvTrainersInTeam.ItemsSource = DataAccess.GetTrainersInTeam(team);
+            if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
+                removeTrainer.Width = 250;
         }
 
         private void btnRemoveTrainer_Click(object sender, RoutedEventArgs e)

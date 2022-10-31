@@ -58,7 +58,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn>
+                                <GridViewColumn x:Name="removeTrainer" Width="0">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button x:Name="btnRemoveTrainer" Content="Прекратить тренерство" Width="250" Click="btnRemoveTrainer_Click"></Button>

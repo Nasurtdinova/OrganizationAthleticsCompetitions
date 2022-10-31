@@ -66,7 +66,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<ProgramCompetition> GetProgramsCompetition()
         {
-            return new List<ProgramCompetition>(Connection.connection.ProgramCompetition).ToList();
+            return new List<ProgramCompetition>(Connection.connection.ProgramCompetition).Where(a=>a.IsDeleted == false).ToList();
         }
 
         public static List<TypeProgram> GetTypesProgram()
@@ -286,6 +286,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static void SaveProgramCompetition(ProgramCompetition compet)
         {
+            compet.IsDeleted = false;
             if (compet.Id == 0)
             {
                 compet.CountAttendees = 0;

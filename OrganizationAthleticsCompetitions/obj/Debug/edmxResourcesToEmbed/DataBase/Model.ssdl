@@ -60,6 +60,7 @@
     <Property Name="MaxCountAttendees" Type="int" />
     <Property Name="CountAttendees" Type="int" />
     <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Request">
     <Key>
@@ -79,6 +80,7 @@
     <Property Name="Result" Type="float" />
     <Property Name="Rank" Type="int" />
     <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -140,6 +142,7 @@
     <Property Name="IdTrainer" Type="int" Nullable="false" />
     <Property Name="IdTeam" Type="int" Nullable="false" />
     <Property Name="Year" Type="int" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="TypeCompetition">
     <Key>
@@ -162,11 +165,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FullName" Type="nvarchar" MaxLength="30" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="IdCity" Type="int" />
-    <Property Name="Login" Type="nvarchar" MaxLength="20" />
-    <Property Name="Password" Type="nvarchar" MaxLength="20" />
-    <Property Name="IdRole" Type="int" />
+    <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
     <Property Name="DayOfBirth" Type="date" />
   </EntityType>
   <EntityType Name="Venue">
@@ -406,7 +409,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
