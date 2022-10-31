@@ -29,6 +29,8 @@ namespace OrganizationAthleticsCompetitions
             {
                 CurrentCommand = selectedCommand;
                 lvSportsmans.ItemsSource = DataAccess.GetSportsmansInTeam(selectedCommand);
+                tabResults.Visibility = Visibility.Visible;
+                lvResults.ItemsSource = DataAccess.GetResultsCompetition().Where(a => a.Request.Sportsman.Team == CurrentCommand);
             }
 
             DataContext = CurrentCommand;
