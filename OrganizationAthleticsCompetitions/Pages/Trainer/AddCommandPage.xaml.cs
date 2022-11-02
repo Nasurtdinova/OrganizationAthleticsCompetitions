@@ -82,5 +82,16 @@ namespace OrganizationAthleticsCompetitions
                 lvSportsmans.ItemsSource = DataAccess.GetSportsmansInTeam(CurrentCommand);
             };
         }
+
+        private void btnRemoveSportsman_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы точно хотите удалить спортсмена?", "Предупреждение", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+            {
+                var i = (sender as Button).DataContext as Sportsman;
+                i.IsDeleted = true;
+                Connection.connection.SaveChanges();
+                MaterialMessageBox.Show("Спортсмен успешно удален!");
+            }
+        }
     }
 }

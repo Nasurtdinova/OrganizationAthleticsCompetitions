@@ -27,7 +27,7 @@ namespace OrganizationAthleticsCompetitions
         {
             lvPersonalScore.Visibility = Visibility.Visible;
             lvTotalScore.Visibility = Visibility.Collapsed;
-            lvPersonalScore.ItemsSource = DataAccess.GetResultsCompetition();
+            lvPersonalScore.ItemsSource = DataAccess.GetSportsmans();
         }
 
         private void radioTotal_Click(object sender, RoutedEventArgs e)

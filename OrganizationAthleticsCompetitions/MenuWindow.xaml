@@ -29,7 +29,7 @@
             <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#FFDEDEDE">
+    <Grid Background="White">
         <Frame x:Name="GridMain" Background="White" NavigationUIVisibility="Hidden" Margin="70,60,0,0"/>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF6273AA">
             <Grid.Effect>

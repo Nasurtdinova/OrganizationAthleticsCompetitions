@@ -25,18 +25,13 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 1)
+            if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password))
             {
                 Manager.UpdatePanel();
-            }
-            else if (DataAccess.IsCorrectUser(tbLogin.Text, tbPassword.Password) == 2)
-            {
-                Manager.UpdatePanel();
+                NavigationService.Navigate(new MainPage());
             }
             else
-            {
                 MaterialMessageBox.Show("Incorrect login or password");
-            }
         }
     }
 }

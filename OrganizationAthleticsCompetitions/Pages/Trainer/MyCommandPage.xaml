@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MyCommandPage">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -18,7 +17,7 @@
         <ListView x:Name="lvMyCommands" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="4" Width="1100"></UniformGrid>
+                    <UniformGrid Columns="4" Width="1200"></UniformGrid>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -30,13 +29,14 @@
                             <TextBlock Text="Очки: "/>
                             <TextBlock Text="{Binding Team.Score}"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Редактировать" Background="#FF1C82C9" Name="btnEdit" Click="btnEdit_Click" Width="150" Margin="10"></Button>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Button x:Name="btnRemoveTrainer" Content="Прекратить тренерство" Width="250" Click="btnRemoveTrainer_Click"></Button>
+                            <Button Content="Редактировать" Name="btnEdit" Click="btnEdit_Click" Width="200" Margin="10"></Button>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" Grid.Row="2" Width="100"></Button>
+        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" Grid.Row="2" Width="150"></Button>
     </Grid>
 </Page>

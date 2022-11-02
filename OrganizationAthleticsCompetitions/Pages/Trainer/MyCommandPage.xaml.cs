@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BespokeFusion;
 using OrganizationAthleticsCompetitions.DataBase;
 
 namespace OrganizationAthleticsCompetitions
@@ -30,15 +31,17 @@ namespace OrganizationAthleticsCompetitions
             NavigationService.Navigate(new AddCommandPage(i.Team));
         }
 
-        //private void btnRemove_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (MessageBox.Show($"Вы точно хотите удалить?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-        //    {
-        //        DataAccess.RemoveTrainerFromTeam(((sender as Button).DataContext as Trainer_Team).IdTeam);
-        //        lvMyCommands.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
-        //        MessageBox.Show("Данные удалены");
-        //    }
-        //}
+        private void btnRemoveTrainer_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Вы точно хотите прекратить тренерство?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var a = (sender as Button).DataContext as Trainer_Team;
+                a.IsActive = false;
+                Connection.connection.SaveChanges();
+                MaterialMessageBox.Show("Тренерство прекращено!");
+                lvMyCommands.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
+            }
+        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {

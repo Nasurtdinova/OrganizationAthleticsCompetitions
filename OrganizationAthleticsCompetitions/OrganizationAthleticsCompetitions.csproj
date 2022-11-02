@@ -135,6 +135,9 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddEditProgramCompetition.xaml.cs">
       <DependentUpon>AddEditProgramCompetition.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
     <Compile Include="Pages\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddEditProgramCompetition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -398,6 +405,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\fonMain.jpg" />
     <Resource Include="Images\iconProfile.png" />
     <Resource Include="Images\iconTrainer.png" />
     <Resource Include="Images\PhotoProfile.png" />

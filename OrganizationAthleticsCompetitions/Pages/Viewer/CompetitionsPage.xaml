@@ -61,7 +61,7 @@
                         <DataGridTemplateColumn Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Результаты" Name="btnResult" Click="btnResult_Click"></Button>
+                                    <Button Content="Программы" Name="btnResult" Click="btnResult_Click"></Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

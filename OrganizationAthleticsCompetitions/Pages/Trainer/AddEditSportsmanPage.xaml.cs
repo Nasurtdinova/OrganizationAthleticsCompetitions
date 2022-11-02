@@ -56,10 +56,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSportsman.Id == 0)
-                DataAccess.AddSportsman(CurrentSportsman);
-            else
-                DataAccess.UpdateSportsman(CurrentSportsman);
+            DataAccess.SaveSportsman(CurrentSportsman);
             MaterialMessageBox.Show("Информация сохранена!");
             Close();
         }

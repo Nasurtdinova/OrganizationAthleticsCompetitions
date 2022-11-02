@@ -43,5 +43,10 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
             NavigationService.Navigate(new AddCommandPage(CurrentCommand));
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

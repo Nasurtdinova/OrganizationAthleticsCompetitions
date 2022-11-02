@@ -81,7 +81,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static List<ResultCompetition> GetResultsCompetition()
         {
-            return new List<ResultCompetition>(Connection.connection.ResultCompetition).ToList();
+            return new List<ResultCompetition>(Connection.connection.ResultCompetition).Where(a=>a.IsDeleted == false).ToList();
         }
 
         public static List<ResultCompetition> GetResultsInProgramCompetition(ProgramCompetition com)
@@ -126,12 +126,6 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
-        public static void RemoveTrainerFromTeam(int idTeam)
-        {
-            Connection.connection.Trainer_Team.Remove(GetTeamsTrainers().Where(a => a.IdTeam == idTeam && CurrentUser.trainer == a.Trainer).FirstOrDefault());
-            Connection.connection.SaveChanges();
-        }
-
         public static List<City> GetCities()
         {
             return new List<City>(Connection.connection.City.ToList());
@@ -150,6 +144,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static void AddResult(ResultCompetition res)
         {
+            res.IsDeleted = false;
             Connection.connection.ResultCompetition.Add(res);
             Connection.connection.SaveChanges();
         }
@@ -169,41 +164,14 @@ namespace OrganizationAthleticsCompetitions
                 };
                 Connection.connection.Trainer_Team.Add(trainer_Team);
             }
-            else
-            {
-                var com = Connection.connection.Team.SingleOrDefault(r => r.Id == team.Id);
-                com.IsDeleted = false;
-                com.Name = team.Name;
-                com.IdCity = team.IdCity;
-                if (team.Image != null)
-                    com.Image = team.Image;
-            }
             Connection.connection.SaveChanges();
-
         }
 
-        public static void AddSportsman(Sportsman sports)
+        public static void SaveSportsman(Sportsman sports)
         {
             sports.IsDeleted = false;
-            Connection.connection.Sportsman.Add(sports);
-            Connection.connection.SaveChanges();
-        }
-
-        public static void UpdateSportsman(Sportsman command)
-        {
-            var com = Connection.connection.Sportsman.SingleOrDefault(r => r.Id == command.Id);
-            com.IsDeleted = false;
-            com.FullName = command.FullName;
-            com.IdCity = command.IdCity;
-            com.DateOfBirth = command.DateOfBirth;
-            com.Gender = command.Gender;
-            com.Height = command.Height;
-            com.Weight = com.Weight;
-            com.PhoneNumber = com.PhoneNumber;
-            com.CategorySportsman = command.CategorySportsman;
-            com.Team = command.Team;
-            if (command.Image != null)
-                com.Image = command.Image;
+            if (sports.Id == 0)
+                Connection.connection.Sportsman.Add(sports);
             Connection.connection.SaveChanges();
         }
 
@@ -227,7 +195,7 @@ namespace OrganizationAthleticsCompetitions
             return new List<Trainer>(Connection.connection.Trainer.ToList());
         }
 
-        public static int IsCorrectUser(string email, string password)
+        public static bool IsCorrectUser(string email, string password)
         {
             var admin = GetUsers().Where(a => email == a.Login && password == a.Password && a.IdRole == 1);
             var trainer = GetUsers().Where(a => email == a.Login && password == a.Password && a.IdRole == 2);
@@ -237,17 +205,15 @@ namespace OrganizationAthleticsCompetitions
             {
                 CurrentUser.user = trainer.FirstOrDefault();
                 CurrentUser.trainer = GetTrainer(CurrentUser.user.Id);
-                return 2;
+                return true;
             }
             else if (admin.Count() == 1)
             {
                 CurrentUser.user = admin.FirstOrDefault();
-                return 1;
+                return true;
             }
             else
-            {
-                return 0;
-            }
+                return false;
         }
 
         public static void SaveTrainer(Trainer trainer, User user)
@@ -258,12 +224,6 @@ namespace OrganizationAthleticsCompetitions
                 trainer.User = GetUsers().LastOrDefault();
                 Connection.connection.Trainer.Add(trainer);
             }
-            else
-            {
-                var a = GetTrainers().Where(b => b.Id == trainer.Id).FirstOrDefault();
-                a.Image = trainer.Image;
-                a.User = trainer.User;
-            }
             Connection.connection.SaveChanges();
         }
 
@@ -272,15 +232,6 @@ namespace OrganizationAthleticsCompetitions
             compet.IsDeleted = false;
             if (compet.Id == 0)
                 Connection.connection.Competition.Add(compet);
-            else
-            {
-                var a = GetCompetitions().Where(b => b.Id == compet.Id).FirstOrDefault();
-                a.Name = compet.Name;
-                a.DateStart = compet.DateStart;
-                a.DateEnd = compet.DateEnd;
-                a.CategoryCompetition = compet.CategoryCompetition;
-                a.Venue = compet.Venue;
-            }
             Connection.connection.SaveChanges();
         }
 
@@ -291,15 +242,6 @@ namespace OrganizationAthleticsCompetitions
             {
                 compet.CountAttendees = 0;
                 Connection.connection.ProgramCompetition.Add(compet);
-            }
-            else
-            {
-                var a = GetProgramsCompetition().Where(b => b.Id == compet.Id).FirstOrDefault();
-                a.TimeStart = compet.TimeStart;
-                a.Date = compet.Date;
-                a.MaxCountAttendees = compet.MaxCountAttendees;
-                a.TypeCompetition = compet.TypeCompetition;
-                a.TypeProgram = compet.TypeProgram;
             }
             Connection.connection.SaveChanges();
         }

@@ -14,15 +14,12 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    /// <summary>
-    /// Логика взаимодействия для MenuWindow.xaml
-    /// </summary>
     public partial class MenuWindow : Window
     {
         public MenuWindow()
         {
             InitializeComponent();
-            //Manager.MainFrame = GridMain;
+
             Manager.Sportsmans = ItemSportsmans;
             Manager.CommandsTrainer = ItemMyCommand;
             Manager.Commands = ItemCommand;
@@ -31,13 +28,15 @@ namespace OrganizationAthleticsCompetitions
             Manager.Authorization = login;
             Manager.Exit = exit;
             Manager.EditProfile = profile;
+
+            GridMain.Navigate(new MainPage());
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            GridMain.Margin = new Thickness(200, 60, 0, 0);
+            GridMain.Margin = new Thickness(210, 60, 0, 0);
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -52,7 +51,7 @@ namespace OrganizationAthleticsCompetitions
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "ItemHome":
-                    GridMain.Navigate(new AuthorizationPage());
+                    GridMain.Navigate(new MainPage());
                     break;
                 case "ItemSportsmans":
                     GridMain.Navigate(new SportsmansPage());

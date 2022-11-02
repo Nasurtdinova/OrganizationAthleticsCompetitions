@@ -24,16 +24,12 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             lvSportsmansInTeam.ItemsSource = DataAccess.GetSportsmansInTeam(team);
             lvTrainersInTeam.ItemsSource = DataAccess.GetTrainersInTeam(team);
-            if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
-                removeTrainer.Width = 250;
+            lvResults.ItemsSource = DataAccess.GetResultsCompetition().Where(a => a.Request.Sportsman.Team == team);
         }
 
-        private void btnRemoveTrainer_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            var a = (sender as Button).DataContext as Trainer_Team;
-            a.IsActive = false;
-            Connection.connection.SaveChanges();
-            MaterialMessageBox.Show("Тренерство прекращено!");
+            NavigationService.GoBack();
         }
     }
 }

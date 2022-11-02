@@ -21,8 +21,8 @@
         </DataGrid>
         <DataGrid x:Name="lvPersonalScore" Visibility="Collapsed" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding Request.Sportsman.FullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Команда" Width="*" Binding="{Binding Request.Sportsman.Team.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Команда" Width="*" Binding="{Binding Team.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Очки" Binding="{Binding Score}"></DataGridTextColumn>
             </DataGrid.Columns>
            
