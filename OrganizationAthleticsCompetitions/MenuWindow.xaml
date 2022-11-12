@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowState="Maximized"
         mc:Ignorable="d"
         Title="Организация соревнований по легкой атлетике" Icon="Images/logoMain.png" MinHeight="600" MinWidth="1080" Foreground="White" WindowStartupLocation="CenterScreen" >
     <Window.Resources>
@@ -114,6 +114,12 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\competition.png" Height="25" Width="25" Margin="10"/>
                             <TextBlock Foreground="White" Text="Соревнования" VerticalAlignment="Center"  Margin="9 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemPartipication"  Height="60" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images\competition.png" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Foreground="White" Text="Участия" VerticalAlignment="Center"  Margin="9 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemResult"  Height="60">

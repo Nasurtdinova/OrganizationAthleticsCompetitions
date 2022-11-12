@@ -19,6 +19,7 @@ namespace OrganizationAthleticsCompetitions
         public static ListViewItem Trainers { get; set; }
 
         public static ListViewItem CommandsTrainer { get; set; }
+        public static ListViewItem PartipicationTrainer { get; set; }
         public static ListViewItem Commands { get; set; }
 
         public static ListViewItem Competitions { get; set; }
@@ -38,12 +39,14 @@ namespace OrganizationAthleticsCompetitions
                     Commands.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
+                    PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 else if (CurrentUser.user.IdRole == 2)
                 {
                     //RoleNameLabel.Content = "Тренер";
                     Commands.Visibility = System.Windows.Visibility.Collapsed;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
+                    PartipicationTrainer.Visibility = System.Windows.Visibility.Visible;
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
                 }
@@ -58,6 +61,7 @@ namespace OrganizationAthleticsCompetitions
                 Exit.Visibility = System.Windows.Visibility.Collapsed;
                 EditProfile.Visibility = System.Windows.Visibility.Collapsed;
                 Trainers.Visibility = System.Windows.Visibility.Collapsed;
+                PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
     }

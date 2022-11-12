@@ -28,7 +28,15 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image Source="{Binding Image}" Width="400" Height="210"/>
+                        <Image Width="400" Height="210">
+                            <Image.Source>
+                                <Binding Path="Image">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/noimage.png"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
                         <TextBlock Text="{Binding Name}" FontSize="22"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="Очки: "/>

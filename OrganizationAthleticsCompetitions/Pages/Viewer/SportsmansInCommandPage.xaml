@@ -43,11 +43,12 @@
             <TabItem Header="Тренеры">
                 <TabItem.Content>
                     <ListView Name="lvTrainersInTeam">
+                       
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ФИО" Width="400" DisplayMemberBinding="{Binding Trainer.User.FullName}"></GridViewColumn>
                                 <GridViewColumn Header="Стаж" DisplayMemberBinding="{Binding Year}"></GridViewColumn>
-                                <GridViewColumn Header="Фотография" Width="200">
+                                <GridViewColumn Header="Фотография">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Image Height="200">
@@ -74,13 +75,6 @@
                             <DataGridTextColumn Header="ФИО"  Binding="{Binding Request.Sportsman.FullName}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Соревнование"  Binding="{Binding Request.ProgramCompetition.Competition.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Программа" Width="*" Binding="{Binding Request.ProgramCompetition.ProgramCompet}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Header="Фотография" Width="200">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Source="{Binding Request.Sportsman.Image}" Height="200"></Image>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="Место" Width="*" Binding="{Binding Rank}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>

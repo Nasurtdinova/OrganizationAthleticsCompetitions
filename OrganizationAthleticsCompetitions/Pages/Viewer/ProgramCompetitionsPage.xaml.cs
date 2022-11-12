@@ -19,6 +19,7 @@ namespace OrganizationAthleticsCompetitions
 {
     public partial class ProgramCompetitionsPage : Page
     {
+        public List<ProgramCompetition> ListCompetitions = new List<ProgramCompetition>();
         public Competition CurrentCompetition = new Competition();
         public ProgramCompetitionsPage(Competition com)
         {

@@ -17,7 +17,6 @@
                 <GridView>
                     <GridViewColumn Header="Тип программы" Width="200"  DisplayMemberBinding="{Binding TypeProgram.Name}"></GridViewColumn>
                     <GridViewColumn Header="Тип соревнования" Width="200" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
-                    
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
                     <GridViewColumn Header="Время начала" Width="170" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
                     <GridViewColumn Header="Род" DisplayMemberBinding="{Binding Gender}"></GridViewColumn>

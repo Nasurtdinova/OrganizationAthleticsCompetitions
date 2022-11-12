@@ -22,7 +22,15 @@
             <ListView.Resources>
                 <DataTemplate x:Key="DefaultItemTemplate">
                     <StackPanel>
-                        <Image Source="{Binding Image}" Width="400" Height="220"/>
+                        <Image Width="400" Height="220">
+                            <Image.Source>
+                                <Binding Path="Image">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
                         <TextBlock Text="{Binding FullName}"/>
                     </StackPanel>
                 </DataTemplate>
