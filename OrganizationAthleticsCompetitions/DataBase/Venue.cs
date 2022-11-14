@@ -11,7 +11,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Venue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> IdCity { get; set; }
-    
+        [Required(ErrorMessage = "Заполните город проведения!")]
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Competition> Competition { get; set; }

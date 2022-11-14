@@ -14,6 +14,14 @@ namespace OrganizationAthleticsCompetitions
             return new List<User>(Connection.connection.User.ToList());
         }
 
+        public static bool IsTrueLogin(string login)
+        {
+            if (GetUsers().Where(a => a.Login == login).Count() > 0)
+                return false;
+            else
+                return true;
+        }
+
         public static List<Gender> GetGenders()
         {
             return new List<Gender>(Connection.connection.Gender.ToList());

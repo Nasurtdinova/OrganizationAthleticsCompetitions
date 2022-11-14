@@ -31,8 +31,6 @@ namespace OrganizationAthleticsCompetitions
 
             Title = CurrentSportsman.Id != 0 ? "Редактирование спортсмена" : "Добавление спортсмена в команду";
 
-            CurrentSportsman.Team = team;
-
             comboCity.ItemsSource = DataAccess.GetCities();
             comboCategory.ItemsSource = DataAccess.GetCategorySportsmans();
             comboGender.ItemsSource = DataAccess.GetGenders();
@@ -59,6 +57,7 @@ namespace OrganizationAthleticsCompetitions
             DataAccess.SaveSportsman(CurrentSportsman);
             MaterialMessageBox.Show("Информация сохранена!");
             Close();
+
         }
     }
 }

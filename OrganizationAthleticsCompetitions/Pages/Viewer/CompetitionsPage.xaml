@@ -52,11 +52,11 @@
                 <DataGrid AlternationCount="2" x:Name="dgPastCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}" Width="*"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy'}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}" Width="*"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
                         <DataGridTemplateColumn Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

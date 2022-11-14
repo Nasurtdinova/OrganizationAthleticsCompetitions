@@ -118,7 +118,7 @@
                     </ListViewItem>
                     <ListViewItem x:Name="ItemPartipication"  Height="60" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\competition.png" Height="25" Width="25" Margin="10"/>
+                            <materialDesign:PackIcon Kind="InvoiceCheck" Width="25" Margin="10" Height="25"/>
                             <TextBlock Foreground="White" Text="Участия" VerticalAlignment="Center"  Margin="9 10"/>
                         </StackPanel>
                     </ListViewItem>

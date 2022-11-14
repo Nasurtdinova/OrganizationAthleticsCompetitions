@@ -9,16 +9,18 @@
       Title="ProgramCompetitionsPage">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Name="lvProgramsCompetition">
+        <TextBlock Text="Программы"></TextBlock>
+        <ListView Name="lvProgramsCompetition" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Тип программы" Width="200"  DisplayMemberBinding="{Binding TypeProgram.Name}"></GridViewColumn>
                     <GridViewColumn Header="Тип соревнования" Width="200" DisplayMemberBinding="{Binding TypeCompetition.Name}"></GridViewColumn>
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
-                    <GridViewColumn Header="Время начала" Width="170" DisplayMemberBinding="{Binding TimeStart}"></GridViewColumn>
+                    <GridViewColumn Header="Время начала" Width="170" DisplayMemberBinding="{Binding TimeStart,StringFormat=hh\\:mm}"></GridViewColumn>
                     <GridViewColumn Header="Род" DisplayMemberBinding="{Binding Gender}"></GridViewColumn>
                     <GridViewColumn Header="Участники" DisplayMemberBinding="{Binding CountAttendees}"></GridViewColumn>
                     <GridViewColumn Header="Заявки" Width="0" x:Name="columnRequests">
@@ -45,6 +47,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Bottom"></Button>
+        <Button x:Name="btnBack" Grid.Row="2" Margin="10" Content="Назад" Click="btnBack_Click"></Button>
     </Grid>
 </Page>

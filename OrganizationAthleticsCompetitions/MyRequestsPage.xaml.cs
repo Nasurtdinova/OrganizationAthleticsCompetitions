@@ -1,4 +1,5 @@
-﻿using OrganizationAthleticsCompetitions.DataBase;
+﻿using BespokeFusion;
+using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,18 +22,28 @@ namespace OrganizationAthleticsCompetitions
         public MyRequestsPage()
         {
             InitializeComponent();
+            
+            dgRequests.ItemsSource = GetList();
+        }
+        
+        public List<Request> GetList()
+        {
             List<Request> list = new List<Request>();
-            foreach(var i in DataAccess.GetTeamsInTreaner(CurrentUser.trainer))
+            foreach (var i in DataAccess.GetTeamsInTreaner(CurrentUser.trainer))
             {
                 foreach (var j in DataAccess.GetRequests().Where(a => a.Sportsman.IdTeam == i.IdTeam && a.ProgramCompetition.Date > DateTime.Now))
                     list.Add(j);
             }
-            dgRequests.ItemsSource = list;
+            return list;
         }
 
         private void btnRevoke_Click(object sender, RoutedEventArgs e)
         {
-
+            var a = (sender as Button).DataContext as Request;
+            Connection.connection.Request.Remove(a);
+            Connection.connection.SaveChanges();
+            MaterialMessageBox.Show("Участие отменено!","Уведомление!");
+            dgRequests.ItemsSource = GetList();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

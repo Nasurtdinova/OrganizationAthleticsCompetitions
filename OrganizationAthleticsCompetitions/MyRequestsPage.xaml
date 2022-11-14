@@ -13,6 +13,7 @@
             <RowDefinition Height="7*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <TextBlock Text="Предстоящие участия"></TextBlock>
         <DataGrid x:Name="dgRequests" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Соревнование" Binding="{Binding ProgramCompetition.Competition.Name}"></DataGridTextColumn>
@@ -20,7 +21,7 @@
                 <DataGridTextColumn Header="Вид программы" Binding="{Binding ProgramCompetition.TypeProgram.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Спортсмен" Binding="{Binding Sportsman.FullName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата" Width="130" Binding="{Binding ProgramCompetition.Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Старт" Binding="{Binding StartTime}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Старт" Binding="{Binding StartTime,StringFormat=hh\\:mm}"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -28,13 +28,13 @@
                 <DataGridTextColumn Header="Тип программы" Width="170"  Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Тип соревнования" Binding="{Binding TypeCompetition.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата" Width="130" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Время" Width="85" Binding="{Binding TimeStart}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Время" Width="85" Binding="{Binding TimeStart,StringFormat=hh\\:mm}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Род" Width="70" Binding="{Binding Gender}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Grid.Row="1" Grid.Column="1" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dgResulsPrograms">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО"  Binding="{Binding Request.Sportsman.FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding Request.Sportsman.FullName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Место" Width="*" Binding="{Binding Rank}"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="0" x:Name="removeColumn">
                     <DataGridTemplateColumn.CellTemplate>

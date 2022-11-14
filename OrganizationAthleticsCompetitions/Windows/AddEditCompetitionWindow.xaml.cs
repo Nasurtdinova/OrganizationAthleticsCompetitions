@@ -2,6 +2,7 @@
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,18 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess.SaveCompetition(CurrentCompetition);
-            MaterialMessageBox.Show("Информация сохранена!");
-            Close();
+            var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            var context = new ValidationContext(CurrentCompetition);
+
+            if (!Validator.TryValidateObject(CurrentCompetition, context, sportsmans, true))
+                foreach (var error in sportsmans)
+                    MaterialMessageBox.ShowError(error.ErrorMessage);
+            else
+            {
+                DataAccess.SaveCompetition(CurrentCompetition);
+                MaterialMessageBox.Show("Информация сохранена!");
+                Close();
+            }
         }
 
         private void btnAddProgram_Click(object sender, RoutedEventArgs e)

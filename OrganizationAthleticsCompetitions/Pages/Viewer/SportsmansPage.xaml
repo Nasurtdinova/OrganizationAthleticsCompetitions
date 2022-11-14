@@ -42,7 +42,7 @@
                                 <TextBlock Text="{Binding Team.Name}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding CategorySportsman.Name}" />
+                                <TextBlock Text="{Binding CategorySportsman.Name, TargetNullValue='Нет звания'}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Дата рождения: " />

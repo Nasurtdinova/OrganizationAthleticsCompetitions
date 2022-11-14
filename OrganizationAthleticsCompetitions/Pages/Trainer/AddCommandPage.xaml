@@ -53,12 +53,20 @@
                         </Grid.RowDefinitions>
                         <DataGrid Name="lvSportsmans"  AutoGenerateColumns="False" CanUserAddRows="false">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ФИО"  Binding="{Binding FullName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FullName}"></DataGridTextColumn>
                                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
                                 <DataGridTemplateColumn Header="Фотография" Width="200">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image Source="{Binding Image}" Height="200"></Image>
+                                            <Image Height="200">
+                                                <Image.Source>
+                                                    <Binding Path="Image">
+                                                        <Binding.TargetNullValue>
+                                                            <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                                                        </Binding.TargetNullValue>
+                                                    </Binding>
+                                                </Image.Source>
+                                            </Image>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -67,7 +75,7 @@
                                         <DataTemplate>
                                             <StackPanel>
                                                 <Button x:Name="btnEditSportsman" Margin="10" Width="200" Click="btnEditSportsman_Click" Content="Редактировать"></Button>
-                                                <Button x:Name="btnRemoveSportsman" Click="btnRemoveSportsman_Click" Content="Удалить"></Button>
+                                                <Button x:Name="btnRemoveSportsman" Width="200" Click="btnRemoveSportsman_Click" Content="Удалить"></Button>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

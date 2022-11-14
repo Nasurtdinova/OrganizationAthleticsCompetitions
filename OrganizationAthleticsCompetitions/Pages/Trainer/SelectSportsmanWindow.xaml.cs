@@ -32,7 +32,7 @@ namespace OrganizationAthleticsCompetitions
             add.Show();
             add.Closed += (s, eventarg) =>
             {
-                NavigationService.Navigate(new MyCommandPage());
+                NavigationService.Navigate(new SelectSportsmanWindow(CurrentCommand));
             };
         }
 
