@@ -9,10 +9,12 @@
       Title="ResultProgramCompetitionsPage">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Name="lvResultProgramCompetitinon">
+        <TextBlock Text="Результаты"></TextBlock>
+        <ListView Name="lvResultProgramCompetitinon" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ФИО" Width="400"  DisplayMemberBinding="{Binding Request.Sportsman.FullName}"></GridViewColumn>
@@ -22,7 +24,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click"></Button>
             <Button x:Name="btnAddResult" Content="Добавить" Click="btnAddResult_Click" Visibility="Collapsed"></Button>
         </StackPanel>

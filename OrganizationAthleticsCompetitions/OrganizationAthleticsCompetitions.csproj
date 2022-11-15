@@ -135,7 +135,7 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyRequestsPage.xaml.cs">
+    <Compile Include="Pages\Trainer\MyRequestsPage.xaml.cs">
       <DependentUpon>MyRequestsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
@@ -226,7 +226,7 @@
     <Compile Include="Pages\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="MyRequestsPage.xaml">
+    <Page Include="Pages\Trainer\MyRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

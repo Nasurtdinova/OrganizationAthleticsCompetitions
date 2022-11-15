@@ -25,7 +25,7 @@ namespace OrganizationAthleticsCompetitions
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
                 btnAddResult.Visibility = Visibility.Visible;
             ProgramCompetition = prCom;
-            lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(prCom);
+            lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(prCom).OrderBy(a=>a.Rank);
         }
 
         private void btnAddResult_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace OrganizationAthleticsCompetitions
             add.Show();
             add.Closed += (s, eventarg) =>
             {
-                lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(ProgramCompetition);
+                lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(ProgramCompetition).OrderBy(a => a.Rank);
             };
         }
 

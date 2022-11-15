@@ -40,7 +40,7 @@
                     <GridViewColumn x:Name="columnResult" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Name="btnResult" Width="200" Content="Результаты" Click="btnResult_Click"></Button>
+                                <Button Name="btnResult" Width="200" Visibility="{Binding VisibilityResult}" Content="Результаты" Click="btnResult_Click"></Button>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

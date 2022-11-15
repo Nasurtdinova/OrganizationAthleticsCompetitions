@@ -32,7 +32,13 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<bool> IsDeleted { get; set; }
 
         public string ProgramCompet => $"{TypeProgram.Name} {TypeCompetition.Name}";
-
+        public string VisibilityResult { get 
+            {
+                if (Date.Value.Date <= DateTime.Now.Date)
+                    return "Visibility";
+                else
+                    return "Collapsed";
+            } }
         public virtual Competition Competition { get; set; }
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
