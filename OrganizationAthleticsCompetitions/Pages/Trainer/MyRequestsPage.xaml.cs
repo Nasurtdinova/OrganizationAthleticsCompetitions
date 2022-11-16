@@ -21,8 +21,7 @@ namespace OrganizationAthleticsCompetitions
     {
         public MyRequestsPage()
         {
-            InitializeComponent();
-            
+            InitializeComponent();         
             dgRequests.ItemsSource = GetList();
         }
         

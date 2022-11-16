@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      WindowState="Maximized"
       Title="AddEditSportsmanPage">
 
     <Grid>
@@ -44,6 +44,14 @@
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Orientation="Horizontal">
             <Button Width="130" Height="60" Name="btnSave" Margin="10" Content="Сохранить" Click="btnSave_Click"></Button>
         </StackPanel>
-        <Image Source="{Binding Image}" Name="imgSportsman" Grid.RowSpan="2" Grid.Row="4" Grid.Column="1"></Image>
+        <Image Name="imgSportsman" Grid.RowSpan="2" Grid.Row="4" Margin="20" Grid.Column="1">
+            <Image.Source>
+                <Binding Path="Image">
+                    <Binding.TargetNullValue>
+                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
     </Grid>
 </Window>

@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OrganizationAthleticsCompetitions.DataBase;
 using BespokeFusion;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrganizationAthleticsCompetitions
 {
@@ -54,9 +55,18 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess.SaveTeam(CurrentCommand);
-            MaterialMessageBox.Show("Информация сохранена");
-            NavigationService.Navigate(new MyCommandPage());
+            var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            var context = new ValidationContext(CurrentCommand);
+
+            if (!Validator.TryValidateObject(CurrentCommand, context, sportsmans, true))
+                foreach (var error in sportsmans)
+                    MaterialMessageBox.ShowError(error.ErrorMessage);
+            else
+            {
+                DataAccess.SaveTeam(CurrentCommand);
+                MaterialMessageBox.Show("Информация сохранена");
+                NavigationService.Navigate(new MyCommandPage());
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

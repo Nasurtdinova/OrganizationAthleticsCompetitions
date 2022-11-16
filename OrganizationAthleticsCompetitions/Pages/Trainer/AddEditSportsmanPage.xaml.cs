@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -54,10 +55,18 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess.SaveSportsman(CurrentSportsman);
-            MaterialMessageBox.Show("Информация сохранена!");
-            Close();
+            var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            var context = new ValidationContext(CurrentSportsman);
 
+            if (!Validator.TryValidateObject(CurrentSportsman, context, sportsmans, true))
+                foreach (var error in sportsmans)
+                    MaterialMessageBox.ShowError(error.ErrorMessage);
+            else
+            {
+                DataAccess.SaveSportsman(CurrentSportsman);
+                MaterialMessageBox.Show("Информация сохранена!");
+                Close();
+            }
         }
     }
 }

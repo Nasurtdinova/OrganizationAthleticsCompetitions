@@ -11,7 +11,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Sportsman
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,12 +22,14 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage = "Заполните ФИО!")]
         public string FullName { get; set; }
         public Nullable<int> IdCity { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<int> Height { get; set; }
         public Nullable<double> Weight { get; set; }
         public Nullable<int> IdCategorySportsman { get; set; }
+
         public string Gender { get; set; }
         public string PhoneNumber { get; set; }
         public byte[] Image { get; set; }
@@ -37,6 +40,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
     
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
+        [Required(ErrorMessage = "Заполните род!")]
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }

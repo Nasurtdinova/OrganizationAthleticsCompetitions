@@ -12,19 +12,24 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Спортсмен"></TextBlock>
-        <TextBlock Text="Результат" Grid.Row="1"></TextBlock>
-        <ComboBox Name="cbSportsman" SelectedItem="{Binding Sportsman}" Width="400" DisplayMemberPath="FullName" Grid.Column="1" ></ComboBox>
-        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <TextBlock x:Name="competitionName"></TextBlock>
+            <TextBlock x:Name="typeProgram" Margin="10"></TextBlock>
+            <TextBlock x:Name="typeCompetition"></TextBlock>
+        </StackPanel>
+        <TextBlock Text="Спортсмен" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Результат" Grid.Row="2"></TextBlock>
+        <ComboBox Name="cbSportsman" Grid.Row="1" SelectedItem="{Binding Sportsman}" Width="400" DisplayMemberPath="FullName" Grid.Column="1" ></ComboBox>
+        <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
             <TextBox  Width="200" Name="tbResult" Margin="20"></TextBox>
             <TextBlock x:Name="formatResult"></TextBlock>
         </StackPanel>
-        <Button Content="Добавить" Grid.ColumnSpan="2" Grid.Row="2" Width="200" Name="btnAdd" Click="btnAdd_Click"></Button>
+        <Button Content="Добавить" Grid.ColumnSpan="2" Grid.Row="3" Width="200" Name="btnAdd" Click="btnAdd_Click"></Button>
     </Grid>
 </Window>

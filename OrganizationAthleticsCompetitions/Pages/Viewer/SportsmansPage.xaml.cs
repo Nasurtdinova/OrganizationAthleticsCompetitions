@@ -22,5 +22,10 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             sportsmansList.ItemsSource = DataAccess.GetSportsmans();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -11,7 +11,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Team
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage = "Заполните название!")]
         public string Name { get; set; }
         public Nullable<int> IdCity { get; set; }
         public byte[] Image { get; set; }

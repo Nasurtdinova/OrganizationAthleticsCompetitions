@@ -49,8 +49,6 @@ namespace OrganizationAthleticsCompetitions
                 };
 
                 DataAccess.AddRequest(req);
-                CurrentProgram.CountAttendees += 1;
-                Connection.connection.SaveChanges();
                 MaterialMessageBox.Show("Информация сохранена");
                 Close();
             }

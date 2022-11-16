@@ -248,7 +248,6 @@ namespace OrganizationAthleticsCompetitions
             compet.IsDeleted = false;
             if (compet.Id == 0)
             {
-                compet.CountAttendees = 0;
                 Connection.connection.ProgramCompetition.Add(compet);
             }
             Connection.connection.SaveChanges();

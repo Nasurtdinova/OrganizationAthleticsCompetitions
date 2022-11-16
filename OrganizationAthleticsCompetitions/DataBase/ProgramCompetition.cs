@@ -11,7 +11,8 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class ProgramCompetition
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +28,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<System.DateTime> Date { get; set; }
         public TimeSpan TimeStart { get; set; }
         public Nullable<int> MaxCountAttendees { get; set; }
-        public Nullable<int> CountAttendees { get; set; }
+        public int CountAttendees => DataAccess.GetRequests().Where(a => a.IdProgramCompetition == Id).Count();
         public string Gender { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
 
