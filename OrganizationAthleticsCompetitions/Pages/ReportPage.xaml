@@ -23,6 +23,9 @@
             <TextBlock Text="Выберите вид сореванония" Margin="20"></TextBlock>
             <ComboBox Name="comboTypeCompetitions" Width="300" SelectionChanged="comboTypeCompetitions_SelectionChanged" SelectedItem="{Binding TypeCompetition}" DisplayMemberPath="Name"></ComboBox>
         </StackPanel>
-        <Button x:Name="btnReport" Grid.Row="2" Content="Вывести" Click="btnReport_Click"></Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnBack" Margin="10" Content="Назад" Click="btnBack_Click"></Button>
+            <Button x:Name="btnReport" Content="Вывести" Click="btnReport_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

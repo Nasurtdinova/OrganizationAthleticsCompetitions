@@ -54,22 +54,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProgramCompetition">
-      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ProgramCompetition">
-        <MappingFragment StoreEntitySet="ProgramCompetition">
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="CountAttendees" ColumnName="CountAttendees" />
-          <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
-          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
-          <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
-          <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Request">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Request">
         <MappingFragment StoreEntitySet="Request">
@@ -195,6 +179,21 @@
         <MappingFragment StoreEntitySet="Venue">
           <ScalarProperty Name="IdCity" ColumnName="IdCity" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramCompetition">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.ProgramCompetition">
+        <MappingFragment StoreEntitySet="ProgramCompetition">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MaxCountAttendees" ColumnName="MaxCountAttendees" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IdTypeCompetition" ColumnName="IdTypeCompetition" />
+          <ScalarProperty Name="IdTypeProgram" ColumnName="IdTypeProgram" />
+          <ScalarProperty Name="IdCompetition" ColumnName="IdCompetition" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

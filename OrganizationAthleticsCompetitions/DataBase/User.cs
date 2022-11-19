@@ -24,9 +24,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public int Id { get; set; }
         [Required(ErrorMessage = "Заполните ФИО!")]
         public string FullName { get; set; }
-
         public Nullable<int> IdCity { get; set; }
-
         [Required(ErrorMessage = "Заполните логин!")]
         public string Login { get; set; }
 

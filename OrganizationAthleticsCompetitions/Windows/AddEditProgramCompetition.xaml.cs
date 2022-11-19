@@ -2,6 +2,7 @@
 using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,8 @@ namespace OrganizationAthleticsCompetitions
             CurrentProgramCompetition.Competition = competition;
             tpTime.SelectedTime = new DateTime(CurrentProgramCompetition.TimeStart.Ticks);
             DataContext = CurrentProgramCompetition;
-            dpDate.DisplayDateStart = DateTime.Now;
+            dpDate.DisplayDateStart = competition.DateStart;
+            dpDate.DisplayDateEnd = competition.DateEnd;
             comboTypeCompetition.ItemsSource = DataAccess.GetTypesCompetitions();
             comboTypeProgram.ItemsSource = DataAccess.GetTypesProgram();
             comboGender.ItemsSource = DataAccess.GetGenders();
@@ -40,14 +42,25 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            CurrentProgramCompetition.TimeStart =new TimeSpan(tpTime.SelectedTime.Value.Ticks);
-            if (CurrentProgramCompetition.MaxCountAttendees < CurrentProgramCompetition.CountAttendees)
-                MaterialMessageBox.ShowError("Максимальное количество участников меньше количества участников!");
+            if (tpTime.SelectedTime != null)
+                CurrentProgramCompetition.TimeStart = new TimeSpan(tpTime.SelectedTime.Value.Ticks);
+            
+            var programs = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            var context = new ValidationContext(CurrentProgramCompetition);
+
+            if (!Validator.TryValidateObject(CurrentProgramCompetition, context, programs, true))
+                foreach (var error in programs)
+                    MaterialMessageBox.ShowError(error.ErrorMessage);
             else
             {
-                DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
-                MaterialMessageBox.Show("Информация сохранена");
-                Close();
+                if (DataAccess.GetProgramsInCompetition(CurrentProgramCompetition.Competition).Where(a => a.TypeProgram == comboTypeProgram.SelectedItem as TypeProgram && a.TypeCompetition == comboTypeCompetition.SelectedItem as TypeCompetition && a.Gender1 == comboGender.SelectedItem as Gender).Count() == 0)
+                {
+                    DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
+                    MaterialMessageBox.Show("Информация сохранена");
+                    Close();
+                }
+                else
+                    MaterialMessageBox.Show("Вы уже добавили такую программу в это соревнование!");
             }
         }
     }

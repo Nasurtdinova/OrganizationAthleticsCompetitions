@@ -25,8 +25,8 @@ namespace OrganizationAthleticsCompetitions
             InitializeComponent();
             if (compet != null)
                 CurrentCompetition = compet;
-            dpDateStart.DisplayDateStart = DateTime.Now;
-            dpDateEnd.DisplayDateStart = DateTime.Now;
+            dpDateStart.DisplayDateStart = DateTime.Now.AddDays(1);
+            dpDateEnd.DisplayDateStart = DateTime.Now.AddDays(1);
             Title = CurrentCompetition.Id == 0 ? "Добавление соревнования" : "Редактирование соревнования";
             DataContext = CurrentCompetition;
             comboCategory.ItemsSource = DataAccess.GetCategoryCompetitions();

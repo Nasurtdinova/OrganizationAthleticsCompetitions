@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
         mc:Ignorable="d"
-        Title="RegistrEditTrainerWindow" Height="450" Width="800">
+        Title="RegistrEditTrainerWindow" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <TextBlock Text="ФИО"></TextBlock>
-            <TextBox Text="{Binding User.FullName}" Name="tbFullName"></TextBox>
+            <TextBox Text="{Binding User.FullName}" Width="350" Name="tbFullName"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <TextBlock Text="Дата рождения"></TextBlock>

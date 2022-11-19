@@ -11,6 +11,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
     public partial class ProgramCompetition
@@ -25,26 +26,40 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdCompetition { get; set; }
         public Nullable<int> IdTypeProgram { get; set; }
         public Nullable<int> IdTypeCompetition { get; set; }
+
+        [Required(ErrorMessage = "Заполните дату!")]
         public Nullable<System.DateTime> Date { get; set; }
+
+        [Required(ErrorMessage = "Заполните время!")]
         public TimeSpan TimeStart { get; set; }
+
+        [Required(ErrorMessage = "Заполните максимальное количество участников!")]
         public Nullable<int> MaxCountAttendees { get; set; }
-        public int CountAttendees => DataAccess.GetRequests().Where(a => a.IdProgramCompetition == Id).Count();
         public string Gender { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
 
+        public int CountAttendees => DataAccess.GetRequests().Where(a => a.IdProgramCompetition == Id).Count();
         public string ProgramCompet => $"{TypeProgram.Name} {TypeCompetition.Name}";
-        public string VisibilityResult { get 
+        public string VisibilityResult
+        {
+            get
             {
                 if (Date.Value.Date <= DateTime.Now.Date)
                     return "Visibility";
                 else
                     return "Collapsed";
-            } }
+            }
+        }
         public virtual Competition Competition { get; set; }
+
+        [Required(ErrorMessage = "Заполните род!")]
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }
+
+        [Required(ErrorMessage = "Заполните тип соревнования!")]
         public virtual TypeCompetition TypeCompetition { get; set; }
+        [Required(ErrorMessage = "Заполните тип программы!")]
         public virtual TypeProgram TypeProgram { get; set; }
     }
 }

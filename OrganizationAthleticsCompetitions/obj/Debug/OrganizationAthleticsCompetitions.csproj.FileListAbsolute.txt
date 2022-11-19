@@ -80,3 +80,9 @@ C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthlet
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Pages\MainPage.baml
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Pages\Trainer\MyRequestsPage.g.cs
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Pages\Trainer\MyRequestsPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.dll
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.pdb
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.xml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\bin\Debug\ExcelDataReader.DataSet.xml

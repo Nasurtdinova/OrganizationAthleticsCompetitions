@@ -25,9 +25,9 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdSportsman { get; set; }
         public Nullable<int> IdProgramCompetition { get; set; }
     
-        public virtual ProgramCompetition ProgramCompetition { get; set; }
         public virtual Sportsman Sportsman { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ResultCompetition> ResultCompetition { get; set; }
+        public virtual ProgramCompetition ProgramCompetition { get; set; }
     }
 }

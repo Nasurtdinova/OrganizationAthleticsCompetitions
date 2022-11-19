@@ -56,6 +56,7 @@ namespace OrganizationAthleticsCompetitions
             else
             {
                 //RoleNameLabel.Content = "Зритель";
+                Commands.Visibility = System.Windows.Visibility.Visible;
                 CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 Authorization.Visibility = System.Windows.Visibility.Visible;
                 Exit.Visibility = System.Windows.Visibility.Collapsed;

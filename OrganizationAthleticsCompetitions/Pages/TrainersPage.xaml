@@ -39,8 +39,8 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-            <Button Content="Назад" Margin="10" Width="100" Name="btnBack" Click="btnBack_Click"></Button>
-            <Button Content="Зарегистрировать" Margin="10" Width="200" Name="btnRegistrTrainer" Click="btnRegistrTrainer_Click"></Button>
+            <Button Content="Назад" Margin="10" Width="200" Name="btnBack" Click="btnBack_Click"></Button>
+            <Button Content="Зарегистрировать" Width="200" Name="btnRegistrTrainer" Click="btnRegistrTrainer_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

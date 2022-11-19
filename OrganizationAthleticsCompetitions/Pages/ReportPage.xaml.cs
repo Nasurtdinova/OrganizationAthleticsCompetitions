@@ -97,5 +97,10 @@ namespace OrganizationAthleticsCompetitions
         {
             SelectTypeCompetition = (sender as ComboBox).SelectedItem as TypeCompetition;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -34,26 +34,34 @@ namespace OrganizationAthleticsCompetitions
                 timeStart = new TimeSpan(0, 5, 0) + DataAccess.GetRequestsForProgramCompetition(CurrentProgram).Last().StartTime;
             
             tbStartTime.Text = timeStart.ToString();
-            comboSportsman.ItemsSource = DataAccess.GetSportmansInGenderAndTrainer(prog.Gender);
+            List<Sportsman> list = DataAccess.GetSportmansInGenderAndTrainer(prog.Gender);
+            foreach (var i in DataAccess.GetRequests().Where(a => a.IdProgramCompetition == CurrentProgram.Id))
+                list.Remove(i.Sportsman);
+            comboSportsman.ItemsSource = list;
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.GetRequests().Where(a => a.IdSportsman == (comboSportsman.SelectedItem as Sportsman).Id && a.IdProgramCompetition == CurrentProgram.Id).FirstOrDefault() == null)
+            if (comboSportsman.SelectedItem != null)
             {
-                Request req = new Request()
+                if (DataAccess.GetRequests().Where(a => a.IdSportsman == (comboSportsman.SelectedItem as Sportsman).Id && a.IdProgramCompetition == CurrentProgram.Id).FirstOrDefault() == null)
                 {
-                    IdProgramCompetition = CurrentProgram.Id,
-                    IdSportsman = (comboSportsman.SelectedItem as Sportsman).Id,
-                    StartTime = timeStart
-                };
+                    Request req = new Request()
+                    {
+                        IdProgramCompetition = CurrentProgram.Id,
+                        IdSportsman = (comboSportsman.SelectedItem as Sportsman).Id,
+                        StartTime = timeStart
+                    };
 
-                DataAccess.AddRequest(req);
-                MaterialMessageBox.Show("Информация сохранена");
-                Close();
+                    DataAccess.AddRequest(req);
+                    MaterialMessageBox.Show("Информация сохранена");
+                    Close();
+                }
+                else
+                    MaterialMessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");
             }
             else
-                MaterialMessageBox.Show("Вы уже отправили заявку на этого спортсмена!", "Уведомление!");
+                MaterialMessageBox.Show("Выберите спортсмена!", "Предупреждение!");
         }
     }
 }

@@ -14,18 +14,20 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Результаты"></TextBlock>
-        <ListView Name="lvResultProgramCompetitinon" Grid.Row="1">
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="format" HorizontalAlignment="Left" Margin="10"></TextBlock>
+        <ListView Name="lvResultProgramCompetitinon" SelectionChanged="lvResultProgramCompetitinon_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ФИО" Width="400"  DisplayMemberBinding="{Binding Request.Sportsman.FullName}"></GridViewColumn>
                     <GridViewColumn Header="Место" DisplayMemberBinding="{Binding Rank}"></GridViewColumn>
-                    <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}"></GridViewColumn>
-                    <GridViewColumn Header="Формат" DisplayMemberBinding="{Binding Request.ProgramCompetition.TypeCompetition.FormatResult.Name}"></GridViewColumn>
-                </GridView>
+                        <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}"></GridViewColumn>
+                    </GridView>
             </ListView.View>
         </ListView>
+        </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click"></Button>
+            <Button x:Name="btnBack" Margin="10" Content="Назад" Click="btnBack_Click"></Button>
             <Button x:Name="btnAddResult" Content="Добавить" Click="btnAddResult_Click" Visibility="Collapsed"></Button>
         </StackPanel>
         

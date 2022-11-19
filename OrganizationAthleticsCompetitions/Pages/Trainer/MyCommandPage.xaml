@@ -24,8 +24,16 @@
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="{Binding Team.Name}"></TextBlock>
-                        <Image Source="{Binding Team.Image}" Width="300"></Image>
-                        <StackPanel Orientation="Horizontal">
+                        <Image Width="400" Height="210">
+                            <Image.Source>
+                                <Binding Path="Team.Image">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/noimage.png"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="Очки: "/>
                             <TextBlock Text="{Binding Team.Score}"/>
                         </StackPanel>
@@ -37,6 +45,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" Grid.Row="2" Width="150"></Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnBack" Margin="10" Content="Назад" Click="btnBack_Click"></Button>
+            <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" ></Button>
+        </StackPanel>
     </Grid>
 </Page>

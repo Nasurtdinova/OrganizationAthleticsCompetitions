@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddCommandPage">
@@ -20,24 +21,31 @@
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="150"></RowDefinition>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="98*"></ColumnDefinition>
-                            <ColumnDefinition Width="299*"/>
-                            <ColumnDefinition Width="397*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Название команды" Grid.Column="1"></TextBlock>
-                        <TextBlock Text="Очки" Grid.Row="1" Grid.Column="1"></TextBlock>
-                        <TextBlock Text="Фотография" Grid.Row="2" Grid.Column="1"></TextBlock>
-                        <TextBlock Text="Город" Grid.Row="3" Grid.Column="1"></TextBlock>
-                        <TextBox Text="{Binding Name}" Grid.Column="2" Width="300" Height="50"></TextBox>
-                        <TextBlock Text="{Binding Score}" Grid.Column="2" Grid.Row="1" Width="300" Height="50"></TextBlock>
-                        <ComboBox SelectedItem="{Binding City}" Grid.Column="2" Grid.Row="3" DisplayMemberPath="Name" Name="comboCities" Width="300" Height="50"></ComboBox>
-                        <StackPanel HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2">
-                            <Image Source="{Binding Image}" Name="imgCom" Width="300" Margin="10"></Image>
+                        <TextBlock Text="Название команды"></TextBlock>
+                        <TextBlock Text="Очки" Grid.Row="1"></TextBlock>
+                        <TextBlock Text="Фотография" Grid.Row="2"></TextBlock>
+                        <TextBlock Text="Город" Grid.Row="3"></TextBlock>
+                        <TextBox Text="{Binding Name}" Grid.Column="1" Width="300" Height="50"></TextBox>
+                        <TextBlock Text="{Binding Score}" Grid.Column="1" Grid.Row="1" Width="300" Height="50"></TextBlock>
+                        <ComboBox SelectedItem="{Binding City}" Grid.Column="1" Grid.Row="3" DisplayMemberPath="Name" Name="comboCities" Width="300" Height="50"></ComboBox>
+                        <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal" Grid.Column="1">
+                            <Image Name="imgCom" Margin="10">
+                                <Image.Source>
+                                    <Binding Path="Image">
+                                        <Binding.TargetNullValue>
+                                            <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/noimage.png"></BitmapImage>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
                             <Button Content="Загрузить фото" Background="#FFA0D0F1" x:Name="btnLoadImage" Click="btnLoadImage_Click" Width="180"/>
                         </StackPanel>
                         <Button Width="150" Grid.Row="4" Grid.ColumnSpan="3" Background="#FFA0D0F1" Content="Сохранить" Margin="10" Click="btnSave_Click" Name="btnSave"></Button>
@@ -73,9 +81,13 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <StackPanel>
-                                                <Button x:Name="btnEditSportsman" Margin="10" Width="200" Click="btnEditSportsman_Click" Content="Редактировать"></Button>
-                                                <Button x:Name="btnRemoveSportsman" Width="200" Click="btnRemoveSportsman_Click" Content="Удалить"></Button>
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <Button x:Name="btnEditSportsman" Margin="10" Width="60" Click="btnEditSportsman_Click">
+                                                    <materialDesign:PackIcon Kind="Edit" />
+                                                </Button>
+                                                <Button x:Name="btnRemoveSportsman" Width="60" Click="btnRemoveSportsman_Click">
+                                                    <materialDesign:PackIcon Kind="Remove" />
+                                                </Button>
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

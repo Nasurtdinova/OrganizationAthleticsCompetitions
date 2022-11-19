@@ -47,5 +47,10 @@ namespace OrganizationAthleticsCompetitions
         {
             NavigationService.Navigate(new AddCommandPage(null));
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

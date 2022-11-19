@@ -20,21 +20,21 @@ namespace OrganizationAthleticsCompetitions
         public TotalPersonalScoresPage()
         {
             InitializeComponent();
-            lvTotalScore.ItemsSource = DataAccess.GetTeams();
+            lvTotalScore.ItemsSource = DataAccess.GetTeams().OrderByDescending(a=>a.Score);
         }
 
         private void radioPersonal_Click(object sender, RoutedEventArgs e)
         {
             lvPersonalScore.Visibility = Visibility.Visible;
             lvTotalScore.Visibility = Visibility.Collapsed;
-            lvPersonalScore.ItemsSource = DataAccess.GetSportsmans();
+            lvPersonalScore.ItemsSource = DataAccess.GetSportsmans().OrderByDescending(a => a.Score);
         }
 
         private void radioTotal_Click(object sender, RoutedEventArgs e)
         {
             lvPersonalScore.Visibility = Visibility.Collapsed;
             lvTotalScore.Visibility = Visibility.Visible;
-            lvTotalScore.ItemsSource = DataAccess.GetTeams();
+            lvTotalScore.ItemsSource = DataAccess.GetTeams().OrderByDescending(a => a.Score);
         }
     }
 }

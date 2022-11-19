@@ -45,7 +45,7 @@
                     <ListView Name="lvTrainersInTeam">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="ФИО" Width="800" DisplayMemberBinding="{Binding Trainer.User.FullName}"></GridViewColumn>
+                                <GridViewColumn Header="ФИО" Width="700" DisplayMemberBinding="{Binding Trainer.User.FullName}"></GridViewColumn>
                                 <GridViewColumn Header="Стаж" Width="140" DisplayMemberBinding="{Binding Year}"></GridViewColumn>
                                 <GridViewColumn Header="Фотография">
                                     <GridViewColumn.CellTemplate>

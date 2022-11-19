@@ -10,17 +10,20 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Name="lvRequestProgramCompetitinon">
+        <TextBlock Text="Заявки"></TextBlock>
+        <ListView Name="lvRequestProgramCompetitinon" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ФИО" Width="600"  DisplayMemberBinding="{Binding Sportsman.FullName}"></GridViewColumn>
-                    <GridViewColumn Header="Начало" DisplayMemberBinding="{Binding StartTime}"></GridViewColumn>
+                    <GridViewColumn Header="Команда" DisplayMemberBinding="{Binding Sportsman.Team.Name}"></GridViewColumn>
+                    <GridViewColumn Header="Начало" DisplayMemberBinding="{Binding StartTime, StringFormat=hh\\:mm}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Bottom"></Button>
+        <Button x:Name="btnBack" Content="Назад" Grid.Row="2" Click="btnBack_Click"></Button>
     </Grid>
 </Page>

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CompetitionsPage">
@@ -20,7 +21,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Image Height="25" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\search.png"></Image>
-            <TextBox  Width="180" Name="txtSearch" TextChanged="txtSearch_TextChanged" Margin="10" Height="30"/>
+            <TextBox materialDesign:HintAssist.Hint="Найти" Width="180" Name="txtSearch" TextChanged="txtSearch_TextChanged"  Height="40"/>
             <CheckBox Name="checkMonth" Content="Текущий месяц" HorizontalAlignment="Right" IsChecked="False" Click="checkMonth_Click"  Margin="10" ></CheckBox>
             <Image Height="30" Width="40" Source="C:\Users\nasur\Source\Repos\Final_Project_ASP_MVC_Clone\RunningCompetitionWPF\Icons\city.png"></Image>
             <ComboBox Name="comboCity" DisplayMemberPath="Name" Width="200" Height="30" SelectionChanged="comboCity_SelectionChanged" ></ComboBox>
@@ -37,10 +38,12 @@
                             <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
-                            <DataGridTemplateColumn Width="160">
+                            <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Программы" Name="btnProgram" Click="btnProgram_Click"></Button>
+                                        <Button Name="btnProgram" Width="40" Click="btnProgram_Click">
+                                            <materialDesign:PackIcon Kind="Invoice" />
+                                        </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -49,7 +52,7 @@
                 </TabItem.Content>
             </TabItem>
             <TabItem Header="Прошедшие">
-                <DataGrid AlternationCount="2" x:Name="dgPastCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
+                <DataGrid AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" x:Name="dgPastCompetitions" FontSize="18" AutoGenerateColumns="False" MouseDoubleClick="dgFutureCompetitions_MouseDoubleClick" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>
@@ -57,10 +60,12 @@
                         <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
-                        <DataGridTemplateColumn Width="170">
+                        <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Программы" Name="btnResult" Click="btnResult_Click"></Button>
+                                    <Button Width="40" Name="btnResult" Click="btnResult_Click">
+                                        <materialDesign:PackIcon Kind="Invoice" />
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

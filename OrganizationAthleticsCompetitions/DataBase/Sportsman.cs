@@ -29,7 +29,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> Height { get; set; }
         public Nullable<double> Weight { get; set; }
         public Nullable<int> IdCategorySportsman { get; set; }
-
         public string Gender { get; set; }
         public string PhoneNumber { get; set; }
         public byte[] Image { get; set; }
@@ -37,7 +36,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<bool> IsDeleted { get; set; }
 
         public int Score => DataAccess.GetScoreSportsman(Id);
-    
+
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
         [Required(ErrorMessage = "Заполните род!")]

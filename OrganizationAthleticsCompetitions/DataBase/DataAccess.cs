@@ -150,11 +150,49 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
-        public static void AddResult(ResultCompetition res)
+        public static void AddResult(ResultCompetition res, ProgramCompetition ProgCompet)
         {
             res.IsDeleted = false;
             Connection.connection.ResultCompetition.Add(res);
             Connection.connection.SaveChanges();
+
+            List<ResultCompetition> list = DataAccess.GetResultsInProgramCompetition(ProgCompet).OrderBy(a => a.Result).ToList();
+            List<ResultCompetition> listMetr = DataAccess.GetResultsInProgramCompetition(ProgCompet).OrderByDescending(a => a.Result).ToList();
+            int count = 1;
+            if (res.Request.ProgramCompetition.TypeCompetition.FormatResult.Name == "Метры и сантиметры")
+            {
+                for (int i = 0; i < listMetr.Count(); i++)
+                {
+                    listMetr[i].Rank = count;
+                    if (count == 1)
+                        listMetr[i].Score = 10;
+                    else if (count == 2)
+                        listMetr[i].Score = 7;
+                    else if (count == 3)
+                        listMetr[i].Score = 5;
+                    else
+                        listMetr[i].Score = 2;
+                    Connection.connection.SaveChanges();
+                    count++;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    list[i].Rank = count;
+                    if (count == 1)
+                        list[i].Score = 10;
+                    else if (count == 2)
+                        list[i].Score = 7;
+                    else if (count == 3)
+                        list[i].Score = 5;
+                    else
+                        list[i].Score = 2;
+                    Connection.connection.SaveChanges();
+                    count++;
+                }
+            }
         }
 
         public static void SaveTeam(Team team)

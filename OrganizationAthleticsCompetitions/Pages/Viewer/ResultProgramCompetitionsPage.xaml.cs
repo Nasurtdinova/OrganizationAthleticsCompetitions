@@ -25,6 +25,7 @@ namespace OrganizationAthleticsCompetitions
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
                 btnAddResult.Visibility = Visibility.Visible;
             ProgramCompetition = prCom;
+            format.Text = $"Формат: {ProgramCompetition.TypeCompetition.FormatResult.Name}";
             lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(prCom).OrderBy(a=>a.Rank);
         }
 
@@ -41,6 +42,20 @@ namespace OrganizationAthleticsCompetitions
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void lvResultProgramCompetitinon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var res = (sender as ListView).SelectedItem as ResultCompetition;
+            if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
+            {
+                if (MessageBox.Show("Вы точно хотите удалить результат?", "Предупреждение", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                {
+                    res.IsDeleted = true;
+                    Connection.connection.SaveChanges();
+                    lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(ProgramCompetition).OrderBy(a => a.Rank);
+                }
+            }
         }
     }
 }

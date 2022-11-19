@@ -1,6 +1,9 @@
-﻿using OrganizationAthleticsCompetitions.DataBase;
+﻿using ExcelDataReader;
+using Microsoft.Win32;
+using OrganizationAthleticsCompetitions.DataBase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +16,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExcelDataReader;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Data;
 
 namespace OrganizationAthleticsCompetitions
 {
     public partial class ResultCompetitionsPage : Page
     {
+        public static IExcelDataReader edr;
+
         public ResultCompetitionsPage()
         {
             InitializeComponent();
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
-                removeColumn.Width = 150;
-            comboCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a=>a.DateStart <= DateTime.Now);           
+                removeColumn.Width = 60;
+            comboCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a=>a.DateStart <= DateTime.Now);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -45,7 +53,7 @@ namespace OrganizationAthleticsCompetitions
             {
                 if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
                     btnAddResult.Visibility = Visibility.Visible;
-                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(a);
+                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(a).OrderBy(b=>b.Rank);
             }
         }
 
@@ -56,6 +64,7 @@ namespace OrganizationAthleticsCompetitions
             {
                 res.IsDeleted = true;
                 Connection.connection.SaveChanges();
+                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition).OrderBy(b => b.Rank);
             }
         }
 
@@ -65,8 +74,49 @@ namespace OrganizationAthleticsCompetitions
             add.Show();
             add.Closed += (s, eventarg) =>
             {
-                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
+                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition).OrderBy(b => b.Rank);
             };
+        }
+
+        private void btnLoadExcel_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgRrogramsCompetitions.SelectedItem != null)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "EXCEL Files (*.xlsx)|*.xlsx|EXCEL Files 2013 (*.xls)|*.xls|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() != true)
+                    return;
+                ReadFile(openFileDialog.FileName);
+                dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition).OrderBy(b => b.Rank);
+            }
+        }
+
+        public void ReadFile(string fileNames)
+        {
+            var extension = fileNames.Substring(fileNames.LastIndexOf('.'));
+            FileStream stream = File.Open(fileNames, FileMode.Open, FileAccess.Read);
+            if (extension == ".xlsx")
+                edr = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            else if (extension == ".xls")
+                edr = ExcelReaderFactory.CreateBinaryReader(stream);
+            var conf = new ExcelDataSetConfiguration
+            {
+                ConfigureDataTable = _ => new ExcelDataTableConfiguration { UseHeaderRow = true }
+            };
+            DataSet dataSet = edr.AsDataSet(conf);
+            foreach (DataTable table in dataSet.Tables)
+            {
+                foreach (DataRow dr in table.Rows)
+                {
+                    ResultCompetition res = new ResultCompetition()
+                    {
+                        Request = DataAccess.GetRequestSportsmanProgram((dr[0] as Sportsman).Id, (dgRrogramsCompetitions.SelectedItem as ProgramCompetition).Id),
+                        Result = Convert.ToDouble(dr[1])
+                    };
+                    DataAccess.AddResult(res, dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
+                }
+            }
+            edr.Close();
         }
     }
 }

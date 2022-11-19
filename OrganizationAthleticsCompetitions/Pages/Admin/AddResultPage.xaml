@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      MinHeight="450" MinWidth="1000"
       Title="Добавление результатов">
     <Grid>
         <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
@@ -26,7 +26,7 @@
         <TextBlock Text="Спортсмен" Grid.Row="1"></TextBlock>
         <TextBlock Text="Результат" Grid.Row="2"></TextBlock>
         <ComboBox Name="cbSportsman" Grid.Row="1" SelectedItem="{Binding Sportsman}" Width="400" DisplayMemberPath="FullName" Grid.Column="1" ></ComboBox>
-        <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1">
             <TextBox  Width="200" Name="tbResult" Margin="20"></TextBox>
             <TextBlock x:Name="formatResult"></TextBlock>
         </StackPanel>

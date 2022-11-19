@@ -46,7 +46,7 @@
                 <StackPanel>
                 <DataGrid x:Name="dgProgramsCompetitions" IsReadOnly="True" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Тип программы" Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Тип программы" Width="*" Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Вид бега" Binding="{Binding TypeCompetition.Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Время" Binding="{Binding TimeStart,StringFormat=hh\\:mm}"></DataGridTextColumn>
