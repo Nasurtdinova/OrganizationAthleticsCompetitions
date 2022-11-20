@@ -4,23 +4,76 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
     <Grid>
         <Image Source="/OrganizationAthleticsCompetitions;component/Images/fonMain.jpg" Height="700"></Image>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Организация занимается:"></TextBlock>
-            <TextBlock Text="1. формирует организационный комитет и подбирает квалификационный персонал в его состав;"></TextBlock>
-            <TextBlock Text="2. разрабатывает и утверждает Положение о соревнованиях;"></TextBlock>
-            <TextBlock Text="3. определяет место их проведения;"></TextBlock>
-            <TextBlock Text="4. утверждает расписание и регламент соревнований;"></TextBlock>
-            <TextBlock Text="5. утверждает судейскую коллегию и обеспечивает ее всем необходимым для проведения соревнований;"></TextBlock>
-            <TextBlock Text="6. проверяет подготовку места проведения соревнований;"></TextBlock>
-            <TextBlock Text="7. предлагает сценарий открытия и закрытия соревнований;"></TextBlock>
-            <TextBlock Text="8. организует прием, размещение, питание и отправку участников соревнований;"></TextBlock>
-            <TextBlock Text="9. обеспечивает медицинское обслуживание соревнований;"></TextBlock>
-            <TextBlock Text="10. принимает меры по обеспечению безопасности при проведении соревнований;"></TextBlock>
+            <Border CornerRadius="50" Width="350" Background="White">
+                <TextBlock Text="Организация занимается:"></TextBlock>
+            </Border>
+            <Border CornerRadius="50" Width="1000" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="1. формирует организационный комитет и подбирает квалификационный персонал в его состав;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="700" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="2. разрабатывает и утверждает Положение о соревнованиях;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="500" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="3. определяет место их проведения;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="600" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="4. утверждает расписание и регламент соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="1100" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="5. утверждает судейскую коллегию и обеспечивает ее всем необходимым для проведения соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="700" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="6. проверяет подготовку места проведения соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="700" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="7. предлагает сценарий открытия и закрытия соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="900" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="8. организует прием, размещение, питание и отправку участников соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="700" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="9. обеспечивает медицинское обслуживание соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="50" Width="900" Background="White">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CheckAll" Width="25" Height="25"/>
+                    <TextBlock Text="10. принимает меры по обеспечению безопасности при проведении соревнований;"></TextBlock>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </Grid>
 </Page>

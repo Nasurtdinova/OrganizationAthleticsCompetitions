@@ -38,6 +38,7 @@ namespace OrganizationAthleticsCompetitions
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             GridMain.Margin = new Thickness(210, 60, 0, 0);
+            textOrganiz.Margin = new Thickness(280, 0, 0, 0);
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,7 @@ namespace OrganizationAthleticsCompetitions
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
             GridMain.Margin = new Thickness(70, 60, 0, 0);
+            textOrganiz.Margin = new Thickness(100, 0, 0, 0);
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

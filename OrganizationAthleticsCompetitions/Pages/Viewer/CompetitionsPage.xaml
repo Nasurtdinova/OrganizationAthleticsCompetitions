@@ -32,13 +32,13 @@
                 <TabItem.Content>
                     <DataGrid AlternationCount="2" MouseDoubleClick="dgFutureCompetitions_MouseDoubleClick" x:Name="dgFutureCompetitions" FontSize="18" AutoGenerateColumns="False"  IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Дата конца" Binding="{Binding DateEnd, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Город" Binding="{Binding Venue.City.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Место проведения" Binding="{Binding Venue.Name}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Категория" Binding="{Binding CategoryCompetition.Name}"></DataGridTextColumn>
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btnProgram" Width="40" Click="btnProgram_Click">

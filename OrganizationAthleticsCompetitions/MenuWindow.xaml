@@ -54,7 +54,7 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
-            <TextBlock Text="Организация соревнований по легкой атлетике" FontSize="25"></TextBlock>
+            <TextBlock x:Name="textOrganiz" Text="Организация соревнований по легкой атлетике" FontSize="25"></TextBlock>
         </Grid>
         <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF31577E">
             <Grid.Effect>
