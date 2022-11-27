@@ -23,7 +23,7 @@
             <TextBlock Text="Выберите соревнование" Margin="10"></TextBlock>
             <ComboBox Name="comboCompetitions" Width="400" DisplayMemberPath="Name" SelectionChanged="comboCompetitions_SelectionChanged"></ComboBox>
         </StackPanel>
-        <Button x:Name="btnLoadExcel" Click="btnLoadExcel_Click" Content="Загрузить из Excel" Width="200" Grid.Column="1" ></Button>
+        <Button x:Name="btnLoadExcel" Click="btnLoadExcel_Click" Visibility="Collapsed" Content="Загрузить из Excel" Width="200" Grid.Column="1" ></Button>
         <DataGrid Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dgRrogramsCompetitions" SelectionChanged="dgRrogramsCompetitions_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Программа" Width="*" Binding="{Binding TypeProgram.Name}"></DataGridTextColumn>

@@ -38,11 +38,14 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnRevoke_Click(object sender, RoutedEventArgs e)
         {
-            var a = (sender as Button).DataContext as Request;
-            Connection.connection.Request.Remove(a);
-            Connection.connection.SaveChanges();
-            MaterialMessageBox.Show("Участие отменено!","Уведомление!");
-            dgRequests.ItemsSource = GetList();
+            if (MessageBox.Show("Вы точно хотите отменить участие в соревновании?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var a = (sender as Button).DataContext as Request;
+                Connection.connection.Request.Remove(a);
+                Connection.connection.SaveChanges();
+                MaterialMessageBox.Show("Участие отменено!", "Уведомление!");
+                dgRequests.ItemsSource = GetList();
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

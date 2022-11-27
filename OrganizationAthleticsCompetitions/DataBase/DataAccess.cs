@@ -202,13 +202,16 @@ namespace OrganizationAthleticsCompetitions
                 team.IsDeleted = false;
                 Connection.connection.Team.Add(team);
                 Connection.connection.SaveChanges();
-                Trainer_Team trainer_Team = new Trainer_Team()
+                if (CurrentUser.user != null)
                 {
-                    Team = team,
-                    Trainer = CurrentUser.trainer,
-                    IsActive = true
-                };
-                Connection.connection.Trainer_Team.Add(trainer_Team);
+                    Trainer_Team trainer_Team = new Trainer_Team()
+                    {
+                        Team = team,
+                        Trainer = CurrentUser.trainer,
+                        IsActive = true
+                    };
+                    Connection.connection.Trainer_Team.Add(trainer_Team);
+                }
             }
             Connection.connection.SaveChanges();
         }
@@ -254,6 +257,11 @@ namespace OrganizationAthleticsCompetitions
                 return true;
             }
             else if (admin.Count() == 1)
+            {
+                CurrentUser.user = admin.FirstOrDefault();
+                return true;
+            }
+            else if (sponsor.Count() == 1)
             {
                 CurrentUser.user = admin.FirstOrDefault();
                 return true;

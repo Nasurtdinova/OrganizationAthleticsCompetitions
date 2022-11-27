@@ -64,6 +64,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -169,17 +172,17 @@
     <Compile Include="Pages\Viewer\ResultCompetitionsPage.xaml.cs">
       <DependentUpon>ResultCompetitionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Trainer\SelectSportsmanWindow.xaml.cs">
-      <DependentUpon>SelectSportsmanWindow.xaml</DependentUpon>
+    <Compile Include="Pages\Trainer\SelectSportsmanPage.xaml.cs">
+      <DependentUpon>SelectSportsmanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Viewer\TotalPersonalScoresPage.xaml.cs">
       <DependentUpon>TotalPersonalScoresPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Trainer\AddEditSportsmanPage.xaml.cs">
-      <DependentUpon>AddEditSportsmanPage.xaml</DependentUpon>
+    <Compile Include="Windows\AddEditSportsmanWindow.xaml.cs">
+      <DependentUpon>AddEditSportsmanWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Admin\AddResultPage.xaml.cs">
-      <DependentUpon>AddResultPage.xaml</DependentUpon>
+    <Compile Include="Windows\AddResultWindow.xaml.cs">
+      <DependentUpon>AddResultWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Trainer\EditProfileTPage.xaml.cs">
       <DependentUpon>EditProfileTPage.xaml</DependentUpon>
@@ -226,11 +229,11 @@
     <Compile Include="DataBase\Connection.cs" />
     <Compile Include="DataBase\CurrentUser.cs" />
     <Compile Include="DataBase\DataAccess.cs" />
-    <Compile Include="DataBase\Manager.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Pages\Viewer\SportsmansInCommandPage.xaml.cs">
       <DependentUpon>SportsmansInCommandPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TrainersPage.xaml.cs">
+    <Compile Include="Pages\Admin\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\Trainer\MyRequestsPage.xaml">
@@ -269,7 +272,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Trainer\SelectSportsmanWindow.xaml">
+    <Page Include="Pages\Trainer\SelectSportsmanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,11 +280,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Trainer\AddEditSportsmanPage.xaml">
+    <Page Include="Windows\AddEditSportsmanWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Admin\AddResultPage.xaml">
+    <Page Include="Windows\AddResultWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,7 +296,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPages\AuthorizationPage.xaml">
+    <Page Include="Pages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -329,14 +332,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainPages\AuthorizationPage.xaml.cs">
+    <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\Viewer\SportsmansInCommandPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TrainersPage.xaml">
+    <Page Include="Pages\Admin\TrainersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

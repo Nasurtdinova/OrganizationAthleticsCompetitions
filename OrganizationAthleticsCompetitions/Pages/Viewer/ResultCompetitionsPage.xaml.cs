@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using ExcelDataReader;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data;
+using BespokeFusion;
 
 namespace OrganizationAthleticsCompetitions
 {
@@ -30,7 +31,10 @@ namespace OrganizationAthleticsCompetitions
         {
             InitializeComponent();
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
+            {
                 removeColumn.Width = 60;
+                btnLoadExcel.Visibility = Visibility.Visible;
+            }
             comboCompetitions.ItemsSource = DataAccess.GetCompetitions().Where(a=>a.DateStart <= DateTime.Now);
         }
 
@@ -69,8 +73,8 @@ namespace OrganizationAthleticsCompetitions
         }
 
         private void btnAddResult_Click(object sender, RoutedEventArgs e)
-        {            
-            AddResultPage add = new AddResultPage(dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
+        {
+            AddResultWindow add = new AddResultWindow(dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
             add.Show();
             add.Closed += (s, eventarg) =>
             {
@@ -88,6 +92,10 @@ namespace OrganizationAthleticsCompetitions
                     return;
                 ReadFile(openFileDialog.FileName);
                 dgResulsPrograms.ItemsSource = DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition).OrderBy(b => b.Rank);
+            }
+            else
+            {
+                MaterialMessageBox.ShowError("Выберите программу соревнования!");
             }
         }
 
@@ -108,12 +116,19 @@ namespace OrganizationAthleticsCompetitions
             {
                 foreach (DataRow dr in table.Rows)
                 {
-                    ResultCompetition res = new ResultCompetition()
+                    Sportsman sports = DataAccess.GetSportsmans().Where(a => a.FullName == dr[0].ToString()).FirstOrDefault();
+                    if (sports != null)
                     {
-                        Request = DataAccess.GetRequestSportsmanProgram((dr[0] as Sportsman).Id, (dgRrogramsCompetitions.SelectedItem as ProgramCompetition).Id),
-                        Result = Convert.ToDouble(dr[1])
-                    };
-                    DataAccess.AddResult(res, dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
+                        ResultCompetition res = new ResultCompetition()
+                        {
+                            Request = DataAccess.GetRequestSportsmanProgram(sports.Id, (dgRrogramsCompetitions.SelectedItem as ProgramCompetition).Id),
+                            Result = Convert.ToDouble(dr[1])
+                        };
+                        if (DataAccess.GetResultsInProgramCompetition(dgRrogramsCompetitions.SelectedItem as ProgramCompetition).Where(a => a.Request.Sportsman == res.Request.Sportsman).Count() == 0)
+                        {
+                            DataAccess.AddResult(res, dgRrogramsCompetitions.SelectedItem as ProgramCompetition);
+                        }
+                    }
                 }
             }
             edr.Close();

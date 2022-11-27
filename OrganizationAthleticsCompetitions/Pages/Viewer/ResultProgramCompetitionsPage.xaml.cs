@@ -31,7 +31,7 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnAddResult_Click(object sender, RoutedEventArgs e)
         {
-            AddResultPage add = new AddResultPage(ProgramCompetition);
+            AddResultWindow add = new AddResultWindow(ProgramCompetition);
             add.Show();
             add.Closed += (s, eventarg) =>
             {

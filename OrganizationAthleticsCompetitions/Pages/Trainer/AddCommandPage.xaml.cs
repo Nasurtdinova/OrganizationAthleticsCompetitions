@@ -85,7 +85,7 @@ namespace OrganizationAthleticsCompetitions
         private void btnEditSportsman_Click(object sender, RoutedEventArgs e)
         {
             var i = (sender as Button).DataContext as Sportsman;
-            AddEditSportsmanPage add = new AddEditSportsmanPage(i, CurrentCommand);
+            AddEditSportsmanWindow add = new AddEditSportsmanWindow(i, CurrentCommand);
             add.Show();
             add.Closed += (s, eventarg) =>
             {

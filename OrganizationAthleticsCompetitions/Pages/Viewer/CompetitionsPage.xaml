@@ -52,7 +52,7 @@
                 </TabItem.Content>
             </TabItem>
             <TabItem Header="Прошедшие">
-                <DataGrid AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" x:Name="dgPastCompetitions" FontSize="18" AutoGenerateColumns="False" MouseDoubleClick="dgFutureCompetitions_MouseDoubleClick" IsReadOnly="True">
+                <DataGrid AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" x:Name="dgPastCompetitions" FontSize="18" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
                         <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart, StringFormat ='dd.MM.yyyy'}"></DataGridTextColumn>

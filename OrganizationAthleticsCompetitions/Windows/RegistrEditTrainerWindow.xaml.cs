@@ -52,31 +52,36 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (password.Password == confirmPassword.Password)
+            if (DataAccess.GetUsers().Where(a => a.Login == tbLogin.Text).Count() == 0)
             {
-                User user = new User()
+                if (password.Password == confirmPassword.Password)
                 {
-                    FullName = tbFullName.Text,
-                    DayOfBirth = dpDayOfBirth.SelectedDate,
-                    Login = tbLogin.Text,
-                    Password = password.Password,
-                    IdRole = 2
-                };
-                var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
-                var context = new ValidationContext(user);
+                    User user = new User()
+                    {
+                        FullName = tbFullName.Text,
+                        DayOfBirth = dpDayOfBirth.SelectedDate,
+                        Login = tbLogin.Text,
+                        Password = password.Password,
+                        IdRole = 2
+                    };
+                    var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+                    var context = new ValidationContext(user);
 
-                if (!Validator.TryValidateObject(user, context, sportsmans, true))
-                    foreach (var error in sportsmans)
-                        MaterialMessageBox.ShowError(error.ErrorMessage);
-                else
-                {
-                    DataAccess.SaveTrainer(CurrentTrainer, user);
-                    MaterialMessageBox.Show("Информация сохранена!");
-                    Close();
+                    if (!Validator.TryValidateObject(user, context, sportsmans, true))
+                        foreach (var error in sportsmans)
+                            MaterialMessageBox.ShowError(error.ErrorMessage);
+                    else
+                    {
+                        DataAccess.SaveTrainer(CurrentTrainer, user);
+                        MaterialMessageBox.Show("Информация сохранена!");
+                        Close();
+                    }
                 }
+                else
+                    MaterialMessageBox.ShowError("Пароли не совпадают!");
             }
             else
-                MaterialMessageBox.ShowError("Пароли не совпадают!");
+                MaterialMessageBox.ShowError("Такой логин уже существует!");
         }
     }
 }
