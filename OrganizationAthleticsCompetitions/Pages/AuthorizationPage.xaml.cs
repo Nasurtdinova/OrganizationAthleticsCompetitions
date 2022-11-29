@@ -22,7 +22,7 @@ namespace OrganizationAthleticsCompetitions
 {
     public partial class AuthorizationPage : Page
     {
-        public User RegistredSponsor = new User();
+        public Sponsor RegistredSponsor = new Sponsor();
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -45,14 +45,14 @@ namespace OrganizationAthleticsCompetitions
             if (file.ShowDialog() == true)
             {
                 string path = file.FileName;
-                //RegistredSponsor.Image = File.ReadAllBytes(path);
+                RegistredSponsor.Image = File.ReadAllBytes(path);
                 imgTSponsor.Source = new BitmapImage(new Uri(path));
             }
         }
 
         private void btnRegistr_Click(object sender, RoutedEventArgs e)
         {
-            if (DataAccess.GetUsers().Where(a => a.Login == tbLogin.Text).Count() == 0)
+            if (DataAccess.GetUsers().Where(a => a.Login == tbLoginRegistr.Text).Count() == 0)
             {
                 if (passwordRegistr.Password == confirmPassword.Password)
                 {
@@ -60,9 +60,9 @@ namespace OrganizationAthleticsCompetitions
                     {
                         FullName = tbFullName.Text,
                         DayOfBirth = dpDayOfBirth.SelectedDate,
-                        Login = tbLogin.Text,
+                        Login = tbLoginRegistr.Text,
                         Password = passwordRegistr.Password,
-                        IdRole = 2
+                        IdRole = 3
                     };
                     var sportsmans = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
                     var context = new ValidationContext(user);
@@ -72,8 +72,9 @@ namespace OrganizationAthleticsCompetitions
                             MaterialMessageBox.ShowError(error.ErrorMessage);
                     else
                     {
-                        //DataAccess.SaveTrainer(RegistredSponsor, user);
+                        DataAccess.SaveSponsor(RegistredSponsor, user);
                         MaterialMessageBox.Show("Информация сохранена!");
+                        NavigationService.Navigate(new AuthorizationPage());
                     }
                 }
                 else

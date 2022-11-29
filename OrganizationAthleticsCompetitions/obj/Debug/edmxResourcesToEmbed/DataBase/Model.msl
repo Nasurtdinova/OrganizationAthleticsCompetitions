@@ -198,5 +198,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sponsor">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Sponsor">
+        <MappingFragment StoreEntitySet="Sponsor">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SponsorTeam">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.SponsorTeam">
+        <MappingFragment StoreEntitySet="SponsorTeam">
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
+          <ScalarProperty Name="IdSponsor" ColumnName="IdSponsor" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

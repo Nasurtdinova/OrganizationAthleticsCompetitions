@@ -11,34 +11,19 @@ namespace OrganizationAthleticsCompetitions.DataBase
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class User
+    
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Status()
         {
-            this.Trainer = new HashSet<Trainer>();
-            this.Sponsor = new HashSet<Sponsor>();
+            this.SponsorTeam = new HashSet<SponsorTeam>();
         }
     
         public int Id { get; set; }
-        [Required(ErrorMessage = "Заполните ФИО!")]
-        public string FullName { get; set; }
-        public Nullable<int> IdCity { get; set; }
-        [Required(ErrorMessage = "Заполните логин!")]
-        public string Login { get; set; }
-
-        [Required(ErrorMessage = "Заполните пароль!")]
-        public string Password { get; set; }
-        public int IdRole { get; set; }
-        public Nullable<System.DateTime> DayOfBirth { get; set; }
+        public string Name { get; set; }
     
-        public virtual City City { get; set; }
-        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trainer> Trainer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sponsor> Sponsor { get; set; }
+        public virtual ICollection<SponsorTeam> SponsorTeam { get; set; }
     }
 }

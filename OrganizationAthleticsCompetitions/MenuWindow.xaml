@@ -80,64 +80,70 @@
                     <Image x:Name="mainIcon" Source="Images\logoMain.png" Margin="10" VerticalAlignment="Bottom"/>
                 </Grid>
                 <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemHome" Height="60">
+                    <ListViewItem x:Name="ItemHome" Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Главная" VerticalAlignment="Center" Margin="10 10"/>
+                            <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Главная" VerticalAlignment="Center" Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemSportsmans" Height="60">
+                    <ListViewItem x:Name="ItemSportsmans" Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\sportsmans.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Спортсмены" VerticalAlignment="Center" Margin="10 10"/>
+                            <Image Source="Images\sportsmans.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Спортсмены" VerticalAlignment="Center" Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemTrainers"  Height="60" Visibility="Collapsed">
+                    <ListViewItem x:Name="ItemTrainers"  Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Teaching" Width="25" Margin="10" Height="25"/>
-                            <TextBlock Foreground="White" Text="Тренеры" VerticalAlignment="Center"  Margin="10 10"/>
+                            <materialDesign:PackIcon Kind="Teaching" Width="25" Margin="10 0" Height="25"/>
+                            <TextBlock Foreground="White" Text="Тренеры" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCommand"  Height="60">
+                    <ListViewItem x:Name="ItemSponsors" Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\team.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Команды" VerticalAlignment="Center"  Margin="10 10"/>
+                            <Image Source="Images\sportsmans.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Спонсоры" VerticalAlignment="Center" Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemMyCommand"  Height="60" Visibility="Collapsed">
+                    <ListViewItem x:Name="ItemCommand"  Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\team.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Мои команды" VerticalAlignment="Center"  Margin="10 10"/>
+                            <Image Source="Images\team.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Команды" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCompetition"  Height="60">
+                    <ListViewItem x:Name="ItemMyCommand"  Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\competition.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Соревнования" VerticalAlignment="Center"  Margin="9 10"/>
+                            <Image Source="Images\team.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Мои команды" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemPartipication"  Height="60" Visibility="Collapsed">
+                    <ListViewItem x:Name="ItemCompetition"  Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="InvoiceCheck" Width="25" Margin="10" Height="25"/>
-                            <TextBlock Foreground="White" Text="Участия" VerticalAlignment="Center"  Margin="9 10"/>
+                            <Image Source="Images\competition.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Соревнования" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemResult"  Height="60">
+                    <ListViewItem x:Name="ItemPartipication"  Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\result.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Результаты" VerticalAlignment="Center"  Margin="10 10"/>
+                            <materialDesign:PackIcon Kind="InvoiceCheck" Width="25" Margin="10 0" Height="25"/>
+                            <TextBlock Foreground="White" Text="Участия" VerticalAlignment="Center"  Margin="10 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemResult"  Height="50">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images\result.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Результаты" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemScore"  Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ScoreboardOutline" Width="25" Margin="10" Height="25"/>
-                            <TextBlock Foreground="White" Text="Очки" VerticalAlignment="Center"  Margin="10 10"/>
+                            <materialDesign:PackIcon Kind="ScoreboardOutline" Width="25" Margin="10 0" Height="25"/>
+                            <TextBlock Foreground="White" Text="Очки" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemReports"  Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\exportExcel.png" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Foreground="White" Text="Отчеты" VerticalAlignment="Center"  Margin="10 10"/>
+                            <Image Source="Images\exportExcel.png" Height="25" Width="25" Margin="10 0"/>
+                            <TextBlock Foreground="White" Text="Отчеты" VerticalAlignment="Center"  Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

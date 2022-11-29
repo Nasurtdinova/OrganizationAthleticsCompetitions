@@ -17,6 +17,7 @@ namespace OrganizationAthleticsCompetitions
         public static ListViewItem Sportsmans { get; set; }
 
         public static ListViewItem Trainers { get; set; }
+        public static ListViewItem Sponsors { get; set; }
 
         public static ListViewItem CommandsTrainer { get; set; }
         public static ListViewItem PartipicationTrainer { get; set; }
@@ -37,6 +38,7 @@ namespace OrganizationAthleticsCompetitions
                     //RoleNameLabel.Content = "Админ";
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     Commands.Visibility = System.Windows.Visibility.Visible;
+                    Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                     Trainers.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
@@ -46,6 +48,7 @@ namespace OrganizationAthleticsCompetitions
                     //RoleNameLabel.Content = "Тренер";
                     Commands.Visibility = System.Windows.Visibility.Collapsed;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
+                    Sponsors.Visibility = System.Windows.Visibility.Visible;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Visible;
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
@@ -56,6 +59,7 @@ namespace OrganizationAthleticsCompetitions
                     //RoleNameLabel.Content = "Спонсор";
                     Commands.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
+                    Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
@@ -72,6 +76,7 @@ namespace OrganizationAthleticsCompetitions
                 Exit.Visibility = System.Windows.Visibility.Collapsed;
                 EditProfile.Visibility = System.Windows.Visibility.Collapsed;
                 Trainers.Visibility = System.Windows.Visibility.Collapsed;
+                Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                 PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
             }
         }

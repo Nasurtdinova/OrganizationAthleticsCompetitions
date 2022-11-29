@@ -45,11 +45,11 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <StackPanel>
-                        <TextBox Text="{Binding User.FullName}" materialDesign:HintAssist.Hint="ФИО" materialDesign:HintAssist.IsFloating="True" Width="300" Name="tbFullName"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="ФИО" materialDesign:HintAssist.IsFloating="True" Width="300" Name="tbFullName"></TextBox>
                     </StackPanel>
                     <StackPanel Grid.Row="1">
                         <TextBlock Text="Дата рождения"></TextBlock>
-                        <DatePicker materialDesign:HintAssist.Hint="Дата рождения" materialDesign:HintAssist.IsFloating="True" SelectedDate="{Binding User.DayOfBirth}" Name="dpDayOfBirth"></DatePicker>
+                        <DatePicker materialDesign:HintAssist.Hint="Дата рождения" materialDesign:HintAssist.IsFloating="True" Name="dpDayOfBirth"></DatePicker>
                     </StackPanel>
                     <StackPanel Grid.Row="2">
                         <TextBox materialDesign:HintAssist.Hint="Логин" materialDesign:HintAssist.IsFloating="True" Name="tbLoginRegistr"></TextBox>

@@ -88,3 +88,5 @@ C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthlet
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Windows\AddEditSportsmanWindow.baml
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Windows\AddResultWindow.baml
 C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\Pages\Admin\TrainersPage.baml
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\SponsorsPage.g.cs
+C:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\obj\Debug\SponsorsPage.baml

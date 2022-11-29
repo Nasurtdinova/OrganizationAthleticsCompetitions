@@ -28,6 +28,7 @@ namespace OrganizationAthleticsCompetitions
             Manager.Authorization = login;
             Manager.Exit = exit;
             Manager.EditProfile = profile;
+            Manager.Sponsors = ItemSponsors;
             Manager.PartipicationTrainer = ItemPartipication;
 
             GridMain.Navigate(new MainPage());
@@ -76,6 +77,9 @@ namespace OrganizationAthleticsCompetitions
                     break;
                 case "ItemResult":
                     GridMain.Navigate(new ResultCompetitionsPage());
+                    break;
+                case "ItemSponsors":
+                    GridMain.Navigate(new SponsorsPage());
                     break;
                 case "ItemScore":
                     GridMain.Navigate(new TotalPersonalScoresPage());

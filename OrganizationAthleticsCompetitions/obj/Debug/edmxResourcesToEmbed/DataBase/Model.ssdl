@@ -88,6 +88,23 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="20" />
   </EntityType>
+  <EntityType Name="Sponsor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="Image" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SponsorTeam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdSponsor" Type="int" />
+    <Property Name="IdTeam" Type="int" />
+    <Property Name="IdStatus" Type="int" />
+  </EntityType>
   <EntityType Name="Sportsman">
     <Key>
       <PropertyRef Name="Id" />
@@ -104,6 +121,13 @@
     <Property Name="Image" Type="varbinary(max)" />
     <Property Name="IdTeam" Type="int" />
     <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -248,6 +272,54 @@
       </Principal>
       <Dependent Role="ResultCompetition">
         <PropertyRef Name="IdRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsor_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsor">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SponsorTeam_Sponsor">
+    <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+    <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorTeam">
+        <PropertyRef Name="IdSponsor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SponsorTeam_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorTeam">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SponsorTeam_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorTeam">
+        <PropertyRef Name="IdTeam" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -442,7 +514,10 @@
     <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResultCompetition" EntityType="Self.ResultCompetition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SponsorTeam" EntityType="Self.SponsorTeam" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sportsman" EntityType="Self.Sportsman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
@@ -474,6 +549,22 @@
     <AssociationSet Name="FK_ResultCompetition_Request" Association="Self.FK_ResultCompetition_Request">
       <End Role="Request" EntitySet="Request" />
       <End Role="ResultCompetition" EntitySet="ResultCompetition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsor_User" Association="Self.FK_Sponsor_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Sponsor" EntitySet="Sponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SponsorTeam_Sponsor" Association="Self.FK_SponsorTeam_Sponsor">
+      <End Role="Sponsor" EntitySet="Sponsor" />
+      <End Role="SponsorTeam" EntitySet="SponsorTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SponsorTeam_Status" Association="Self.FK_SponsorTeam_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="SponsorTeam" EntitySet="SponsorTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SponsorTeam_Team" Association="Self.FK_SponsorTeam_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="SponsorTeam" EntitySet="SponsorTeam" />
     </AssociationSet>
     <AssociationSet Name="FK_Sportsman_Category" Association="Self.FK_Sportsman_Category">
       <End Role="CategorySportsman" EntitySet="CategorySportsman" />

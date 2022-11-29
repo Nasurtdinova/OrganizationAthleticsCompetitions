@@ -26,7 +26,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdCompetition { get; set; }
         public Nullable<int> IdTypeProgram { get; set; }
         public Nullable<int> IdTypeCompetition { get; set; }
-
         [Required(ErrorMessage = "Заполните дату!")]
         public Nullable<System.DateTime> Date { get; set; }
 
@@ -35,8 +34,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
 
         [Required(ErrorMessage = "Заполните максимальное количество участников!")]
         public Nullable<int> MaxCountAttendees { get; set; }
-        public string Gender { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
 
         public int CountAttendees => DataAccess.GetRequests().Where(a => a.IdProgramCompetition == Id).Count();
         public string ProgramCompet => $"{TypeProgram.Name} {TypeCompetition.Name}";
@@ -50,8 +47,10 @@ namespace OrganizationAthleticsCompetitions.DataBase
                     return "Collapsed";
             }
         }
+        public string Gender { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
+    
         public virtual Competition Competition { get; set; }
-
         [Required(ErrorMessage = "Заполните род!")]
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

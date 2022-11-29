@@ -281,6 +281,17 @@ namespace OrganizationAthleticsCompetitions
             Connection.connection.SaveChanges();
         }
 
+        public static void SaveSponsor(Sponsor trainer, User user)
+        {
+            if (trainer.Id == 0)
+            {
+                AddUser(user);
+                trainer.User = GetUsers().LastOrDefault();
+                Connection.connection.Sponsor.Add(trainer);
+            }
+            Connection.connection.SaveChanges();
+        }
+
         public static void SaveCompetition(Competition compet)
         {
             compet.IsDeleted = false;
