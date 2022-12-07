@@ -31,6 +31,8 @@ namespace OrganizationAthleticsCompetitions
                 CurrentCommand = selectedCommand;
                 lvSportsmans.ItemsSource = DataAccess.GetSportsmansInTeam(selectedCommand);
                 tabResults.Visibility = Visibility.Visible;
+                tabSponsors.Visibility = Visibility.Visible;
+                lvSponsors.ItemsSource = DataAccess.GetSponsorTeams().Where(a=>a.Team == CurrentCommand && a.IdStatus == 3);
                 lvResults.ItemsSource = DataAccess.GetResultsCompetition().Where(a => a.Request.Sportsman.Team == CurrentCommand);
             }
 

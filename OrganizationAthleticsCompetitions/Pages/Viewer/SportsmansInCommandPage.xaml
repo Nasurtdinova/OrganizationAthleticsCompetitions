@@ -67,6 +67,15 @@
                     </ListView>
                 </TabItem.Content>
             </TabItem>
+            <TabItem Header="Спонсоры">
+                <TabItem.Content>
+                    <DataGrid Name="lvSponsors" AutoGenerateColumns="False" CanUserAddRows="false">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding Sponsor.User.FullName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
             <TabItem Header="Результаты соревнований">
                 <TabItem.Content>
                     <DataGrid Name="lvResults"  AutoGenerateColumns="False" CanUserAddRows="false">

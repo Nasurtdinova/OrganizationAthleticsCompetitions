@@ -98,6 +98,15 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
+            <TabItem Header="Спонсоры" Name="tabSponsors" Visibility="Collapsed">
+                <TabItem.Content>
+                    <DataGrid Name="lvSponsors" AutoGenerateColumns="False" CanUserAddRows="false">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding Sponsor.User.FullName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
             <TabItem Header="Результаты соревнований" Name="tabResults" Visibility="Collapsed">
                 <TabItem.Content>
                     <DataGrid Name="lvResults"  AutoGenerateColumns="False" CanUserAddRows="false">

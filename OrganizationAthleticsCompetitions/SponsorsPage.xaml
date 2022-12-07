@@ -9,6 +9,66 @@
       Title="SponsorsPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Спонсоры"></TextBlock>
+        <ListView x:Name="sponsorsList" Grid.Row="1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3" Width="1100"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.Resources>
+                <DataTemplate x:Key="DefaultItemTemplate">
+                    <StackPanel>
+                        <Image Width="400" Height="220">
+                            <Image.Source>
+                                <Binding Path="Image">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding User.FullName}"/>
+                        <Button x:Name="btnSend" Width="200" Click="btnSend_Click">Отправить заявку</Button>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="SelectedItemTemplate">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                        <StackPanel >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Команды" />
+                                <ListView ItemsSource="{Binding SponsorTeam}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Team.Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Дата рождения: " />
+                                <TextBlock Text="{Binding User.DayOfBirth, StringFormat='dd.MM.yyyy'}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DataTemplate>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="ContentTemplate" Value="{StaticResource DefaultItemTemplate}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SelectedItemTemplate}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Page>

@@ -18,6 +18,7 @@ namespace OrganizationAthleticsCompetitions
 
         public static ListViewItem Trainers { get; set; }
         public static ListViewItem Sponsors { get; set; }
+        public static ListViewItem Requests { get; set; }
 
         public static ListViewItem CommandsTrainer { get; set; }
         public static ListViewItem PartipicationTrainer { get; set; }
@@ -35,41 +36,44 @@ namespace OrganizationAthleticsCompetitions
             {
                 if (CurrentUser.user.IdRole == 1)
                 {
-                    //RoleNameLabel.Content = "Админ";
+                    RoleNameLabel.Content = "Админ";
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     Commands.Visibility = System.Windows.Visibility.Visible;
                     Sponsors.Visibility = System.Windows.Visibility.Collapsed;
+                    Requests.Visibility = System.Windows.Visibility.Collapsed;
                     Trainers.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 else if (CurrentUser.user.IdRole == 2)
                 {
-                    //RoleNameLabel.Content = "Тренер";
+                    RoleNameLabel.Content = "Тренер";
                     Commands.Visibility = System.Windows.Visibility.Collapsed;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Visible;
                     Sponsors.Visibility = System.Windows.Visibility.Visible;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Visible;
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
+                    Requests.Visibility = System.Windows.Visibility.Collapsed;
                 }
 
                 else if (CurrentUser.user.IdRole == 3)
                 {
-                    //RoleNameLabel.Content = "Спонсор";
+                    RoleNameLabel.Content = "Спонсор";
                     Commands.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
+                    Requests.Visibility = System.Windows.Visibility.Visible;
                 }
                 Authorization.Visibility = System.Windows.Visibility.Collapsed;
                 Exit.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
-                //RoleNameLabel.Content = "Зритель";
+                RoleNameLabel.Content = "Зритель";
                 Commands.Visibility = System.Windows.Visibility.Visible;
                 CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 Authorization.Visibility = System.Windows.Visibility.Visible;
@@ -78,6 +82,7 @@ namespace OrganizationAthleticsCompetitions
                 Trainers.Visibility = System.Windows.Visibility.Collapsed;
                 Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                 PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
+                Requests.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
     }

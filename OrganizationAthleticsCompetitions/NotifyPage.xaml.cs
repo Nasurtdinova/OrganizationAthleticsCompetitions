@@ -1,5 +1,4 @@
-﻿using OrganizationAthleticsCompetitions.DataBase;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +15,12 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    public partial class SponsorsPage : Page
+    public partial class NotifyPage : Page
     {
-        public SponsorsPage()
+        public NotifyPage()
         {
             InitializeComponent();
-            sponsorsList.ItemsSource = DataAccess.GetSponsors();
-        }
-
-        private void btnSend_Click(object sender, RoutedEventArgs e)
-        {
-            SendRequestSponsorWindow sendRequestSponsor = new SendRequestSponsorWindow((sender as Button).DataContext as Sponsor);
-            sendRequestSponsor.Show();
-
+            //lvNotifiies.ItemsSource = DataAccess.GetS
         }
     }
 }

@@ -154,11 +154,20 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="NotifyPage.xaml.cs">
+      <DependentUpon>NotifyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Trainer\MyRequestsPage.xaml.cs">
       <DependentUpon>MyRequestsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RequestsSponsorPage.xaml.cs">
+      <DependentUpon>RequestsSponsorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SendRequestSponsorWindow.xaml.cs">
+      <DependentUpon>SendRequestSponsorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SponsorsPage.xaml.cs">
       <DependentUpon>SponsorsPage.xaml</DependentUpon>
@@ -248,11 +257,23 @@
     <Compile Include="Pages\Admin\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="NotifyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Trainer\MyRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RequestsSponsorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendRequestSponsorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

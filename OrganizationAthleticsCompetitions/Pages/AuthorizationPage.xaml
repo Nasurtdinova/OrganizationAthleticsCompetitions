@@ -9,12 +9,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthorizationPage">
     <Grid>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="100">
-            <Frame Background="LightGray" Width="700" Height="500"></Frame>
+            <Frame Background="#FFF0EBEB" Width="700" Height="500"></Frame>
         </Border>
         <TabControl Width="600" Height="500">
             <TabItem Header="Авторизация">

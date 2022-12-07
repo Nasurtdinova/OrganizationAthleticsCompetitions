@@ -29,7 +29,9 @@ namespace OrganizationAthleticsCompetitions
             Manager.Exit = exit;
             Manager.EditProfile = profile;
             Manager.Sponsors = ItemSponsors;
+            Manager.Requests = ItemRequests;
             Manager.PartipicationTrainer = ItemPartipication;
+            Manager.RoleNameLabel = lbRoleName;
 
             GridMain.Navigate(new MainPage());
         }
@@ -40,6 +42,7 @@ namespace OrganizationAthleticsCompetitions
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             GridMain.Margin = new Thickness(210, 60, 0, 0);
             textOrganiz.Margin = new Thickness(280, 0, 0, 0);
+            lbRoleName.Visibility = Visibility.Visible;
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -48,6 +51,7 @@ namespace OrganizationAthleticsCompetitions
             ButtonOpenMenu.Visibility = Visibility.Visible;
             GridMain.Margin = new Thickness(70, 60, 0, 0);
             textOrganiz.Margin = new Thickness(100, 0, 0, 0);
+            lbRoleName.Visibility = Visibility.Collapsed;
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,6 +84,9 @@ namespace OrganizationAthleticsCompetitions
                     break;
                 case "ItemSponsors":
                     GridMain.Navigate(new SponsorsPage());
+                    break;
+                case "ItemRequests":
+                    GridMain.Navigate(new RequestsSponsorPage());
                     break;
                 case "ItemScore":
                     GridMain.Navigate(new TotalPersonalScoresPage());

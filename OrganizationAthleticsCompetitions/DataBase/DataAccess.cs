@@ -14,12 +14,22 @@ namespace OrganizationAthleticsCompetitions
             return new List<User>(Connection.connection.User.ToList());
         }
 
+        public static List<Sponsor> GetSponsors()
+        {
+            return new List<Sponsor>(Connection.connection.Sponsor.ToList());
+        }
+
         public static bool IsTrueLogin(string login)
         {
             if (GetUsers().Where(a => a.Login == login).Count() > 0)
                 return false;
             else
                 return true;
+        }
+
+        public static List<SponsorTeam> GetSponsorTeams()
+        {
+            return new List<SponsorTeam>(Connection.connection.SponsorTeam.ToList());
         }
 
         public static List<Gender> GetGenders()
@@ -263,7 +273,7 @@ namespace OrganizationAthleticsCompetitions
             }
             else if (sponsor.Count() == 1)
             {
-                CurrentUser.user = admin.FirstOrDefault();
+                CurrentUser.user = sponsor.FirstOrDefault();
                 return true;
             }
             else
@@ -277,6 +287,15 @@ namespace OrganizationAthleticsCompetitions
                 AddUser(user);
                 trainer.User = GetUsers().LastOrDefault();
                 Connection.connection.Trainer.Add(trainer);
+            }
+            Connection.connection.SaveChanges();
+        }
+
+        public static void SaveSponsorTeam(SponsorTeam spon)
+        {
+            if (spon.Id == 0)
+            {
+                Connection.connection.SponsorTeam.Add(spon);
             }
             Connection.connection.SaveChanges();
         }
