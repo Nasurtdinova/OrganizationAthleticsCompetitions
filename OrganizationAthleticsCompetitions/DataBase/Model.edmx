@@ -108,6 +108,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdSponsor" Type="int" />
           <Property Name="IdTeam" Type="int" />
+          <Property Name="IdTrainer" Type="int" />
           <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Sportsman">
@@ -316,7 +317,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SponsorTeam_Team">
+        <Association Name="FK_SponsorTeam_Team1">
           <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
           <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -325,6 +326,18 @@
             </Principal>
             <Dependent Role="SponsorTeam">
               <PropertyRef Name="IdTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SponsorTeam_Trainer">
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+          <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SponsorTeam">
+              <PropertyRef Name="IdTrainer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -567,8 +580,12 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="SponsorTeam" EntitySet="SponsorTeam" />
           </AssociationSet>
-          <AssociationSet Name="FK_SponsorTeam_Team" Association="Self.FK_SponsorTeam_Team">
+          <AssociationSet Name="FK_SponsorTeam_Team1" Association="Self.FK_SponsorTeam_Team1">
             <End Role="Team" EntitySet="Team" />
+            <End Role="SponsorTeam" EntitySet="SponsorTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SponsorTeam_Trainer" Association="Self.FK_SponsorTeam_Trainer">
+            <End Role="Trainer" EntitySet="Trainer" />
             <End Role="SponsorTeam" EntitySet="SponsorTeam" />
           </AssociationSet>
           <AssociationSet Name="FK_Sportsman_Category" Association="Self.FK_Sportsman_Category">
@@ -741,12 +758,12 @@
             <End Role="ProgramCompetition" EntitySet="ProgramCompetition" />
           </AssociationSet>
           <EntitySet Name="Sponsor" EntityType="OrganizationAthleticsCompetitionsModel.Sponsor" />
-          <EntitySet Name="SponsorTeam" EntityType="OrganizationAthleticsCompetitionsModel.SponsorTeam" />
           <EntitySet Name="Status" EntityType="OrganizationAthleticsCompetitionsModel.Status" />
           <AssociationSet Name="FK_Sponsor_User" Association="OrganizationAthleticsCompetitionsModel.FK_Sponsor_User">
             <End Role="User" EntitySet="User" />
             <End Role="Sponsor" EntitySet="Sponsor" />
           </AssociationSet>
+          <EntitySet Name="SponsorTeam" EntityType="OrganizationAthleticsCompetitionsModel.SponsorTeam" />
           <AssociationSet Name="FK_SponsorTeam_Sponsor" Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor">
             <End Role="Sponsor" EntitySet="Sponsor" />
             <End Role="SponsorTeam" EntitySet="SponsorTeam" />
@@ -755,11 +772,15 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="SponsorTeam" EntitySet="SponsorTeam" />
           </AssociationSet>
-          <AssociationSet Name="FK_SponsorTeam_Team" Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team">
+          <AssociationSet Name="FK_SponsorTeam_Team1" Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1">
             <End Role="Team" EntitySet="Team" />
             <End Role="SponsorTeam" EntitySet="SponsorTeam" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_SponsorTeam_Trainer" Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Trainer">
+            <End Role="Trainer" EntitySet="Trainer" />
+            <End Role="SponsorTeam" EntitySet="SponsorTeam" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="CategoryCompetition">
           <Key>
             <PropertyRef Name="Id" />
@@ -895,7 +916,7 @@
           <NavigationProperty Name="City" Relationship="OrganizationAthleticsCompetitionsModel.FK_Team_City" FromRole="Team" ToRole="City" />
           <NavigationProperty Name="Sportsman" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sportsman_Team" FromRole="Team" ToRole="Sportsman" />
           <NavigationProperty Name="Trainer_Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Team" FromRole="Team" ToRole="Trainer_Team" />
-          <NavigationProperty Name="SponsorTeam" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team" FromRole="Team" ToRole="SponsorTeam" />
+          <NavigationProperty Name="SponsorTeam" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1" FromRole="Team" ToRole="SponsorTeam" />
         </EntityType>
         <EntityType Name="Trainer">
           <Key>
@@ -906,6 +927,7 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Trainer_Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_Team_Trainer" FromRole="Trainer" ToRole="Trainer_Team" />
           <NavigationProperty Name="User" Relationship="OrganizationAthleticsCompetitionsModel.FK_Trainer_User" FromRole="Trainer" ToRole="User" />
+          <NavigationProperty Name="SponsorTeam" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Trainer" FromRole="Trainer" ToRole="SponsorTeam" />
         </EntityType>
         <EntityType Name="Trainer_Team">
           <Key>
@@ -1245,18 +1267,6 @@
           <NavigationProperty Name="User" Relationship="OrganizationAthleticsCompetitionsModel.FK_Sponsor_User" FromRole="Sponsor" ToRole="User" />
           <NavigationProperty Name="SponsorTeam" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" FromRole="Sponsor" ToRole="SponsorTeam" />
         </EntityType>
-        <EntityType Name="SponsorTeam">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdSponsor" Type="Int32" />
-          <Property Name="IdTeam" Type="Int32" />
-          <Property Name="IdStatus" Type="Int32" />
-          <NavigationProperty Name="Sponsor" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" FromRole="SponsorTeam" ToRole="Sponsor" />
-          <NavigationProperty Name="Status" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Status" FromRole="SponsorTeam" ToRole="Status" />
-          <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team" FromRole="SponsorTeam" ToRole="Team" />
-        </EntityType>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="Id" />
@@ -1277,6 +1287,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SponsorTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSponsor" Type="Int32" />
+          <Property Name="IdTeam" Type="Int32" />
+          <Property Name="IdTrainer" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" />
+          <NavigationProperty Name="Sponsor" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" FromRole="SponsorTeam" ToRole="Sponsor" />
+          <NavigationProperty Name="Status" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Status" FromRole="SponsorTeam" ToRole="Status" />
+          <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1" FromRole="SponsorTeam" ToRole="Team" />
+          <NavigationProperty Name="Trainer" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Trainer" FromRole="SponsorTeam" ToRole="Trainer" />
+        </EntityType>
         <Association Name="FK_SponsorTeam_Sponsor">
           <End Type="OrganizationAthleticsCompetitionsModel.Sponsor" Role="Sponsor" Multiplicity="0..1" />
           <End Type="OrganizationAthleticsCompetitionsModel.SponsorTeam" Role="SponsorTeam" Multiplicity="*" />
@@ -1301,7 +1325,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SponsorTeam_Team">
+        <Association Name="FK_SponsorTeam_Team1">
           <End Type="OrganizationAthleticsCompetitionsModel.Team" Role="Team" Multiplicity="0..1" />
           <End Type="OrganizationAthleticsCompetitionsModel.SponsorTeam" Role="SponsorTeam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1310,6 +1334,18 @@
             </Principal>
             <Dependent Role="SponsorTeam">
               <PropertyRef Name="IdTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SponsorTeam_Trainer">
+          <End Type="OrganizationAthleticsCompetitionsModel.Trainer" Role="Trainer" Multiplicity="0..1" />
+          <End Type="OrganizationAthleticsCompetitionsModel.SponsorTeam" Role="SponsorTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SponsorTeam">
+              <PropertyRef Name="IdTrainer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1525,20 +1561,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SponsorTeam">
-            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.SponsorTeam">
-              <MappingFragment StoreEntitySet="SponsorTeam">
-                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-                <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
-                <ScalarProperty Name="IdSponsor" ColumnName="IdSponsor" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SponsorTeam">
+            <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.SponsorTeam">
+              <MappingFragment StoreEntitySet="SponsorTeam">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+                <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />
+                <ScalarProperty Name="IdSponsor" ColumnName="IdSponsor" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

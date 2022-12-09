@@ -10,6 +10,8 @@
       Title="RequestsSponsorPage">
 
     <Grid>
+        <StackPanel>
+        <TextBlock Text="Заявки" Margin="10"></TextBlock>
         <ListView x:Name="lvRequests">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -30,5 +32,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Top"></Button>
+        </StackPanel>
     </Grid>
 </Page>

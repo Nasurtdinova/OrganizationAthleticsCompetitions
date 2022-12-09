@@ -102,7 +102,7 @@
                     </ListViewItem>
                     <ListViewItem x:Name="ItemSponsors" Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="Images\sportsmans.png" Height="25" Width="25" Margin="10 0"/>
+                            <materialDesign:PackIcon Kind="HandshakeOutline" Width="25" Margin="10 0" Height="25"/>
                             <TextBlock Foreground="White" Text="Спонсоры" VerticalAlignment="Center" Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>

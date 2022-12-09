@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganizationAthleticsCompetitions.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,14 @@ namespace OrganizationAthleticsCompetitions
         public NotifyPage()
         {
             InitializeComponent();
-            //lvNotifiies.ItemsSource = DataAccess.GetS
+            lvNotifiies.ItemsSource = DataAccess.GetSponsorTeams().Where(a=>a.Trainer == CurrentUser.trainer);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            var a = (sender as ListView).SelectedItem as SponsorTeam;
+            Connection.connection.SponsorTeam.Remove(a);
+            Connection.connection.SaveChanges();
         }
     }
 }

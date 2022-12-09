@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SendRequestSponsorWindow">
+      Title="Отправить заявку на спонсирование">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock>Команда</TextBlock>
-            <ComboBox x:Name="comboTeam"></ComboBox>
+            <ComboBox x:Name="comboTeam" DisplayMemberPath="Name"></ComboBox>
         </StackPanel>
         <Button Grid.Row="2" Name="btnSend" Click="btnSend_Click">Отправить</Button>
     </Grid>

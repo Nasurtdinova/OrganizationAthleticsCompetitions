@@ -154,6 +154,9 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditProfileSponsorPage.xaml.cs">
+      <DependentUpon>EditProfileSponsorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotifyPage.xaml.cs">
       <DependentUpon>NotifyPage.xaml</DependentUpon>
     </Compile>
@@ -257,6 +260,10 @@
     <Compile Include="Pages\Admin\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditProfileSponsorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NotifyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

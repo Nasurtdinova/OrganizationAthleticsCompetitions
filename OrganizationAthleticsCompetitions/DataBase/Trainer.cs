@@ -18,6 +18,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Trainer()
         {
             this.Trainer_Team = new HashSet<Trainer_Team>();
+            this.SponsorTeam = new HashSet<SponsorTeam>();
         }
     
         public int Id { get; set; }
@@ -27,5 +28,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer_Team> Trainer_Team { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SponsorTeam> SponsorTeam { get; set; }
     }
 }

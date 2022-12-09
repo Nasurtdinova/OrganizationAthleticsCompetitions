@@ -42,5 +42,10 @@ namespace OrganizationAthleticsCompetitions
             lvRequests.ItemsSource = DataAccess.GetSponsorTeams().Where(a => a.Sponsor.IdUser == CurrentUser.user.Id && a.IdStatus == 1);
             MaterialMessageBox.Show("Заявка принята!");
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

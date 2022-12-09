@@ -45,7 +45,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public virtual DbSet<Venue> Venue { get; set; }
         public virtual DbSet<ProgramCompetition> ProgramCompetition { get; set; }
         public virtual DbSet<Sponsor> Sponsor { get; set; }
-        public virtual DbSet<SponsorTeam> SponsorTeam { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<SponsorTeam> SponsorTeam { get; set; }
     }
 }

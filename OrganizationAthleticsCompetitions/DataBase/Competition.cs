@@ -31,6 +31,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdCategory { get; set; }
         public Nullable<int> IdVenue { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+
         [Required(ErrorMessage = "Заполните категорию!")]
         public virtual CategoryCompetition CategoryCompetition { get; set; }
         [Required(ErrorMessage = "Заполните место проведения!")]

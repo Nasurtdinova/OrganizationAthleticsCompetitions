@@ -36,7 +36,7 @@ namespace OrganizationAthleticsCompetitions
                 NavigationService.Navigate(new MainPage());
             }
             else
-                MaterialMessageBox.Show("Incorrect login or password");
+                MaterialMessageBox.ShowError("Неправильный логин или пароль!");
         }
 
         private void editImage_Click(object sender, RoutedEventArgs e)

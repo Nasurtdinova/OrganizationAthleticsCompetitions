@@ -29,9 +29,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdCity { get; set; }
         public byte[] Image { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-
         public double Score => DataAccess.GetScoreTeam(Id);
-
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sportsman> Sportsman { get; set; }

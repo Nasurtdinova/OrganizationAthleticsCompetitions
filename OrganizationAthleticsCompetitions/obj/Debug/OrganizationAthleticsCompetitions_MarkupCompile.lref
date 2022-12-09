@@ -1,7 +1,11 @@
 ﻿
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\App.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\NotifyPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Pages\Trainer\MyRequestsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Pages\MainPage.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\RequestsSponsorPage.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SendRequestSponsorWindow.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SponsorsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Windows\AddEditProgramCompetition.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Windows\AddEditCompetitionWindow.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\MenuWindow.xaml;;
@@ -25,7 +29,5 @@ FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthle
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Pages\Viewer\TeamsPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Pages\Viewer\SportsmansInCommandPage.xaml;;
 FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\Pages\Admin\TrainersPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SponsorsPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\RequestsSponsorPage.xaml;;
-FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\SendRequestSponsorWindow.xaml;;
+FC:\Users\nasur\source\repos\OrganizationAthleticsCompetitions\OrganizationAthleticsCompetitions\EditProfileSponsorPage.xaml;;
 

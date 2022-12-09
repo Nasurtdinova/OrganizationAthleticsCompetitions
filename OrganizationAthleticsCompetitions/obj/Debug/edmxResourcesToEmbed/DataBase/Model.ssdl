@@ -103,6 +103,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdSponsor" Type="int" />
     <Property Name="IdTeam" Type="int" />
+    <Property Name="IdTrainer" Type="int" />
     <Property Name="IdStatus" Type="int" />
   </EntityType>
   <EntityType Name="Sportsman">
@@ -311,7 +312,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_SponsorTeam_Team">
+  <Association Name="FK_SponsorTeam_Team1">
     <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
     <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
     <ReferentialConstraint>
@@ -320,6 +321,18 @@
       </Principal>
       <Dependent Role="SponsorTeam">
         <PropertyRef Name="IdTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SponsorTeam_Trainer">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+    <End Role="SponsorTeam" Type="Self.SponsorTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SponsorTeam">
+        <PropertyRef Name="IdTrainer" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -562,8 +575,12 @@
       <End Role="Status" EntitySet="Status" />
       <End Role="SponsorTeam" EntitySet="SponsorTeam" />
     </AssociationSet>
-    <AssociationSet Name="FK_SponsorTeam_Team" Association="Self.FK_SponsorTeam_Team">
+    <AssociationSet Name="FK_SponsorTeam_Team1" Association="Self.FK_SponsorTeam_Team1">
       <End Role="Team" EntitySet="Team" />
+      <End Role="SponsorTeam" EntitySet="SponsorTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SponsorTeam_Trainer" Association="Self.FK_SponsorTeam_Trainer">
+      <End Role="Trainer" EntitySet="Trainer" />
       <End Role="SponsorTeam" EntitySet="SponsorTeam" />
     </AssociationSet>
     <AssociationSet Name="FK_Sportsman_Category" Association="Self.FK_Sportsman_Category">

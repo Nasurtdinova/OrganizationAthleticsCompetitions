@@ -30,5 +30,10 @@ namespace OrganizationAthleticsCompetitions
             sendRequestSponsor.Show();
 
         }
+
+        private void btnNotifies_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new NotifyPage());
+        }
     }
 }

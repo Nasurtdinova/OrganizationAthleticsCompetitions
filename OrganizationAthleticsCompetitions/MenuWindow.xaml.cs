@@ -106,7 +106,10 @@ namespace OrganizationAthleticsCompetitions
 
         private void profile_Click(object sender, RoutedEventArgs e)
         {
-            GridMain.Navigate(new EditProfileTPage());
+            if (CurrentUser.user.IdRole == 2)
+                GridMain.Navigate(new EditProfileTPage());
+            else if (CurrentUser.user.IdRole == 3)
+                GridMain.Navigate(new EditProfileSponsorPage());
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)

@@ -63,7 +63,7 @@
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="#FF6273AA"></Setter>
+                <Setter Property="Background" Value="#FF1C82C9"></Setter>
             <Setter Property="BorderBrush" Value="#FF6273AA"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>

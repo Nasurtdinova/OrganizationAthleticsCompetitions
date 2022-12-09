@@ -46,13 +46,14 @@
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeCompetition" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_TypesProgram_TypeProgram" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Sponsor" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.SponsorTeam" Width="1.5" PointX="8.5" PointY="3.125" />
         <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.Status" Width="1.5" PointX="6.25" PointY="28.5" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_Sponsor_User" />
+        <EntityTypeShape EntityType="OrganizationAthleticsCompetitionsModel.SponsorTeam" Width="1.5" PointX="10.5" PointY="12" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" />
         <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Status" />
-        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team" />
-      </Diagram>
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1" />
+        <AssociationConnector Association="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Trainer" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

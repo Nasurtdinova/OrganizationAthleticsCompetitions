@@ -11,10 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Спонсоры"></TextBlock>
-        <ListView x:Name="sponsorsList" Grid.Row="1">
+        <Button x:Name="btnNotifies" Click="btnNotifies_Click" Grid.Row="1" HorizontalAlignment="Left" Margin="20">Уведомления</Button>
+        <ListView x:Name="sponsorsList" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3" Width="1100"></UniformGrid>

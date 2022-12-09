@@ -24,7 +24,7 @@ namespace OrganizationAthleticsCompetitions
         {
             InitializeComponent();
             SelectedSponsor = spon;
-            comboTeam.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer);
+            comboTeam.ItemsSource = DataAccess.GetTeamsInTreaner(CurrentUser.trainer).Select(a=>a.Team);
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
@@ -33,17 +33,19 @@ namespace OrganizationAthleticsCompetitions
             if (a != null && a.IdStatus == 1)
                 MaterialMessageBox.ShowError("Вы уже отправляли заявку!Ожидайте!");
             else if (a != null && a.IdStatus == 3)
-                MaterialMessageBox.ShowError("Это уже спонсор этой команды!");
+                MaterialMessageBox.ShowError("Он(-а) уже спонсор этой команды!");
             else
             {
                 SponsorTeam sponTeam = new SponsorTeam()
                 {
                     Sponsor = SelectedSponsor,
                     Team = comboTeam.SelectedItem as Team,
+                    Trainer = CurrentUser.trainer,
                     IdStatus = 1
                 };
                 DataAccess.SaveSponsorTeam(sponTeam);
                 MaterialMessageBox.Show("Ваша заявка отправлена!");
+                Close();
             }
         }
     }

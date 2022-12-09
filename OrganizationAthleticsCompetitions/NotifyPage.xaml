@@ -10,15 +10,18 @@
 
     <Grid>
         <StackPanel>
-        <TextBlock Text="Уведомления"></TextBlock>
+        <TextBlock Text="Уведомления" Margin="10"></TextBlock>
         <ListView x:Name="lvNotifiies">
                 <ListView.ItemTemplate>
                     <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
                         <TextBlock>
-                            <Run Text="Вашу заявку о спонсировании команды"></Run>
+                            <Run Text="Ваша заявка о спонсировании команды"></Run>
                             <Run Text="{Binding Team.Name}"></Run>
-                            <Run Text="{Binding Status.Name}"></Run>
+                            <Run Text="{Binding Status.Name}" TextDecorations="Underline"></Run>
                         </TextBlock>
+                            <Button x:Name="btnCancel" Click="btnCancel_Click" Visibility="{Binding VisibilityCansel}">Отменить</Button>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
         </ListView>

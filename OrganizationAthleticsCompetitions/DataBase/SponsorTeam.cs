@@ -17,10 +17,14 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public int Id { get; set; }
         public Nullable<int> IdSponsor { get; set; }
         public Nullable<int> IdTeam { get; set; }
+        public Nullable<int> IdTrainer { get; set; }
         public Nullable<int> IdStatus { get; set; }
-    
+
+        public string VisibilityCansel => IdStatus == 1 ? "Visible" : "Collapsed";
+
         public virtual Sponsor Sponsor { get; set; }
         public virtual Status Status { get; set; }
         public virtual Team Team { get; set; }
+        public virtual Trainer Trainer { get; set; }
     }
 }
