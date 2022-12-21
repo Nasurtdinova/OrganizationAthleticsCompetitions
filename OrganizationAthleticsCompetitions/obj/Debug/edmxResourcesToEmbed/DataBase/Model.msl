@@ -218,6 +218,7 @@
     <EntitySetMapping Name="SponsorTeam">
       <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.SponsorTeam">
         <MappingFragment StoreEntitySet="SponsorTeam">
+          <ScalarProperty Name="DateOfChange" ColumnName="DateOfChange" />
           <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
           <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
           <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />

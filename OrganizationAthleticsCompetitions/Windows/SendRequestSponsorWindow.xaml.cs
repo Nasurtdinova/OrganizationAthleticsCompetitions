@@ -41,6 +41,7 @@ namespace OrganizationAthleticsCompetitions
                     Sponsor = SelectedSponsor,
                     Team = comboTeam.SelectedItem as Team,
                     Trainer = CurrentUser.trainer,
+                    DateOfChange = DateTime.Now,
                     IdStatus = 1
                 };
                 DataAccess.SaveSponsorTeam(sponTeam);

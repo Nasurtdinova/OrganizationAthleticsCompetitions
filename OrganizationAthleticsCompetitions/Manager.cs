@@ -19,6 +19,7 @@ namespace OrganizationAthleticsCompetitions
         public static ListViewItem Trainers { get; set; }
         public static ListViewItem Sponsors { get; set; }
         public static ListViewItem Requests { get; set; }
+        public static ListViewItem Reports { get; set; }
 
         public static ListViewItem CommandsTrainer { get; set; }
         public static ListViewItem PartipicationTrainer { get; set; }
@@ -42,6 +43,7 @@ namespace OrganizationAthleticsCompetitions
                     Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                     Requests.Visibility = System.Windows.Visibility.Collapsed;
                     Trainers.Visibility = System.Windows.Visibility.Visible;
+                    Reports.Visibility = System.Windows.Visibility.Visible;
                     CommandsTrainer.Visibility = System.Windows.Visibility.Collapsed;
                     PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 }
@@ -55,6 +57,7 @@ namespace OrganizationAthleticsCompetitions
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
                     Requests.Visibility = System.Windows.Visibility.Collapsed;
+                    Reports.Visibility = System.Windows.Visibility.Collapsed;
                 }
 
                 else if (CurrentUser.user.IdRole == 3)
@@ -67,6 +70,7 @@ namespace OrganizationAthleticsCompetitions
                     EditProfile.Visibility = System.Windows.Visibility.Visible;
                     Trainers.Visibility = System.Windows.Visibility.Collapsed;
                     Requests.Visibility = System.Windows.Visibility.Visible;
+                    Reports.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 Authorization.Visibility = System.Windows.Visibility.Collapsed;
                 Exit.Visibility = System.Windows.Visibility.Visible;
@@ -83,6 +87,7 @@ namespace OrganizationAthleticsCompetitions
                 Sponsors.Visibility = System.Windows.Visibility.Collapsed;
                 PartipicationTrainer.Visibility = System.Windows.Visibility.Collapsed;
                 Requests.Visibility = System.Windows.Visibility.Collapsed;
+                Reports.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
     }

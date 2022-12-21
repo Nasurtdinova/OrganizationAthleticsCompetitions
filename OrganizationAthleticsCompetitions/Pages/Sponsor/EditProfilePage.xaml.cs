@@ -18,11 +18,15 @@ using System.Windows.Shapes;
 
 namespace OrganizationAthleticsCompetitions
 {
-    public partial class EditProfileSponsorPage : Page
+    /// <summary>
+    /// Логика взаимодействия для EditProfilePage.xaml
+    /// </summary>
+    public partial class EditProfilePage : Page
     {
-        public EditProfileSponsorPage()
+        public EditProfilePage()
         {
-            DataContext = DataAccess.GetSponsors().Where(a=>a.User == CurrentUser.user).FirstOrDefault();
+            InitializeComponent();
+            DataContext = DataAccess.GetSponsors().Where(a => a.User == CurrentUser.user).FirstOrDefault();
         }
 
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)

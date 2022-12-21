@@ -21,14 +21,32 @@ namespace OrganizationAthleticsCompetitions
         public NotifyPage()
         {
             InitializeComponent();
+            NoDatas();
+        }
+
+        public void NoDatas()
+        { 
             lvNotifiies.ItemsSource = DataAccess.GetSponsorTeams().Where(a=>a.Trainer == CurrentUser.trainer);
+            if (lvNotifiies.Items.Count == 0)
+                tbNoName.Text = "У вас нет уведомлений!";
+            else
+                tbNoName.Text = " ";
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            var a = (sender as ListView).SelectedItem as SponsorTeam;
-            Connection.connection.SponsorTeam.Remove(a);
-            Connection.connection.SaveChanges();
+            if (MessageBox.Show("Вы точно хотите отменить заявку?", "Предупреждение", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var a = (sender as Button).DataContext as SponsorTeam;
+                Connection.connection.SponsorTeam.Remove(a);
+                Connection.connection.SaveChanges();
+                NoDatas();
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

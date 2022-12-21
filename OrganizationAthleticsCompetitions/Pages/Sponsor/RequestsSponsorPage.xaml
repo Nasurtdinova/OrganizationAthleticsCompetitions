@@ -10,17 +10,25 @@
       Title="RequestsSponsorPage">
 
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnTeam" Content="Мои команды для спонсирования" Click="btnTeam_Click" Width="350" HorizontalAlignment="Left" Margin="10" Grid.Row="1"></Button>
         <TextBlock Text="Заявки" Margin="10"></TextBlock>
-        <ListView x:Name="lvRequests">
+        <TextBlock x:Name="tbNoName" Grid.Row="2"></TextBlock>
+        <ListView x:Name="lvRequests" Grid.Row="2" SelectionChanged="lvRequests_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding DateOfChange, StringFormat='dd.MM.yyyy HH:mm'}" TextDecorations="Underline"></TextBlock>
                         <TextBlock>
                             <Run Text="Вам скинули заявку на спонсирование команды"></Run>
                             <Run Text="{Binding Team.Name}"></Run>
                         </TextBlock>
-                        <StackPanel Orientation="Horizontal" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="btnAccept" Click="btnAccept_Click" Margin="10">
                                 <materialDesign:PackIcon Kind="Check" Width="25" Margin="10 0" Height="25"/>
                             </Button>
@@ -32,7 +40,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" VerticalAlignment="Top"></Button>
-        </StackPanel>
+        <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" Grid.Row="3"></Button>
     </Grid>
 </Page>

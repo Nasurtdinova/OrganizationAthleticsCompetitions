@@ -21,31 +21,53 @@ namespace OrganizationAthleticsCompetitions
     {
         public RequestsSponsorPage()
         {
-            InitializeComponent();
+            InitializeComponent();          
+            NoDatas();
+        }
+
+        public void NoDatas()
+        {
             lvRequests.ItemsSource = DataAccess.GetSponsorTeams().Where(a => a.Sponsor.IdUser == CurrentUser.user.Id && a.IdStatus == 1);
+            if (lvRequests.Items.Count == 0)
+                tbNoName.Text = "У вас нет новых заявок!";
+            else
+                tbNoName.Text = " ";
         }
 
         private void btnNoAccept_Click(object sender, RoutedEventArgs e)
         {
-            var selected = (sender as ListView).SelectedItem as SponsorTeam;
+            var selected = (sender as Button).DataContext as SponsorTeam;
             selected.IdStatus = 2;
+            selected.DateOfChange = DateTime.Now;
             Connection.connection.SaveChanges();
-            lvRequests.ItemsSource = DataAccess.GetSponsorTeams().Where(a => a.Sponsor.IdUser == CurrentUser.user.Id && a.IdStatus == 1);
+            NoDatas();
             MaterialMessageBox.Show("Заявка отклонена!");
         }
 
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
-            var selected = (sender as ListView).SelectedItem as SponsorTeam;
+            var selected = (sender as Button).DataContext as SponsorTeam;
             selected.IdStatus = 3;
+            selected.DateOfChange = DateTime.Now;
             Connection.connection.SaveChanges();
-            lvRequests.ItemsSource = DataAccess.GetSponsorTeams().Where(a => a.Sponsor.IdUser == CurrentUser.user.Id && a.IdStatus == 1);
+            NoDatas();
             MaterialMessageBox.Show("Заявка принята!");
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void btnTeam_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TeamSponsorsPage());
+        }
+
+        private void lvRequests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = (sender as ListView).SelectedItem as SponsorTeam;
+            NavigationService.Navigate(new SportsmansInCommandPage(selected.Team));
         }
     }
 }

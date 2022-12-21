@@ -154,10 +154,13 @@
     <Compile Include="DataBase\Venue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="EditProfileSponsorPage.xaml.cs">
-      <DependentUpon>EditProfileSponsorPage.xaml</DependentUpon>
+    <Compile Include="Pages\Sponsor\EditProfilePage.xaml.cs">
+      <DependentUpon>EditProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NotifyPage.xaml.cs">
+    <Compile Include="Pages\Trainer\OurSponsorsPage.xaml.cs">
+      <DependentUpon>OurSponsorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Trainer\NotifyPage.xaml.cs">
       <DependentUpon>NotifyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Trainer\MyRequestsPage.xaml.cs">
@@ -166,13 +169,16 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RequestsSponsorPage.xaml.cs">
+    <Compile Include="Pages\Sponsor\RequestsSponsorPage.xaml.cs">
       <DependentUpon>RequestsSponsorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SendRequestSponsorWindow.xaml.cs">
+    <Compile Include="Pages\Sponsor\TeamSponsorsPage.xaml.cs">
+      <DependentUpon>TeamSponsorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SendRequestSponsorWindow.xaml.cs">
       <DependentUpon>SendRequestSponsorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SponsorsPage.xaml.cs">
+    <Compile Include="Pages\Trainer\SponsorsPage.xaml.cs">
       <DependentUpon>SponsorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddEditProgramCompetition.xaml.cs">
@@ -260,11 +266,15 @@
     <Compile Include="Pages\Admin\TrainersPage.xaml.cs">
       <DependentUpon>TrainersPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="EditProfileSponsorPage.xaml">
+    <Page Include="Pages\Sponsor\EditProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NotifyPage.xaml">
+    <Page Include="Pages\Trainer\OurSponsorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Trainer\NotifyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,15 +286,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RequestsSponsorPage.xaml">
+    <Page Include="Pages\Sponsor\RequestsSponsorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SendRequestSponsorWindow.xaml">
+    <Page Include="Pages\Sponsor\TeamSponsorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SponsorsPage.xaml">
+    <Page Include="Windows\SendRequestSponsorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Trainer\SponsorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,36 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.NotifyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NotifyPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Уведомления" Margin="10"></TextBlock>
+        <TextBlock x:Name="tbNoName" Grid.Row="1"></TextBlock>
+        <ListView x:Name="lvNotifiies" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DateOfChange, StringFormat='dd.MM.yyyy HH:mm'}" TextDecorations="Underline"></TextBlock>
+                            <TextBlock>
+                                <Run Text="Ваша заявка о спонсировании команды"></Run>
+                                <Run Text="{Binding Team.Name}"></Run>
+                                <Run Text="{Binding Status.Name}"></Run>
+                            </TextBlock>
+                            <Button x:Name="btnCancel" Click="btnCancel_Click" Margin="10" Visibility="{Binding VisibilityCansel}">Отменить</Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+        <Button VerticalAlignment="Bottom" Name="btnBack" Click="btnBack_Click" Margin="10" Grid.Row="2">Назад</Button>
+    </Grid>
+</Page>

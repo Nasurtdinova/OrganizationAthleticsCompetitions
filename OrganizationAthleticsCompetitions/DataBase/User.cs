@@ -28,7 +28,7 @@ namespace OrganizationAthleticsCompetitions.DataBase
         public Nullable<int> IdCity { get; set; }
         [Required(ErrorMessage = "Заполните логин!")]
         public string Login { get; set; }
-
+   
         [Required(ErrorMessage = "Заполните пароль!")]
         public string Password { get; set; }
         public int IdRole { get; set; }

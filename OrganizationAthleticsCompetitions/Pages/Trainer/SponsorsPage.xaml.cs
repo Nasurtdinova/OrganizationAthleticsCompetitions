@@ -28,12 +28,20 @@ namespace OrganizationAthleticsCompetitions
         {
             SendRequestSponsorWindow sendRequestSponsor = new SendRequestSponsorWindow((sender as Button).DataContext as Sponsor);
             sendRequestSponsor.Show();
-
+            sendRequestSponsor.Closed += (s, eventarg) =>
+            {
+                NavigationService.Navigate(new NotifyPage());
+            };
         }
 
         private void btnNotifies_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new NotifyPage());
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

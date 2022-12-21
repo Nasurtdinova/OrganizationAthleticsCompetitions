@@ -18,8 +18,10 @@
                     <ListView Name="lvSportsmansInTeam">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FullName}" Width="640"></GridViewColumn>
+                                <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FullName}" Width="400"></GridViewColumn>
                                 <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}"></GridViewColumn>
+                                <GridViewColumn Header="Звание" DisplayMemberBinding="{Binding CategorySportsman.Name}" Width="200">
+                                </GridViewColumn>
                                 <GridViewColumn Header="Фотография">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>

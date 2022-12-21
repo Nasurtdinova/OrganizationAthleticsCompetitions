@@ -39,7 +39,6 @@ namespace OrganizationAthleticsCompetitions.DataBase
 
         public virtual CategorySportsman CategorySportsman { get; set; }
         public virtual City City { get; set; }
-        [Required(ErrorMessage = "Заполните род!")]
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Request { get; set; }

@@ -110,6 +110,7 @@
           <Property Name="IdTeam" Type="int" />
           <Property Name="IdTrainer" Type="int" />
           <Property Name="IdStatus" Type="int" />
+          <Property Name="DateOfChange" Type="datetime" />
         </EntityType>
         <EntityType Name="Sportsman">
           <Key>
@@ -1296,6 +1297,7 @@
           <Property Name="IdTeam" Type="Int32" />
           <Property Name="IdTrainer" Type="Int32" />
           <Property Name="IdStatus" Type="Int32" />
+          <Property Name="DateOfChange" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Sponsor" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" FromRole="SponsorTeam" ToRole="Sponsor" />
           <NavigationProperty Name="Status" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Status" FromRole="SponsorTeam" ToRole="Status" />
           <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1" FromRole="SponsorTeam" ToRole="Team" />
@@ -1572,6 +1574,7 @@
           <EntitySetMapping Name="SponsorTeam">
             <EntityTypeMapping TypeName="OrganizationAthleticsCompetitionsModel.SponsorTeam">
               <MappingFragment StoreEntitySet="SponsorTeam">
+                <ScalarProperty Name="DateOfChange" ColumnName="DateOfChange" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
                 <ScalarProperty Name="IdTeam" ColumnName="IdTeam" />

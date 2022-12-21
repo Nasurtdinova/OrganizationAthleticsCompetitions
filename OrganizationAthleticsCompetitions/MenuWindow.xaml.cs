@@ -32,6 +32,7 @@ namespace OrganizationAthleticsCompetitions
             Manager.Requests = ItemRequests;
             Manager.PartipicationTrainer = ItemPartipication;
             Manager.RoleNameLabel = lbRoleName;
+            Manager.Reports = ItemReports;
 
             GridMain.Navigate(new MainPage());
         }
@@ -83,7 +84,7 @@ namespace OrganizationAthleticsCompetitions
                     GridMain.Navigate(new ResultCompetitionsPage());
                     break;
                 case "ItemSponsors":
-                    GridMain.Navigate(new SponsorsPage());
+                    GridMain.Navigate(new OurSponsorsPage());
                     break;
                 case "ItemRequests":
                     GridMain.Navigate(new RequestsSponsorPage());
@@ -109,7 +110,7 @@ namespace OrganizationAthleticsCompetitions
             if (CurrentUser.user.IdRole == 2)
                 GridMain.Navigate(new EditProfileTPage());
             else if (CurrentUser.user.IdRole == 3)
-                GridMain.Navigate(new EditProfileSponsorPage());
+                GridMain.Navigate(new EditProfilePage());
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)

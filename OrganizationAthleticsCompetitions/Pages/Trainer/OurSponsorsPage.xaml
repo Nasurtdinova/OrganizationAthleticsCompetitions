@@ -1,4 +1,4 @@
-﻿<Page x:Class="OrganizationAthleticsCompetitions.SponsorsPage"
+﻿<Page x:Class="OrganizationAthleticsCompetitions.OurSponsorsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,16 +6,21 @@
       xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SponsorsPage">
+      Title="OurSponsorsPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Спонсоры"></TextBlock>
-        <Button x:Name="btnNotifies" Click="btnNotifies_Click" Grid.Row="1" HorizontalAlignment="Left" Margin="20">Уведомления</Button>
+        <TextBlock Text="Наши спонсоры"></TextBlock>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="btnSponsors" Click="btnSponsors_Click" HorizontalAlignment="Left" Width="250" Margin="10">Все спонсоры</Button>
+            <Button x:Name="btnNotifies" Click="btnNotifies_Click" HorizontalAlignment="Left" Width="250">Уведомления</Button>
+        </StackPanel>
+        <TextBlock x:Name="tbNoName" Grid.Row="2"></TextBlock>
         <ListView x:Name="sponsorsList" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -27,35 +32,32 @@
                     <StackPanel>
                         <Image Width="400" Height="220">
                             <Image.Source>
-                                <Binding Path="Image">
+                                <Binding Path="Sponsor.Image">
                                     <Binding.TargetNullValue>
                                         <BitmapImage UriSource="/OrganizationAthleticsCompetitions;component/Images/PhotoProfile.png"></BitmapImage>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding User.FullName}"/>
-                        <Button x:Name="btnSend" Width="200" Click="btnSend_Click">Отправить заявку</Button>
+                        <TextBlock Text="{Binding Sponsor.User.FullName}"/>
+                        <TextBlock>
+                                    <Run Text="Команда:"></Run>
+                                    <Run Text="{Binding Team.Name}"></Run>
+                        </TextBlock>
                     </StackPanel>
                 </DataTemplate>
                 <DataTemplate x:Key="SelectedItemTemplate">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                         <StackPanel >
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Команды" />
-                                <ListView ItemsSource="{Binding SponsorTeam}">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <TextBlock Text="{Binding Team.Name}" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                <TextBlock>
+                                    <Run Text="Спонсирует с"></Run>
+                                     <Run Text="{Binding DateOfChange, StringFormat='dd.MM.yyyy'}"></Run>
+                                </TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Дата рождения: " />
-                                <TextBlock Text="{Binding User.DayOfBirth, StringFormat='dd.MM.yyyy'}" />
+                                <TextBlock Text="{Binding Sponsor.User.DayOfBirth, StringFormat='dd.MM.yyyy'}" />
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
@@ -72,5 +74,6 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+        <Button x:Name="btnBack" Grid.Row="3" Click="btnBack_Click">Назад</Button>
     </Grid>
 </Page>

@@ -1,0 +1,44 @@
+﻿<Page x:Class="OrganizationAthleticsCompetitions.TeamSponsorsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizationAthleticsCompetitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TeamSponsorsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Мои команды для спонсирования"></TextBlock>
+        <TextBlock x:Name="tbNoName" Grid.Row="1"></TextBlock>
+        <ListView Grid.Row="1" Name="lvTeams" SelectionChanged="lvTeams_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Team.Name}" TextDecorations="Underline"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Тренеры" Margin="10"></TextBlock>
+                            <ListView ItemsSource="{Binding Team.Trainer_Team}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Trainer.User.FullName}"></TextBlock>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                        <TextBlock>
+                              <Run Text="Спонсируете с"></Run>
+                              <Run Text="{Binding DateOfChange, StringFormat='dd.MM.yyyy'}"></Run>
+                        </TextBlock>
+                        <Button x:Name="btnCansel" Click="btnCansel_Click" Margin="10">Прервать</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnBack" Grid.Row="3" Click="btnBack_Click">Назад</Button>
+    </Grid>
+</Page>

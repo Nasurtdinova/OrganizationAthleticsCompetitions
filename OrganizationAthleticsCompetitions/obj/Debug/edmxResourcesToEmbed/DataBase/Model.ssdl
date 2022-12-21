@@ -105,6 +105,7 @@
     <Property Name="IdTeam" Type="int" />
     <Property Name="IdTrainer" Type="int" />
     <Property Name="IdStatus" Type="int" />
+    <Property Name="DateOfChange" Type="datetime" />
   </EntityType>
   <EntityType Name="Sportsman">
     <Key>

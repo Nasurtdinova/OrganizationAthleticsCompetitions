@@ -643,6 +643,7 @@
     <Property Name="IdTeam" Type="Int32" />
     <Property Name="IdTrainer" Type="Int32" />
     <Property Name="IdStatus" Type="Int32" />
+    <Property Name="DateOfChange" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Sponsor" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Sponsor" FromRole="SponsorTeam" ToRole="Sponsor" />
     <NavigationProperty Name="Status" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Status" FromRole="SponsorTeam" ToRole="Status" />
     <NavigationProperty Name="Team" Relationship="OrganizationAthleticsCompetitionsModel.FK_SponsorTeam_Team1" FromRole="SponsorTeam" ToRole="Team" />

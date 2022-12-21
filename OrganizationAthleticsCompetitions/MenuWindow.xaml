@@ -148,7 +148,7 @@
                             <TextBlock Foreground="White" Text="Заявки" VerticalAlignment="Center" Margin="10 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemReports"  Height="50">
+                    <ListViewItem x:Name="ItemReports"  Height="50" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images\exportExcel.png" Height="25" Width="25" Margin="10 0"/>
                             <TextBlock Foreground="White" Text="Отчеты" VerticalAlignment="Center"  Margin="10 0"/>
