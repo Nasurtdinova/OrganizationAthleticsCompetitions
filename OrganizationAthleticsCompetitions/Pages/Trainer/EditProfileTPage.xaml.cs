@@ -29,10 +29,17 @@ namespace OrganizationAthleticsCompetitions
 
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)
         {
-            CurrentUser.trainer.User.Login = tbPhone.Text;
-            CurrentUser.trainer.User.FullName = tbFullName.Text;
-            Connection.connection.SaveChanges();
-            MaterialMessageBox.Show("Информация сохранена");
+            if (DataAccess.GetUsers().Where(a => a.Login == tbPhone.Text).Count() == 0)
+            {
+                CurrentUser.trainer.User.Login = tbPhone.Text;
+                CurrentUser.trainer.User.FullName = tbFullName.Text;
+                Connection.connection.SaveChanges();
+                MaterialMessageBox.Show("Информация сохранена");
+            }
+            else
+            {
+                MaterialMessageBox.ShowError("Такой логин уже существует!");
+            }
         }
 
         private void btnEditPhoto_Click(object sender, RoutedEventArgs e)

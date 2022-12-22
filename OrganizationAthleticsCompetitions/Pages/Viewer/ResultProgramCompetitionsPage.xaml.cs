@@ -25,6 +25,7 @@ namespace OrganizationAthleticsCompetitions
             if (CurrentUser.user != null && CurrentUser.user.IdRole == 1)
                 btnAddResult.Visibility = Visibility.Visible;
             ProgramCompetition = prCom;
+            program.Text = ProgramCompetition.ProgramCompet;
             format.Text = $"Формат: {ProgramCompetition.TypeCompetition.FormatResult.Name}";
             lvResultProgramCompetitinon.ItemsSource = DataAccess.GetResultsInProgramCompetition(prCom).OrderBy(a=>a.Rank);
         }

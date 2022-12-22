@@ -24,6 +24,8 @@
                             <TextBlock>
                                 <Run Text="Ваша заявка о спонсировании команды"></Run>
                                 <Run Text="{Binding Team.Name}"></Run>
+                                 <Run Text="спонсором"></Run>
+                                 <Run Text="{Binding Sponsor.User.FullName}"></Run>
                                 <Run Text="{Binding Status.Name}"></Run>
                             </TextBlock>
                             <Button x:Name="btnCancel" Click="btnCancel_Click" Margin="10" Visibility="{Binding VisibilityCansel}">Отменить</Button>

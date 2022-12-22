@@ -31,7 +31,10 @@ namespace OrganizationAthleticsCompetitions
 
             if (CurrentUser.user == null)
                 columnSendRequest.Width = 0;
-            
+            else if (CurrentUser.user.Role.Name == "Спонсор")
+            {
+                columnSendRequest.Width = 0;
+            }
             else if (CurrentUser.user.Role.Name == "Администратор")
             {
                 columnSendRequest.Width = 0;

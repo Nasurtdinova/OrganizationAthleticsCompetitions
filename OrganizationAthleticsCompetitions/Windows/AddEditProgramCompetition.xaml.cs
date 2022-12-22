@@ -53,14 +53,24 @@ namespace OrganizationAthleticsCompetitions
                     MaterialMessageBox.ShowError(error.ErrorMessage);
             else
             {
-                if (DataAccess.GetProgramsInCompetition(CurrentProgramCompetition.Competition).Where(a => a.TypeProgram == comboTypeProgram.SelectedItem as TypeProgram && a.TypeCompetition == comboTypeCompetition.SelectedItem as TypeCompetition && a.Gender1 == comboGender.SelectedItem as Gender).Count() == 0)
+                if (CurrentProgramCompetition.Id == 0)
+                {
+                    if (DataAccess.GetProgramsInCompetition(CurrentProgramCompetition.Competition).Where(a => a.TypeProgram == comboTypeProgram.SelectedItem as TypeProgram && a.TypeCompetition == comboTypeCompetition.SelectedItem as TypeCompetition && a.Gender1 == comboGender.SelectedItem as Gender).Count() == 0)
+                    {
+                        DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
+                        MaterialMessageBox.Show("Информация сохранена");
+                        Close();
+                    }
+                    else
+                        MaterialMessageBox.Show("Вы уже добавили такую программу в это соревнование!");
+                }
+                else
                 {
                     DataAccess.SaveProgramCompetition(CurrentProgramCompetition);
                     MaterialMessageBox.Show("Информация сохранена");
                     Close();
                 }
-                else
-                    MaterialMessageBox.Show("Вы уже добавили такую программу в это соревнование!");
+
             }
         }
     }
